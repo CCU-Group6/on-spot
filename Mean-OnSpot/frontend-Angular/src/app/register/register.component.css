@@ -1,0 +1,12 @@
+#registerTitle{
+  padding: 20px;
+  margin-bottom: 10px;
+  font-family: Whitney,Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-size: 18px;
+  font-weight: 1000;
+  text-align: center;
+}
+
+#registerButton{
+  margin-top: 5px;
+}

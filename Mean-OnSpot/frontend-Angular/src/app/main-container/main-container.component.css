@@ -1,0 +1,24 @@
+.logo{
+  width: 100%;
+  height: 200px;
+}
+
+#loginButton{
+  margin-left: 0px;
+  margin-top: 5px;
+}
+
+#registerContainer{
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: Whitney,Helvetica Neue,Helvetica,Arial,sans-serif;
+  padding-top: 10px;
+  width: 100%;
+}
+
+#writtenQuestion{
+  font-size: 10px;
+  font-weight: 300;
+  margin: 5px;
+}

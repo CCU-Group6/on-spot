@@ -1,0 +1,38 @@
+<div class="centered-content">
+  <div class="phone">
+    <div id="registerTitle">
+      Bem vindo à OnSpot QUARALHO!
+    </div>
+    <form class="loginform" (submit) = "createUser(userForm)" #userForm = "ngForm">
+
+      <mat-form-field class = "loginMatFormField">
+        <input matInput placeholder = "Nome" name = "name" ngModel required #nome = "ngModel">
+        <mat-error *ngIf = "nome.invalid">É preciso introduzir o nome</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class = "loginMatFormField">
+        <input matInput placeholder = "Password" name = "resgisterPassword"  ngModel required #password = "ngModel">
+        <mat-error *ngIf = "password.invalid">É preciso password</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class = "loginMatFormField">
+        <input matInput placeholder = "Número de Telefone" name = "phonenumber"  ngModel required #phonenumber = "ngModel">
+        <mat-error *ngIf = "phonenumber.invalid">É preciso número de telemóvel</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class = "loginMatFormField">
+        <input matInput placeholder = "Email" name = "email"  ngModel required #email = "ngModel">
+        <mat-error *ngIf = "email.invalid">É preciso Email</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class = "loginMatFormField">
+        <input matInput placeholder = "Matricula do Popó" name = "licensePlate"  ngModel required #licensePlate = "ngModel">
+        <mat-error *ngIf = "licensePlate.invalid">É preciso Matricula</mat-error>
+      </mat-form-field>
+
+      <button mat-raised-button type = "submit" class = "bigButton" id = "registerButton">Registar</button>
+
+    </form>
+    <button class = "writtenButton" [routerLink]="['/']" routerLinkActive="router-link-active">Já tenho conta</button>
+  </div>
+</div>

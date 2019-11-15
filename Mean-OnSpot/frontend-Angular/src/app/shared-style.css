@@ -1,0 +1,70 @@
+.centered-content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
+}
+
+.phone{
+  font-family: Whitney;
+  flex-direction: column;
+  display: flex;
+
+  width: 100%;
+  height: 100%;
+  max-width: 110px;
+  min-width: 260px;
+  max-height: 550px;
+
+  padding: 20px;
+  border: solid;
+  border-width: 1px;
+  border-color: black;
+  border-radius: 20px;
+}
+
+.loginform{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.loginMatFormField{
+  margin: 2px;
+}
+
+.bigButton{
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+
+  width: 100%;
+  max-width: 200px;
+}
+
+.writtenButton{
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 5px;
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.writtenButton:active{
+  color: 	#2c2f33;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: Whitney,Helvetica Neue,Helvetica,Arial,sans-serif;
+
+}
