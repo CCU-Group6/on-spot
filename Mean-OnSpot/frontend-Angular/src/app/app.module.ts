@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -11,12 +11,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainContainerComponent } from './main-container/main-container.component';
 import { RegisterComponent } from './register/register.component';
+import { DefaultScreenComponent } from './default-screen/default-screen.component';
+import { PhoneHeaderComponent } from './phone-header/phone-header.component';
+import { PhoneFooterComponent } from './phone-footer/phone-footer.component';
+import { InformationsScreenComponent } from './informations-screen/informations-screen.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainContainerComponent,
-    RegisterComponent
+    RegisterComponent,
+    DefaultScreenComponent,
+    PhoneHeaderComponent,
+    PhoneFooterComponent,
+    InformationsScreenComponent
   ],
   imports: [
     BrowserModule,
@@ -27,6 +35,7 @@ import { RegisterComponent } from './register/register.component';
     MatIconModule,
     MatInputModule,
     FormsModule,
+    ReactiveFormsModule,
     MatButtonModule,
     BrowserAnimationsModule,
     HttpClientModule

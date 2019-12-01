@@ -1,0 +1,27 @@
+.container{
+  display: flex;
+  color:#000;
+  background: #647c84;
+  min-width: 335px;
+  max-width: 100%;
+  min-height: 40px;
+  max-height: 80px;
+}
+
+.screenTitle{
+  text-align: center;
+  position: flex;
+  vertical-align: middle;
+  align-items: center;
+  padding: 5px;
+  max-width: 100%;
+  margin: auto;
+  font-family: Roboto,"Helvetica Neue",sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.backButton{
+  padding: 5px;
+  width: 5%;
+}

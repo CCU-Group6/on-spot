@@ -1,7 +1,6 @@
 <div class="centered-content">
-  <div class = "phone">
     <div class = "logo"></div>
-    <form class = "loginform" (submit) = "checkUser(ngForm)" #ngForm = "ngForm">
+    <form class = "centeredZone" (submit) = "checkUser(ngForm)" #ngForm = "ngForm">
         <mat-form-field class = "loginMatFormField">
           <input class = "loginInput" matInput placeholder = "Phone Number" name = "phoneNumber" ngModel required #phoneErr = "ngModel">
           <mat-error *ngIf = "phoneErr.invalid">You must write a Phone Number</mat-error>
@@ -17,5 +16,4 @@
       <h1 id = "writtenQuestion">Não tens conta?</h1>
       <button class = "writtenButton" routerLink = "/registerAccount">Regista-te aqui!</button>
     </div>
-  </div>
 </div>

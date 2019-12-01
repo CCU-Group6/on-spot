@@ -16,9 +16,9 @@ export class MainContainerComponent implements OnInit {
 
   checkUser(form: NgForm) {
     console.log(form.value.phoneNumber);
-    
-    var a = this.userService.checkUser(form.value.phoneNumber, form.value.password)
+
+    const a = this.userService.checkUser(form.value.phoneNumber, form.value.password);
     console.log(a);
-    
+
   }
 }

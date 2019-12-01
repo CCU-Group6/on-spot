@@ -1,0 +1,26 @@
+<app-phone-header [rtLink] = "backLink"></app-phone-header>
+<div class="centered-content">
+  <div class="centeredZone">
+      <div id="informationTitle" class="titles">
+          Preencha os Seguintes Dados
+        </div>
+    <form class="form" #userForm = "ngForm">
+        <mat-form-field class = "loginMatFormField">
+            <input matInput placeholder = "Número de Telefone" name = "phonenumber"  ngModel required #phonenumber = "ngModel">
+            <mat-error *ngIf = "phonenumber.invalid">É preciso número de telemóvel</mat-error>
+          </mat-form-field>
+
+          <mat-form-field class = "loginMatFormField">
+            <input matInput placeholder = "Email" name = "email"  ngModel required #email = "ngModel">
+            <mat-error *ngIf = "email.invalid">É preciso Email</mat-error>
+          </mat-form-field>
+
+          <mat-form-field class = "loginMatFormField">
+            <input matInput placeholder = "Matricula do Popó" name = "licensePlate"  ngModel required #licensePlate = "ngModel">
+            <mat-error *ngIf = "licensePlate.invalid">É preciso Matricula</mat-error>
+          </mat-form-field>
+
+          <button mat-raised-button type = "button" (click) = "registerInformation(userForm)" class = "bigButton" id = "registerButton"  [routerLink]="['/defaultScreen']" routerLinkActive="router-link-active">Registar</button>
+        </form>
+    </div>
+</div>
