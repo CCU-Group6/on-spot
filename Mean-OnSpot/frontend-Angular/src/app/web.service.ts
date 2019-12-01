@@ -12,11 +12,53 @@ export class WebService {
     this.ROOT_URL = 'http://localhost:3000';
   }
 
-  get(uri: string, payload: object) {
+  // Http methods
+  get(uri: string, permission) {
+    return this.http.get(`${this.ROOT_URL}/${uri}`, permission);
+  }
+
+  getWithPermission(uri: string) {
+    return this.http.get(`${this.ROOT_URL}/${uri}`);
+  }
+
+  getPayload(uri: string, payload: object, permission) {
     return this.http.get(`${this.ROOT_URL}/${uri}`, payload);
   }
 
-  post(uri: string, payload: object) {
-    return this.http.post(`${this.ROOT_URL}/${uri}`, payload);
+  post(uri: string, payload: object, permission) {
+    return this.http.post(`${this.ROOT_URL}/${uri}`, payload, permission);
   }
+
+
+
+  // Token helper methods
+  setToken(token: string) {
+    localStorage.setItem('token', token);
+  }
+
+  deleteToken() {
+    localStorage.removeItem('token');
+  }
+
+  getToken() {
+    return localStorage.getItem('token');
+  }
+
+  getTokenPayload() {
+    const token = this.getToken();
+    if (token) {
+      let userPayload = atob(token.split('.')[1]);
+      return JSON.parse(userPayload);
+    }
+    else return null;
+  }
+
+  isLoggedIn() {
+    let userPayload = this.getTokenPayload();
+    if (userPayload) {
+      return userPayload.exp > Date.now() / 1000;
+    }
+    else
+      return false;
+   }
 }

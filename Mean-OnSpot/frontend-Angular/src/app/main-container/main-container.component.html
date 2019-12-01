@@ -6,7 +6,7 @@
           <mat-error *ngIf = "phoneErr.invalid">You must write a Phone Number</mat-error>
         </mat-form-field>
       <mat-form-field class = "loginMatFormField">
-        <input matInput placeholder = "Password" name = "password" ngModel required #passwordErr = "ngModel">
+        <input matInput type = "password" placeholder = "Password" name = "password" ngModel required #passwordErr = "ngModel">
         <mat-error *ngIf = "passwordErr.invalid">You must Have a Password</mat-error>
       </mat-form-field>
       <button mat-raised-button type = "submit" class = "bigButton" id = "loginButton">Entrar</button>

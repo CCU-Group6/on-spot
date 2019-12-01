@@ -11,12 +11,12 @@
       </mat-form-field>
 
       <mat-form-field class = "loginMatFormField">
-        <input matInput placeholder = "Password" name = "registerPassword" ngModel required #password = "ngModel">
+        <input matInput type = "password" placeholder = "Password" name = "registerPassword" ngModel required #password = "ngModel">
         <mat-error *ngIf = "password.invalid">É preciso password</mat-error>
       </mat-form-field>
 
       <mat-form-field class = "loginMatFormField">
-          <input matInput placeholder = "Confirm Password" name = "confirmPassword"  ngModel required #confirmPassword = "ngModel">
+          <input matInput type = "password" placeholder = "Confirm Password" name = "confirmPassword"  ngModel required #confirmPassword = "ngModel">
           <mat-error *ngIf = "confirmPassword.valid">As passwords têm que coincidir</mat-error>
       </mat-form-field>
       <button mat-raised-button [disabled] = "userForm.invalid" type = "button" (click) = "sendMessage(userForm)" class = "bigButton" id = "registerButton" [routerLink]="['/registerInformation']" routerLinkActive="router-link-active">Seguinte</button>

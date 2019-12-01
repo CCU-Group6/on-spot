@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-default-screen',
@@ -8,13 +10,23 @@ import { Component, OnInit } from '@angular/core';
 export class DefaultScreenComponent implements OnInit {
   public isSelected;
   public backLink;
-  constructor() {
+  userDetails;
+  constructor(private userService: UserService, private router: Router) {
     this.isSelected = false;
     this.backLink = '../registerInformation';
    }
 
   ngOnInit() {
+    this.userService.getUserProfile().subscribe(
+      res => {
+        this.userDetails = res['user'];
+        console.log(this.userDetails.name);
 
+      },
+      err => {
+
+      }
+    )
   }
 
   raiseParkingButton() {

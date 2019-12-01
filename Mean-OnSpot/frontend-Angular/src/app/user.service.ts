@@ -1,35 +1,37 @@
 import { Injectable } from '@angular/core';
 import { WebService } from './web.service';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  constructor(private webService: WebService) { }
+  constructor(private webService: WebService, private router: Router) { }
 
-  /*get() {
-    return this.webService.get('users');
-  }*/
+  noAuthHeader = { headers: new HttpHeaders({ 'NoAuth': 'True'})};
 
   createUser(name: string, password: string, phoneNumber: string, email: string, licensePlate: string) {
-    console.log("--77777777777777777-------");
-
-    console.log(name);
-    console.log(password);
-    console.log(phoneNumber);
-    console.log(email);
-    console.log(licensePlate);
-    return this.webService.post('users', { name, password , phoneNumber, email, licensePlate });
+    return this.webService.post('users', { name, password , phoneNumber, email, licensePlate }, this.noAuthHeader);
   }
 
-  checkUser(phoneNumber: string, password: string) {
+  LoginUser(phoneNumber: string, password: string) {
     console.log(phoneNumber);
 
-    return this.webService.get(`users/${phoneNumber}`, {phoneNumber, password})
-      .subscribe((user: any) => {
-        console.log(user);
-      });
+    return this.webService.post('authenticate', {phoneNumber, password}, this.noAuthHeader)
+      .subscribe(
+        res => {
+          this.webService.setToken(res['token']);
+          console.log(this.webService.isLoggedIn());
+
+          this.router.navigateByUrl('/defaultScreen');
+        },
+        err => { }
+      );
+  }
+
+  getUserProfile() {
+    return this.webService.getWithPermission('userProfile');
   }
 }
