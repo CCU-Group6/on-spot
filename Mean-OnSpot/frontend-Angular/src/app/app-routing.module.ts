@@ -4,16 +4,18 @@ import { RegisterComponent } from './register/register.component';
 import { MainContainerComponent } from './main-container/main-container.component';
 import { DefaultScreenComponent } from './default-screen/default-screen.component';
 import { InformationsScreenComponent } from './informations-screen/informations-screen.component';
+import { PaymentMethodScreenComponent } from './payment-method-screen/payment-method-screen.component';
 import { AuthGuard } from './auth/auth.guard';
 
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/login' , pathMatch: 'full'},
+  { path: '', redirectTo: '/defaultScreen' , pathMatch: 'full'},
   { path: 'login', component: MainContainerComponent},
   { path: 'registerAccount', component: RegisterComponent},
   { path: 'defaultScreen', component: DefaultScreenComponent, canActivate: [AuthGuard] },
-  { path: 'registerInformation', component: InformationsScreenComponent}
+  { path: 'registerInformation', component: InformationsScreenComponent},
+  { path: 'paymentMethod', component: PaymentMethodScreenComponent}
 ];
 
 @NgModule({

@@ -12,3 +12,9 @@
 #registerButton{
   margin-top: 5px;
 }
+
+#bigButton{
+  width: 100%;
+  min-width: 100px;
+  max-width: 250px;
+}

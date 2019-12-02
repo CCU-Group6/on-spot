@@ -17,6 +17,7 @@ import { PhoneFooterComponent } from './phone-footer/phone-footer.component';
 import { InformationsScreenComponent } from './informations-screen/informations-screen.component';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
+import { PaymentMethodScreenComponent } from './payment-method-screen/payment-method-screen.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { AuthInterceptor } from './auth/auth.interceptor';
     DefaultScreenComponent,
     PhoneHeaderComponent,
     PhoneFooterComponent,
-    InformationsScreenComponent
+    InformationsScreenComponent,
+    PaymentMethodScreenComponent
   ],
   imports: [
     BrowserModule,

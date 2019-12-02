@@ -1,0 +1,14 @@
+<app-phone-header [rtLink] = "backLink"></app-phone-header>
+<div class="centered-content">
+  <p id = "subtitle">Escolha o seu método de pagamento</p>
+  <tr>
+    <button class = "paymentButtons" (click) = "paymentMethod = 'credit card'" [ngClass] = "paymentMethod =='credit card' ? 'paymentButtonsActive' : 'paymentButtons'"><h1 class="buttonText">Cartão de Crédito</h1></button>
+    <button class = "paymentButtons" (click) = "paymentMethod = 'ePark'" [ngClass] = "paymentMethod =='ePark' ? 'paymentButtonsActive' : 'paymentButtons'"><h1 class="buttonText">ePark</h1></button>
+  </tr>
+  <tr>
+    <button class = "paymentButtons" (click) = "paymentMethod = 'MbWay'" [ngClass] = "paymentMethod =='MbWay' ? 'paymentButtonsActive' : 'paymentButtons'"><h1 class="buttonText">MB Way</h1></button>
+    <button class = "paymentButtons" (click) = "paymentMethod = 'Parquimetro'" [ngClass] = "paymentMethod =='Parquimetro' ? 'paymentButtonsActive' : 'paymentButtons'"><h1 class="buttonText">Parquimetro</h1></button>
+  </tr>
+  <button mat-raised-button [disabled] = "" type = "button" id = "continueButton"  [routerLink]="['/defaultScren']" routerLinkActive="router-link-active">Continuar</button>
+</div>
+

@@ -17,7 +17,9 @@ export class UserService {
   }
 
   LoginUser(phoneNumber: string, password: string) {
+
     console.log(phoneNumber);
+    console.log(password);
 
     return this.webService.post('authenticate', {phoneNumber, password}, this.noAuthHeader)
       .subscribe(
