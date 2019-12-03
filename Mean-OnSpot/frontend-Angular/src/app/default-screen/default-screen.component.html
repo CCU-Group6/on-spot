@@ -9,11 +9,11 @@
       <a href="">Ajuda</a>
       <h1 class ="smallText">Todos os valores apresentados são apenas valores previstos</h1>
     </div>
-    <button mat-button id = "logoutButton">Logout</button>
+    <button mat-button id = "logoutButton" (click) = "userLogOut()" [routerLink]="['/login']">Logout</button>
   </div>
 
   <span style="font-size:30px;cursor:pointer" id = "menuIcon" (click)="openMenu()">&#9773;</span>
 
 <div class="centered-content" (click) = "closeMenu()">
-  <button mat-raised-button id = "parkButton" [routerLink] = "/" routerLinkActive="router-link-active"></router-link>Estacionar</button>
+  <button mat-raised-button id = "parkButton" [routerLink]="['/parkingTimeScreen']">Estacionar</button>
 </div>

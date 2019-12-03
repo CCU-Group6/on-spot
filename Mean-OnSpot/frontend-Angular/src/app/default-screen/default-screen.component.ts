@@ -37,6 +37,10 @@ export class DefaultScreenComponent implements OnInit {
     document.getElementById("sideMenu").style.width = "0px";
   }
 
+  userLogOut(){
+    this.userService.logOut();
+  }
+
   raiseParkingButton() {
     const result = document.getElementById('parkingButton');
     result.style.height = '50px';

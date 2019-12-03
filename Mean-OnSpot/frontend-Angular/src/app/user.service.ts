@@ -34,6 +34,10 @@ export class UserService {
       );
   }
 
+  logOut(){
+    this.webService.deleteToken();
+  }
+
   getUserProfile() {
     return this.webService.getWithPermission('userProfile');
   }

@@ -9,6 +9,6 @@
     <button class = "paymentButtons" (click) = "paymentMethod = 'MbWay'" [ngClass] = "paymentMethod =='MbWay' ? 'paymentButtonsActive' : 'paymentButtons'"><h1 class="buttonText">MB Way</h1></button>
     <button class = "paymentButtons" (click) = "paymentMethod = 'Parquimetro'" [ngClass] = "paymentMethod =='Parquimetro' ? 'paymentButtonsActive' : 'paymentButtons'"><h1 class="buttonText">Parquimetro</h1></button>
   </tr>
-  <button mat-raised-button [disabled] = "" type = "button" id = "continueButton"  [routerLink]="['/defaultScren']" routerLinkActive="router-link-active">Continuar</button>
+  <button mat-raised-button [disabled] = "!paymentButtons" type = "button" id = "continueButton"  [routerLink]="['/defaultScreen']" routerLinkActive="router-link-active">Continuar</button>
 </div>
 
