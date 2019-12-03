@@ -18,6 +18,7 @@ import { InformationsScreenComponent } from './informations-screen/informations-
 import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { PaymentMethodScreenComponent } from './payment-method-screen/payment-method-screen.component';
+import { ParkingTimeScreenComponent } from './parking-time-screen/parking-time-screen.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { PaymentMethodScreenComponent } from './payment-method-screen/payment-me
     PhoneHeaderComponent,
     PhoneFooterComponent,
     InformationsScreenComponent,
-    PaymentMethodScreenComponent
+    PaymentMethodScreenComponent,
+    ParkingTimeScreenComponent
   ],
   imports: [
     BrowserModule,

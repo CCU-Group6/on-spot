@@ -1,8 +1,19 @@
-<app-phone-header [rtLink] = "backLink"></app-phone-header>
-<div class="centered-content">
-  <div class = "phone">
-    <button mat-fab class = "fakebutton" (click) = "raiseParkingButton()">{{userDetails.name}}</button>
-    <button mat-raised-button id = "parkingButton" >estacionar</button>
+<div id="sideMenu">
+    <div id="sideMenuProfile">
+      <h1 href="" id = "userName">{{userDetails.name}}</h1>
+      <h2 href="" id = "discountText" class="smallText">Saldo a Descontar: </h2>
+    </div>
+    <div id = "sideMenuTabs">
+      <a href="">Histórico</a>
+      <a href="">Método de Pagamento</a>
+      <a href="">Ajuda</a>
+      <h1 class ="smallText">Todos os valores apresentados são apenas valores previstos</h1>
+    </div>
+    <button mat-button id = "logoutButton">Logout</button>
   </div>
+
+  <span style="font-size:30px;cursor:pointer" id = "menuIcon" (click)="openMenu()">&#9773;</span>
+
+<div class="centered-content" (click) = "closeMenu()">
+  <button mat-raised-button id = "parkButton" [routerLink] = "/" routerLinkActive="router-link-active"></router-link>Estacionar</button>
 </div>
-<div *ngIf="userDetails">{{userDetails.name}}</div>

@@ -29,6 +29,14 @@ export class DefaultScreenComponent implements OnInit {
     )
   }
 
+  openMenu(){
+    document.getElementById("sideMenu").style.width = "250px";
+  }
+
+  closeMenu(){
+    document.getElementById("sideMenu").style.width = "0px";
+  }
+
   raiseParkingButton() {
     const result = document.getElementById('parkingButton');
     result.style.height = '50px';

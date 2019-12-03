@@ -30,9 +30,9 @@ export class InformationsScreenComponent implements OnInit {
       .subscribe((response: any) => {
         console.log(response);
         console.log(this.webService.isLoggedIn());
+        this.userService.LoginUser(phonenumber, password);
       });
 
-      this.userService.LoginUser(phonenumber, password);
 
   }
 

@@ -25,8 +25,9 @@ export class UserService {
       .subscribe(
         res => {
           this.webService.setToken(res['token']);
-          console.log(this.webService.isLoggedIn());
 
+          console.log(this.webService.isLoggedIn());
+          
           this.router.navigateByUrl('/defaultScreen');
         },
         err => { }

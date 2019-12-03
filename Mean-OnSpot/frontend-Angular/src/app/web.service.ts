@@ -33,6 +33,8 @@ export class WebService {
 
   // Token helper methods
   setToken(token: string) {
+    console.log(token);
+    this.deleteToken();
     localStorage.setItem('token', token);
   }
 
@@ -41,6 +43,8 @@ export class WebService {
   }
 
   getToken() {
+    console.log(localStorage.getItem('token'));
+    
     return localStorage.getItem('token');
   }
 
@@ -55,8 +59,10 @@ export class WebService {
 
   isLoggedIn() {
     let userPayload = this.getTokenPayload();
+    console.log(userPayload);
+    
     if (userPayload) {
-      return userPayload.exp > Date.now() / 1000;
+      return true;
     }
     else
       return false;

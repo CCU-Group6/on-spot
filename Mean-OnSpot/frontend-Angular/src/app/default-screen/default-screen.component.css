@@ -8,3 +8,85 @@
   overflow-y: hidden;
 }
 
+#menuIcon{
+  position: absolute;
+  margin: 5px 0px 0px 15px;
+}
+
+#sideMenu {
+  font-family: "Poppins", sans-serif;
+
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  color: #ffffff;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.3s;
+  padding-top: 20px;
+}
+
+#sideMenuProfile{
+  padding: 8px 8px 8px 32px;
+  margin-bottom: 100px;
+
+}
+
+#userName {
+  min-width: 210px;
+  padding: 8px 8px 8px 0px;
+  font-size:  26px;
+  margin: 0px;
+}
+#discountText{
+  min-width: 210px;
+  padding: 8px 8px 8px 0px;
+  margin: 0px;
+}
+
+#sideMenu a {
+  text-decoration: none;
+  font-size: 25px;
+  color: #f1f1f1;
+  display: block;
+  min-width: 210px;
+  transition: 0.1s;
+  margin-bottom: 30px;
+}
+
+
+#sideMenu a:hover {
+  min-width: 210px;
+  color: #818181;
+}
+
+#sideMenuTabs{
+  padding: 8px 8px 8px 32px;
+  margin-bottom: 10px;
+}
+
+#sideMenuTabs h1{
+  min-width: 210px;
+  margin-top: 150px;
+}
+
+#logoutButton {
+  text-align: left;
+  padding: 8px 8px 8px 32px;
+  position: absolute;
+  top: 20;
+  font-size: 26px;
+}
+
+.smallText{
+  font-size: 12px;
+}
+
+#parkButton{
+  position: absolute;
+  bottom: 20px;
+  width: 330px;
+}
