@@ -21,6 +21,7 @@ import { AuthInterceptor } from './components/auth/auth.interceptor';
 import { PaymentMethodScreenComponent } from './components/payment-method-screen/payment-method-screen.component';
 import { ParkingTimeScreenComponent } from './components/parking-time-screen/parking-time-screen.component';
 import { ConfirmScreenComponent } from './components/confirm-screen/confirm-screen.component';
+import { DiscountScreenComponent } from './components/discount-screen/discount-screen.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ConfirmScreenComponent } from './components/confirm-screen/confirm-scre
     InformationsScreenComponent,
     PaymentMethodScreenComponent,
     ParkingTimeScreenComponent,
-    ConfirmScreenComponent
+    ConfirmScreenComponent,
+    DiscountScreenComponent
   ],
   imports: [ 
     MbscModule, 
