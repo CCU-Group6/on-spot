@@ -9,6 +9,7 @@ export class RegisterService {
   private phoneNumber;
   private email;
   private licensePlate;
+  private paymentMethod;
 
   constructor() { }
 
@@ -23,13 +24,18 @@ export class RegisterService {
     this.licensePlate = form.licensePlate;
   }
 
+  setPaymentMethod(string){
+    this.paymentMethod = string;
+  }
+
   getRegisterInformation() {
     const form = {
       password: this.password,
       name: this.name,
       phoneNumber: this.phoneNumber,
       email: this.email,
-      licensePlate: this.licensePlate
+      licensePlate: this.licensePlate,
+      paymentMethod: this.paymentMethod
     };
     return form;
   }
