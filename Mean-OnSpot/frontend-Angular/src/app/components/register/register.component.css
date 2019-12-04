@@ -1,7 +1,6 @@
 #registerTitle{
   padding: 20px;
-  margin-bottom: 10px;
-  font-family: "Poppins", sans-serif;
+  margin: 80px auto 0px auto;
   font-size: 36px;
   font-weight: 1000;
   text-align: center;
@@ -9,12 +8,56 @@
   max-width: 500px;
 }
 
-#registerButton{
-  margin-top: 5px;
+#register_form {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: 50px auto 20px auto;
 }
 
-#bigButton{
-  width: 100%;
-  min-width: 100px;
-  max-width: 250px;
+.form-control {
+  margin-bottom: 30px;
+  text-align: center;
+  height: 50px;
 }
+
+#next_button {
+  width: 80%;
+  height: 50px;
+  font-size: 1.2rem;
+  margin: 0px auto 10px auto;
+}
+
+.centered-content{
+  padding-top: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  -webkit-box-align: center;
+  box-sizing: border-box;
+  max-width: 100%;  
+}
+
+.writtenButton{
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+
+  cursor: pointer;
+
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.writtenButton:active{
+  color: 	#2c2f33;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+
+} 

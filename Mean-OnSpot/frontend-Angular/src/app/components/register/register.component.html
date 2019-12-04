@@ -1,26 +1,14 @@
-<app-phone-header></app-phone-header>
 <div class="centered-content">
-    <div id="registerTitle">
-      Bem vindo à OnSpot QUARALHO!
+    <h2 id="registerTitle">
+      Bem vindo à OnSpot
+    </h2>
+
+    <div id="register_form" class="form-group">
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Confirm Password">
     </div>
-    <form class="centeredZone" #userForm = "ngForm">
-
-      <mat-form-field class = "loginMatFormField">
-        <input matInput placeholder = "Nome" name = "name" ngModel required #nome = "ngModel">
-        <mat-error *ngIf = "nome.invalid">É preciso introduzir o nome</mat-error>
-      </mat-form-field>
-
-      <mat-form-field class = "loginMatFormField">
-        <input matInput type = "password" placeholder = "Password" name = "registerPassword" ngModel required #password = "ngModel">
-        <mat-error *ngIf = "password.invalid">É preciso password</mat-error>
-      </mat-form-field>
-
-      <mat-form-field class = "loginMatFormField">
-          <input matInput type = "password" placeholder = "Confirm Password" name = "confirmPassword"  ngModel required #confirmPassword = "ngModel">
-          <mat-error *ngIf = "confirmPassword.valid">As passwords têm que coincidir</mat-error>
-      </mat-form-field>
-      <button mat-raised-button [disabled] = "userForm.invalid" type = "button" (click) = "sendMessage(userForm)" class = "bigButton" id = "registerButton" [routerLink]="['/registerInformation']" routerLinkActive="router-link-active">Seguinte</button>
-    </form>
+    
+    <button id="next_button" type="button" class="btn btn-primary">Seguinte</button>
     <button class = "writtenButton" [routerLink]="['/']" routerLinkActive="router-link-active">Já tenho conta</button>
 </div>
-<app-phone-footer></app-phone-footer>
