@@ -12,6 +12,7 @@ mobiscroll.settings = {
   styleUrls: ['./parking-time-screen.component.css']
 })
 export class ParkingTimeScreenComponent implements OnInit {
+  public title = "Tempo de Estacionar";
   public backLink = "";
   public frontLink;
 

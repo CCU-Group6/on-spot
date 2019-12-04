@@ -9,13 +9,21 @@ import { RegisterService } from '../../services/register.service';
 })
 export class ConfirmScreenComponent implements OnInit {
   private paymentMethod;
+  public backLink;
+  public title  = "Resumo de Estacionamento";
 
-  constructor(private registerService: RegisterService) { }
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
-    var f =this.registerService.getRegisterInformation();
-    this.paymentMethod = f.paymentMethod;
-    
+    var userDetails = this.userService.getUserProfile().subscribe(
+      res => {
+        var userDetails = res['user'];
+        this.paymentMethod = userDetails.paymentMethod;
+      },
+      err => {
+
+      }
+    );
   }
   
 

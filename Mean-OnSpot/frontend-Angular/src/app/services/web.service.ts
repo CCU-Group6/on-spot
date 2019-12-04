@@ -21,10 +21,6 @@ export class WebService {
     return this.http.get(`${this.ROOT_URL}/${uri}`);
   }
 
-  getPayload(uri: string, payload: object, permission) {
-    return this.http.get(`${this.ROOT_URL}/${uri}`, payload);
-  }
-
   post(uri: string, payload: object, permission) {
     return this.http.post(`${this.ROOT_URL}/${uri}`, payload, permission);
   }
