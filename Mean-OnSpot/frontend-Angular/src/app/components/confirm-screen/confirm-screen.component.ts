@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../user.service';
-import { RegisterService } from '../register.service';
+import { UserService } from '../../services/user.service';
+import { RegisterService } from '../../services/register.service';
 
 @Component({
   selector: 'app-confirm-screen',

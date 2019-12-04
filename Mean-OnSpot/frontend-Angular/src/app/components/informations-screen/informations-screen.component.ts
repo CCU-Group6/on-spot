@@ -1,13 +1,13 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { RegisterService } from '../register.service';
+import { RegisterService } from '../../services/register.service';
 import { NgForm } from '@angular/forms';
-import { UserService } from '../user.service';
-import { WebService } from '../web.service';
+import { UserService } from '../../services/user.service';
+import { WebService } from '../../services/web.service';
 
 @Component({
   selector: 'app-informations-screen',
   templateUrl: './informations-screen.component.html',
-  styleUrls: ['./informations-screen.component.css', '../shared-style.css']
+  styleUrls: ['./informations-screen.component.css']
 })
 export class InformationsScreenComponent implements OnInit {
 

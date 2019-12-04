@@ -10,17 +10,18 @@ import { MatToolbarModule, MatMenuModule, MatIconModule, MatInputModule, MatButt
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MainContainerComponent } from './main-container/main-container.component';
-import { RegisterComponent } from './register/register.component';
-import { DefaultScreenComponent } from './default-screen/default-screen.component';
-import { PhoneHeaderComponent } from './phone-header/phone-header.component';
-import { PhoneFooterComponent } from './phone-footer/phone-footer.component';
-import { InformationsScreenComponent } from './informations-screen/informations-screen.component';
-import { AuthGuard } from './auth/auth.guard';
-import { AuthInterceptor } from './auth/auth.interceptor';
-import { PaymentMethodScreenComponent } from './payment-method-screen/payment-method-screen.component';
-import { ParkingTimeScreenComponent } from './parking-time-screen/parking-time-screen.component';
-import { ConfirmScreenComponent } from './confirm-screen/confirm-screen.component';
+import { MainContainerComponent } from './components/main-container/main-container.component';
+import { RegisterComponent } from './components/register/register.component';
+import { DefaultScreenComponent } from './components/default-screen/default-screen.component';
+import { PhoneHeaderComponent } from './components/phone-header/phone-header.component';
+import { PhoneFooterComponent } from './components/phone-footer/phone-footer.component';
+import { InformationsScreenComponent } from './components/informations-screen/informations-screen.component';
+import { AuthGuard } from './components/auth/auth.guard';
+import { AuthInterceptor } from './components/auth/auth.interceptor';
+import { PaymentMethodScreenComponent } from './components/payment-method-screen/payment-method-screen.component';
+import { ParkingTimeScreenComponent } from './components/parking-time-screen/parking-time-screen.component';
+import { ConfirmScreenComponent } from './components/confirm-screen/confirm-screen.component';
+
 @NgModule({
   declarations: [
     AppComponent,
