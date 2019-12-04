@@ -33,7 +33,6 @@ export class WebService {
 
   // Token helper methods
   setToken(token: string) {
-    console.log(token);
     this.deleteToken();
     localStorage.setItem('token', token);
   }
@@ -43,8 +42,6 @@ export class WebService {
   }
 
   getToken() {
-    console.log(localStorage.getItem('token'));
-    
     return localStorage.getItem('token');
   }
 

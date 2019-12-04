@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { RegisterService } from '../register.service';
+import { UserService } from '../user.service';
 
 
 @Component({
@@ -10,12 +12,30 @@ export class PaymentMethodScreenComponent implements OnInit {
   public backLink;
   public paymentMethod;
 
-  constructor() { }
+  constructor(private registerService: RegisterService, private userService: UserService) { }
 
   ngOnInit() {
     this.backLink = '../registerInformation';
   }
   buttonclick() {
     console.log(this.paymentMethod);
+  }
+
+  registerInformation(){
+    const f = this.registerService.getRegisterInformation();
+    var name = f.name;
+    var password = f.password;
+    var phonenumber = f.phoneNumber;
+    var email = f.email;
+    console.log(email);
+    
+    var licensePlate = f.licensePlate
+
+    this.userService.createUser(name, password,
+      phonenumber, email, licensePlate, this.paymentMethod)
+      .subscribe((response: any) => {
+        this.userService.LoginUser(phonenumber, password);
+      });
+
   }
 }

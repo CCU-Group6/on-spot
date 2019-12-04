@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: 'registerAccount', component: RegisterComponent},
   { path: 'defaultScreen', component: DefaultScreenComponent , canActivate: [AuthGuard]},
   { path: 'registerInformation', component: InformationsScreenComponent},
-  { path: 'paymentMethod', component: PaymentMethodScreenComponent, canActivate: [AuthGuard]},
+  { path: 'paymentMethod', component: PaymentMethodScreenComponent},
   { path: 'parkingTimeScreen', component: ParkingTimeScreenComponent}
 ];
 

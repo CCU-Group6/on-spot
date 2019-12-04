@@ -1,4 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { mobiscroll, MbscTimespanOptions } from '@mobiscroll/angular';
+
+mobiscroll.settings = {
+  lang: 'pt-PT',
+  theme: 'ios',
+  themeVariant: 'light'
+};
 
 @Component({
   selector: 'app-parking-time-screen',
@@ -6,10 +13,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./parking-time-screen.component.css', '../shared-style.css']
 })
 export class ParkingTimeScreenComponent implements OnInit {
-
+  material: number;
   constructor() { }
 
   ngOnInit() {
   }
 
+  materialSettings: MbscTimespanOptions = {
+    theme: 'material',
+    themeVariant: 'light',
+    display: 'inline',
+    touchUi: false
+  };
 }
