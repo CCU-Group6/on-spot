@@ -6,6 +6,9 @@ import { Injectable } from '@angular/core';
 export class RegisterService {
   private password;
   private name;
+  private phoneNumber;
+  private email;
+  private licensePlate;
 
   constructor() { }
 
@@ -14,10 +17,19 @@ export class RegisterService {
     this.name = form.name;
   }
 
+  setPersonalInformation(form){
+    this.phoneNumber = form.phoneNumber;
+    this.email = form.email;
+    this.licensePlate = form.licensePlate;
+  }
+
   getRegisterInformation() {
     const form = {
       password: this.password,
-      name: this.name
+      name: this.name,
+      phoneNumber: this.phoneNumber,
+      email: this.email,
+      licensePlate: this.licensePlate
     };
     return form;
   }

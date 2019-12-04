@@ -19,21 +19,13 @@ export class InformationsScreenComponent implements OnInit {
   }
 
   registerInformation(form: NgForm) {
-    const f = this.resgisterService.getRegisterInformation();
-    const name = f.name;
-    const password = f.password;
-    const phonenumber = form.value.phonenumber;
-    console.log( form.value.phonenumber);
-
-    this.userService.createUser(name, password,
-      phonenumber, form.value.email, form.value.licensePlate)
-      .subscribe((response: any) => {
-        console.log(response);
-        console.log(this.webService.isLoggedIn());
-        this.userService.LoginUser(phonenumber, password);
-      });
-
-
+    var f = {
+      phoneNumber: form.value.phonenumber,
+      email: form.value.email,
+      licensePlate: form.value.licensePlate
+    }
+    
+    this.resgisterService.setPersonalInformation(f);
   }
 
 }

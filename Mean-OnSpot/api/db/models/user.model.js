@@ -35,6 +35,10 @@ var UserSchema = new mongoose.Schema({
         required: true,
         minlength:1,
         trim: true
+    },
+    paymenteMethod: {
+        type: String,
+        trim: true
     }
 })
 
@@ -57,7 +61,7 @@ UserSchema.methods.verifyPassword = function (password) {
 
 UserSchema.methods.generateJwt = function () {
     return jwt.sign({ _id: this._id}, "SECRET#123", {
-        expiresIn: "2m"
+        expiresIn: "30m"
     });
 }
 

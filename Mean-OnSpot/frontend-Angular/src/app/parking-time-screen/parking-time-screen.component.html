@@ -1,1 +1,7 @@
-<p>parking-time-screen works!</p>
+<app-phone-header></app-phone-header>
+<div class="centered-content">
+    <mbsc-form-group inset>
+        <mbsc-timespan [(ngModel)]="material" [options]="materialSettings">Light</mbsc-timespan>
+    </mbsc-form-group>
+</div>
+<app-phone-footer></app-phone-footer>

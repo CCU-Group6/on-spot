@@ -12,23 +12,19 @@ export class UserService {
 
   noAuthHeader = { headers: new HttpHeaders({ 'NoAuth': 'True'})};
 
-  createUser(name: string, password: string, phoneNumber: string, email: string, licensePlate: string) {
-    return this.webService.post('users', { name, password , phoneNumber, email, licensePlate }, this.noAuthHeader);
+  createUser(name: string, password: string, phoneNumber: string, email: string, licensePlate: string, paymentMethod: string) {
+    return this.webService.post('users', { name, password , phoneNumber, email, licensePlate, paymentMethod }, this.noAuthHeader);
   }
 
   LoginUser(phoneNumber: string, password: string) {
-
-    console.log(phoneNumber);
-    console.log(password);
 
     return this.webService.post('authenticate', {phoneNumber, password}, this.noAuthHeader)
       .subscribe(
         res => {
           this.webService.setToken(res['token']);
-
-          console.log(this.webService.isLoggedIn());
           
           this.router.navigateByUrl('/defaultScreen');
+
         },
         err => { }
       );

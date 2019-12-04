@@ -16,7 +16,6 @@ export class RegisterComponent {
       name: form.value.name,
       registerPassword: form.value.registerPassword,
     };
-    console.log(f.registerPassword);
     this.registerService.setRegisterInformation(f);
   }
 
