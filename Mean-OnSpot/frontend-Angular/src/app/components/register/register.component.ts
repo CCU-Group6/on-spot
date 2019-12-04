@@ -1,11 +1,11 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { RegisterService } from '../register.service';
+import { RegisterService } from '../../services/register.service';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css', '../shared-style.css']
+  styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
 

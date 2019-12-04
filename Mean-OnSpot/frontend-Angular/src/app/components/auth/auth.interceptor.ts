@@ -2,7 +2,7 @@ import { HttpInterceptor, HttpEvent, HttpHandler, HttpRequest } from '@angular/c
 import { Injectable } from '@angular/core';
 import { tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
-import { WebService } from '../web.service';
+import { WebService } from '../../services/web.service';
 
 @Injectable({providedIn: 'root'})
 export class AuthInterceptor implements HttpInterceptor {

@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { RegisterService } from '../register.service';
-import { UserService } from '../user.service';
+import { RegisterService } from '../../services/register.service';
+import { UserService } from '../../services/user.service';
 
 
 @Component({
   selector: 'app-payment-method-screen',
   templateUrl: './payment-method-screen.component.html',
-  styleUrls: ['./payment-method-screen.component.css', '../shared-style.css']
+  styleUrls: ['./payment-method-screen.component.css']
 })
 export class PaymentMethodScreenComponent implements OnInit {
   public backLink;
