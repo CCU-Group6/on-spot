@@ -7,6 +7,7 @@ import { InformationsScreenComponent } from './informations-screen/informations-
 import { PaymentMethodScreenComponent } from './payment-method-screen/payment-method-screen.component';
 import { AuthGuard } from './auth/auth.guard';
 import { ParkingTimeScreenComponent } from './parking-time-screen/parking-time-screen.component';
+import { ConfirmScreenComponent } from './confirm-screen/confirm-screen.component';
 
 
 //canActivate: [AuthGuard]
@@ -17,7 +18,8 @@ const routes: Routes = [
   { path: 'defaultScreen', component: DefaultScreenComponent , canActivate: [AuthGuard]},
   { path: 'registerInformation', component: InformationsScreenComponent},
   { path: 'paymentMethod', component: PaymentMethodScreenComponent},
-  { path: 'parkingTimeScreen', component: ParkingTimeScreenComponent}
+  { path: 'parkingTimeScreen', component: ParkingTimeScreenComponent},
+  { path: 'confirmScreen', component: ConfirmScreenComponent}
 ];
 
 @NgModule({

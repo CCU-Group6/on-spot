@@ -17,9 +17,6 @@ export class PaymentMethodScreenComponent implements OnInit {
   ngOnInit() {
     this.backLink = '../registerInformation';
   }
-  buttonclick() {
-    console.log(this.paymentMethod);
-  }
 
   registerInformation(){
     const f = this.registerService.getRegisterInformation();
@@ -30,6 +27,8 @@ export class PaymentMethodScreenComponent implements OnInit {
     console.log(email);
     
     var licensePlate = f.licensePlate
+
+    this.registerService.setPaymentMethod(this.paymentMethod);
 
     this.userService.createUser(name, password,
       phonenumber, email, licensePlate, this.paymentMethod)

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-phone-footer',
@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PhoneFooterComponent implements OnInit {
   public title = 'continuar';
+  @Input() public rtLink;
   constructor() { }
 
   ngOnInit() {

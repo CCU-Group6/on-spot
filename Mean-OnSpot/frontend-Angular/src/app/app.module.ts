@@ -1,9 +1,9 @@
-import { MbscModule } from '@mobiscroll/angular';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule, HttpInterceptor, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { MbscModule } from '@mobiscroll/angular';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule, MatMenuModule, MatIconModule, MatInputModule, MatButtonModule } from '@angular/material';
@@ -20,6 +20,7 @@ import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { PaymentMethodScreenComponent } from './payment-method-screen/payment-method-screen.component';
 import { ParkingTimeScreenComponent } from './parking-time-screen/parking-time-screen.component';
+import { ConfirmScreenComponent } from './confirm-screen/confirm-screen.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +31,8 @@ import { ParkingTimeScreenComponent } from './parking-time-screen/parking-time-s
     PhoneFooterComponent,
     InformationsScreenComponent,
     PaymentMethodScreenComponent,
-    ParkingTimeScreenComponent
+    ParkingTimeScreenComponent,
+    ConfirmScreenComponent
   ],
   imports: [ 
     MbscModule, 
