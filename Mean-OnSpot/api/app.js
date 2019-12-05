@@ -46,7 +46,7 @@ app.get('/users/:phoneNumber', (req, res) => {
     });
 });
 
-app.post('/users', (req, res) => {
+app.post('/users', (req, res, next) => {
     var name = req.body.name;
     var password = req.body.password;
     var phoneNumber = req.body.phoneNumber;
@@ -65,8 +65,17 @@ app.post('/users', (req, res) => {
         balance
     });
 
-    newUser.save().then((UserDoc) => {
-        res.send(UserDoc);
+    newUser.save((err, doc) => {
+        if (!err){
+            res.send(doc); 
+        }
+        else {
+            if (err.code == 11000){
+                res.status(422).send(['Phone number or Email already found']);
+            }
+            else
+                next(err);
+        }
     });
 
 });
@@ -94,4 +103,10 @@ app.listen(3000, () => {
     console.log("Server is listening on port 3000")
 })
 
-
+app.use((err, req, res, next) => {
+    if(err.name === 'ValidationError') {
+        var valErrors = [];
+        Object.keys(err.errors).forEach(key => valErrors.push(err.errors[key].message));
+        res.status(422).send(valErrors);
+    }
+});

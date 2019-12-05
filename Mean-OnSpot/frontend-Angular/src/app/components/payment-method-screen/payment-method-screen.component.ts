@@ -12,6 +12,9 @@ export class PaymentMethodScreenComponent implements OnInit {
   public backLink;
   public paymentMethod;
 
+  public showMessage;
+  public serverError;
+
   constructor(private registerService: RegisterService, private userService: UserService) { }
 
   ngOnInit() {
@@ -33,7 +36,21 @@ export class PaymentMethodScreenComponent implements OnInit {
     this.userService.createUser(name, password,
       phonenumber, email, licensePlate, this.paymentMethod)
       .subscribe((response: any) => {
-        this.userService.LoginUser(phonenumber, password);
+        res =>{
+          this.showMessage = true;
+        }
+        err =>{
+          if(err.status === 422){
+            this.serverError = err.err.join('<br/>');
+          }
+        }
+        this.userService.LoginUser(phonenumber, password).subscribe(
+          res => {
+            this.userService.setToken(res['token']);        
+          },
+          err => { 
+          }
+        );    ;
       });
 
   }

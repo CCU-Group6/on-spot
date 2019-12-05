@@ -11,7 +11,7 @@ passport.use(
                     if(err)
                         return done(err);
                     else if(!user)
-                        return done(null, false, { message: 'Número de telemóvel não registados'});
+                        return done(null, false, { message: 'Número de telemóvel não registado'});
                     else if(!user.verifyPassword(password)){
                         return done(null, false, {message: 'Password errada'});
                     }

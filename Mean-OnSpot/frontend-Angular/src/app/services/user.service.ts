@@ -20,16 +20,13 @@ export class UserService {
 
   LoginUser(phoneNumber: string, password: string) {
 
-    return this.webService.post('authenticate', {phoneNumber, password}, this.noAuthHeader)
-      .subscribe(
-        res => {
-          this.webService.setToken(res['token']);
-          
-          this.router.navigateByUrl('/defaultScreen');
+    return this.webService.post('authenticate', {phoneNumber, password}, this.noAuthHeader);
+      
+  }
 
-        },
-        err => { }
-      );
+  setToken(token){
+    this.webService.setToken(token);
+    this.router.navigateByUrl('/defaultScreen');
   }
 
   logOut(){

@@ -8,6 +8,7 @@ import { UserService } from '../../services/user.service';
   styleUrls: ['./main-container.component.css'],
 })
 export class MainContainerComponent implements OnInit {
+  public showErrorMessage;
 
   constructor(private userService: UserService) { }
 
@@ -16,7 +17,14 @@ export class MainContainerComponent implements OnInit {
 
   checkUser(form: NgForm) {
 
-    const a = this.userService.LoginUser(form.value.phoneNumber, form.value.password);
+    const response = this.userService.LoginUser(form.value.phoneNumber, form.value.password).subscribe(
+      res => {
+        this.userService.setToken(res['token']);        
+      },
+      err => { 
+        this.showErrorMessage = err.error;
+      }
+    );    
 
   }
 }

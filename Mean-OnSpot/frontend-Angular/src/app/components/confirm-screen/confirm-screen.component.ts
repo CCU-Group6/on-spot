@@ -9,7 +9,7 @@ import { RegisterService } from '../../services/register.service';
 })
 export class ConfirmScreenComponent implements OnInit {
   private paymentMethod;
-  public backLink;
+  public backLink = "../parkingTimeScreen";
   public title  = "Resumo de Estacionamento";
 
   constructor(private userService: UserService) { }
@@ -27,7 +27,6 @@ export class ConfirmScreenComponent implements OnInit {
   }
 
   onConfirm(){
-    console.log('onconfirm');
     this.userService.setConfirmParking(true);
   }
 }

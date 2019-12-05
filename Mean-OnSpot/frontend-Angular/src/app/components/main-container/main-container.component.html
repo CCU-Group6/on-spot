@@ -4,11 +4,13 @@
         <mat-form-field class = "loginMatFormField">
           <input class = "loginInput" matInput placeholder = "Phone Number" name = "phoneNumber" ngModel required #phoneErr = "ngModel">
           <mat-error *ngIf = "phoneErr.invalid">You must write a Phone Number</mat-error>
+          <mat-error *ngIf = "showErrorMessage">{{showErrorMessage}}</mat-error>
         </mat-form-field>
-      <mat-form-field class = "loginMatFormField">
-        <input matInput type = "password" placeholder = "Password" name = "password" ngModel required #passwordErr = "ngModel">
-        <mat-error *ngIf = "passwordErr.invalid">You must Have a Password</mat-error>
-      </mat-form-field>
+        <mat-form-field class = "loginMatFormField">
+          <input matInput type = "password" placeholder = "Password" name = "password" ngModel required #passwordErr = "ngModel">
+          <mat-error *ngIf = "passwordErr.invalid">You must Have a Password</mat-error>
+        </mat-form-field>
+        <mat-error *ngIf = "showErrorMessage">Número de Telefone ou Password Erradas</mat-error>
       <button mat-raised-button type = "submit" class = "bigButton" id = "loginButton">Entrar</button>
     </form>
 
