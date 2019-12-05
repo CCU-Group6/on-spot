@@ -12,11 +12,11 @@
   display: flex;
   flex-direction: column;
   width: 80%;
-  margin: 50px auto 20px auto;
+  margin: 50px auto 50px auto;
 }
 
 .form-control {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   text-align: center;
   height: 50px;
 }
@@ -38,7 +38,7 @@
   max-width: 100%;  
 }
 
-.writtenButton{
+#writtenButton{
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -48,16 +48,16 @@
   font-family: "Poppins", sans-serif;
 
   cursor: pointer;
+  color: #505050;
 
   background: none;
   border: none;
   outline: none;
 }
 
-.writtenButton:active{
+#writtenButton:active{
   color: 	#2c2f33;
   font-size: 14px;
   font-weight: 600;
   font-family: "Poppins", sans-serif;
-
 } 

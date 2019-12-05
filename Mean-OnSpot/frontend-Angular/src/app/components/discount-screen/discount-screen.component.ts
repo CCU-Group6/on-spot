@@ -1,7 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { userInfo } from 'os';
 import { UserService } from 'src/app/services/user.service';
-import { log } from 'util';
 
 @Component({
   selector: 'app-discount-screen',
