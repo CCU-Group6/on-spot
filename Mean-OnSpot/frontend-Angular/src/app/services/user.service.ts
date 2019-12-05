@@ -8,6 +8,8 @@ import { HttpHeaders } from '@angular/common/http';
 })
 export class UserService {
 
+  public confirmParking = false;
+
   constructor(private webService: WebService, private router: Router) { }
 
   noAuthHeader = { headers: new HttpHeaders({ 'NoAuth': 'True'})};
@@ -36,5 +38,15 @@ export class UserService {
 
   getUserProfile() {
     return this.webService.getWithPermission('userProfile');
+  }
+
+  setConfirmParking(bool: boolean){
+    console.log('setConfirmParking');
+    
+    this.confirmParking = bool;
+  }
+
+  getConfirmParking(){
+    return this.confirmParking;
   }
 }

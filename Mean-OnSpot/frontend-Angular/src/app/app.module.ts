@@ -7,6 +7,7 @@ import { MbscModule } from '@mobiscroll/angular';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule, MatMenuModule, MatIconModule, MatInputModule, MatButtonModule } from '@angular/material';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,6 +23,8 @@ import { PaymentMethodScreenComponent } from './components/payment-method-screen
 import { ParkingTimeScreenComponent } from './components/parking-time-screen/parking-time-screen.component';
 import { ConfirmScreenComponent } from './components/confirm-screen/confirm-screen.component';
 import { DiscountScreenComponent } from './components/discount-screen/discount-screen.component';
+import { PopupScreenComponent } from './components/popup-screen/popup-screen.component';
+
 
 @NgModule({
   declarations: [
@@ -35,7 +38,8 @@ import { DiscountScreenComponent } from './components/discount-screen/discount-s
     PaymentMethodScreenComponent,
     ParkingTimeScreenComponent,
     ConfirmScreenComponent,
-    DiscountScreenComponent
+    DiscountScreenComponent,
+    PopupScreenComponent
   ],
   imports: [ 
     MbscModule, 
@@ -46,11 +50,15 @@ import { DiscountScreenComponent } from './components/discount-screen/discount-s
     MatMenuModule,
     MatIconModule,
     MatInputModule,
+    MatDialogModule,
     FormsModule,
     ReactiveFormsModule,
     MatButtonModule,
     BrowserAnimationsModule,
     HttpClientModule
+  ],
+  entryComponents: [
+    PopupScreenComponent
   ],
   providers: [AuthGuard, {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
   bootstrap: [AppComponent]

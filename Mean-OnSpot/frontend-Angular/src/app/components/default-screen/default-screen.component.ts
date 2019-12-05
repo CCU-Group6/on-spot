@@ -1,6 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject} from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
+import { PopupScreenComponent } from '../popup-screen/popup-screen.component';
+import { MatDialog} from '@angular/material/dialog';
+
+
 
 @Component({
   selector: 'app-default-screen',
@@ -11,7 +15,11 @@ export class DefaultScreenComponent implements OnInit {
   public isSelected;
   public backLink;
   userDetails;
-  constructor(private userService: UserService, private router: Router) {
+
+  animal: string;
+  name: string;
+
+  constructor(private userService: UserService, private router: Router, public dialog: MatDialog) {
     this.isSelected = false;
     this.backLink = '../registerInformation';
    }
@@ -22,9 +30,16 @@ export class DefaultScreenComponent implements OnInit {
         this.userDetails = res['user'];
       },
       err => {
-
+        
       }
     )
+    
+    var bool = this.userService.getConfirmParking();
+    console.log(bool);
+    if(bool == true){
+      this.openDialog();
+      this.userService.setConfirmParking(false);
+    }
   }
 
   openMenu(){
@@ -43,5 +58,17 @@ export class DefaultScreenComponent implements OnInit {
     const result = document.getElementById('parkingButton');
     result.style.height = '50px';
     result.style.bottom = '50%';
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(PopupScreenComponent, {
+      width: '250px',
+    });
+
+    setTimeout(() => dialogRef.close(), 2500)
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
 }

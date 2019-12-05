@@ -36,10 +36,16 @@ var UserSchema = new mongoose.Schema({
         minlength:1,
         trim: true
     },
-    paymenteMethod: {
+    paymentMethod: {
         type: String,
         trim: true
+    },
+    balance: {
+        type: Number,
+        required: true,
+        trim: true
     }
+
 })
 
 UserSchema.pre('save', function (next){

@@ -52,16 +52,19 @@ app.post('/users', (req, res) => {
     var phoneNumber = req.body.phoneNumber;
     var email = req.body.email;
     var licensePlate  = req.body.licensePlate;
+    var paymentMethod = req.body.paymentMethod;
+    var balance = 0.00; 
+
     let newUser = new User({
         name,
         password,
         phoneNumber,
         email,
-        licensePlate
+        licensePlate,
+        paymentMethod,
+        balance
     });
-    console.log(req.body);
-    console.log(req.params);
-    
+
     newUser.save().then((UserDoc) => {
         res.send(UserDoc);
     });
@@ -83,7 +86,7 @@ app.get('/userProfile', jwtHelper.verifyJwtToken, (req, res, next) => {
             return res.status(404).json({status: false, message: 'User record not found' });
 
         else 
-            return res.status(200).json({status: true, user : lodash.pick(user, ['name', 'phoneNumber'])});
+            return res.status(200).json({status: true, user : lodash.pick(user, ['name', 'phoneNumber', 'paymentMethod', 'balance'])});
     })
 });
 

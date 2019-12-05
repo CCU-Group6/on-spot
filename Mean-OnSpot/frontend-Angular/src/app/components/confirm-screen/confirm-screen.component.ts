@@ -25,6 +25,9 @@ export class ConfirmScreenComponent implements OnInit {
       }
     );
   }
-  
 
+  onConfirm(){
+    console.log('onconfirm');
+    this.userService.setConfirmParking(true);
+  }
 }

@@ -7,14 +7,14 @@
     </div>
     <div id = "moneyContainer">
         <div id = "parkingCost">1,20€</div>
-        <div id = "discountButton" class="writtenButton">Quer Descontar?</div>
+        <div id = "discountButton" class="writtenButton" [routerLink] = "['/discountScreen']">Quer Descontar?</div>
     </div>
     <div id = "confirmFooter">
         <h1 id = "paymentMethod">{{paymentMethod}}</h1>
         <h2 id = "alterar">Alterar</h2>
         <td>
             <button mat-button>Cancelar</button>    
-            <button mat-button [routerLink] = "['/discountScreen']">Confirmar</button>
+            <button mat-button (click) = "onConfirm()" [routerLink] = "['/defaultScreen']">Confirmar</button>
         </td>    
     </div>
 </div>

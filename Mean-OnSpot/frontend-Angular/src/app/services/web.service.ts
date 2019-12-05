@@ -25,8 +25,6 @@ export class WebService {
     return this.http.post(`${this.ROOT_URL}/${uri}`, payload, permission);
   }
 
-  
-
   // Token helper methods
   setToken(token: string) {
     this.deleteToken();
