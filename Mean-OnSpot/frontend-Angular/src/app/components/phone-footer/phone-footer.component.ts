@@ -6,9 +6,10 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./phone-footer.component.css']
 })
 export class PhoneFooterComponent implements OnInit {
-  public title = 'continuar';
   @Input() public rtLink;
-  constructor() { }
+  @Input() public title;
+  constructor() { 
+  }
 
   ngOnInit() {
   }

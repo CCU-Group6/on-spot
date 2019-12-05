@@ -1,10 +1,7 @@
-<app-phone-header [rtLink] = "backLink"></app-phone-header>
+<app-phone-header [rtLink] = "backLink" [title] = "title"></app-phone-header>
 <div class="centered-content">
     <mbsc-form>
-        <mbsc-form-group>
-            <mbsc-form-group-title>Embedded timespan scroller</mbsc-form-group-title>
-            <mbsc-timespan [(ngModel)]="timespanInline" [options]="timespanInlineSettings"></mbsc-timespan>
-        </mbsc-form-group>
+        <mbsc-timespan [(ngModel)]="timespanInline" [options]="timespanInlineSettings"></mbsc-timespan>
     </mbsc-form>
 </div>
 <app-phone-footer [rtLink] = "frontLink"></app-phone-footer>

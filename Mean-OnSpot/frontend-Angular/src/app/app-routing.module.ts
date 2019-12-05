@@ -8,6 +8,7 @@ import { PaymentMethodScreenComponent } from './components/payment-method-screen
 import { AuthGuard } from './components/auth/auth.guard';
 import { ParkingTimeScreenComponent } from './components/parking-time-screen/parking-time-screen.component';
 import { ConfirmScreenComponent } from './components/confirm-screen/confirm-screen.component';
+import { DiscountScreenComponent } from './components/discount-screen/discount-screen.component';
 
 
 
@@ -20,7 +21,8 @@ const routes: Routes = [
   { path: 'registerInformation', component: InformationsScreenComponent},
   { path: 'paymentMethod', component: PaymentMethodScreenComponent},
   { path: 'parkingTimeScreen', component: ParkingTimeScreenComponent},
-  { path: 'confirmScreen', component: ConfirmScreenComponent}
+  { path: 'confirmScreen', component: ConfirmScreenComponent},
+  { path: 'discountScreen', component: DiscountScreenComponent}
 ];
 
 @NgModule({

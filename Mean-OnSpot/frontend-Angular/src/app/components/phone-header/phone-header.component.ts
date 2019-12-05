@@ -6,7 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./phone-header.component.css']
 })
 export class PhoneHeaderComponent implements OnInit {
-  public title = 'Title';
+  @Input() public title;
   @Input() public rtLink;
 
   constructor() { }
