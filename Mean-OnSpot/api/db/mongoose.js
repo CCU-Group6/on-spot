@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost:27017/TaskManager', { useNewUrlParser: true} ).then(() => {
+mongoose.connect('mongodb://localhost:27017/OnSpot', { useNewUrlParser: true} ).then(() => {
     console.log('it works');
 }).catch((e) => {
     console.log('it doesnt work');

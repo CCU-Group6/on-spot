@@ -4,27 +4,27 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class RegisterService {
-  private password;
-  private name;
-  private phoneNumber;
-  private email;
-  private licensePlate;
-  private paymentMethod;
+  private password: string;
+  private name: string;
+  private phoneNumber: string;
+  private email: string;
+  private licensePlate: string;
+  private paymentMethod: string;
 
   constructor() { }
 
-  setRegisterInformation(form) {
-    this.password = form.registerPassword;
-    this.name = form.name;
+  setRegisterInformation(loginValues) {
+    this.email = loginValues.email;
+    this.password = loginValues.password;
   }
 
-  setPersonalInformation(form){
+  setPersonalInformation(form: { phoneNumber: any; email: any; licensePlate: any; }){
     this.phoneNumber = form.phoneNumber;
     this.email = form.email;
     this.licensePlate = form.licensePlate;
   }
 
-  setPaymentMethod(string){
+  setPaymentMethod(string: any){
     this.paymentMethod = string;
   }
 
