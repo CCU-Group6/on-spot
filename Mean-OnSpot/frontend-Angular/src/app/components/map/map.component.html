@@ -1,1 +1,11 @@
-<p>map works!</p>
+<div *ngIf = "lat && lng">
+
+    <agm-map [latitude] = "lat" [longitude] = "lng" [zoom]="16" [disableDefaultUI] = "bool" [streetViewControl]="false">
+
+        <agm-data-layer [geoJson] = "Zones"></agm-data-layer>
+        <agm-marker [latitude] = "lat" [longitude] = "lng">
+        </agm-marker>
+
+    </agm-map>
+
+</div>

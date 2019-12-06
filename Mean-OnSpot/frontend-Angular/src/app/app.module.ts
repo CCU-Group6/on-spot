@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule, HttpInterceptor, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MbscModule } from '@mobiscroll/angular';
+import { AgmCoreModule } from '@agm/core';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule, MatMenuModule, MatIconModule, MatInputModule, MatButtonModule } from '@angular/material';
@@ -24,6 +25,7 @@ import { ParkingTimeScreenComponent } from './components/parking-time-screen/par
 import { ConfirmScreenComponent } from './components/confirm-screen/confirm-screen.component';
 import { DiscountScreenComponent } from './components/discount-screen/discount-screen.component';
 import { PopupScreenComponent } from './components/popup-screen/popup-screen.component';
+import { MapComponent } from './components/map/map.component';
 
 
 @NgModule({
@@ -39,7 +41,8 @@ import { PopupScreenComponent } from './components/popup-screen/popup-screen.com
     ParkingTimeScreenComponent,
     ConfirmScreenComponent,
     DiscountScreenComponent,
-    PopupScreenComponent
+    PopupScreenComponent,
+    MapComponent
   ],
   imports: [ 
     MbscModule, 
@@ -55,7 +58,10 @@ import { PopupScreenComponent } from './components/popup-screen/popup-screen.com
     ReactiveFormsModule,
     MatButtonModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCVJFjI_1hipSPAtGzloqu4JKLahI2z6JI'
+    })
   ],
   entryComponents: [
     PopupScreenComponent

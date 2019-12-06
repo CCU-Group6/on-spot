@@ -17,9 +17,9 @@ const routes: Routes = [
   { path: '', redirectTo: '/defaultScreen' , pathMatch: 'full'},
   { path: 'login', component: MainContainerComponent},
   { path: 'registerAccount', component: RegisterComponent},
+  { path: 'registerInformation', component: InformationsScreenComponent},
+  { path: 'paymentMethod', component: PaymentMethodScreenComponent },
   { path: 'defaultScreen', component: DefaultScreenComponent , canActivate: [AuthGuard]},
-  { path: 'registerInformation', component: InformationsScreenComponent, canActivate: [AuthGuard]},
-  { path: 'paymentMethod', component: PaymentMethodScreenComponent, canActivate: [AuthGuard]},
   { path: 'parkingTimeScreen', component: ParkingTimeScreenComponent, canActivate: [AuthGuard]},
   { path: 'confirmScreen', component: ConfirmScreenComponent, canActivate: [AuthGuard]},
   { path: 'discountScreen', component: DiscountScreenComponent, canActivate: [AuthGuard]}
