@@ -1,6 +1,30 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins');
-body{
-  font-family: "Poppins", sans-serif;
+#registerTitle{
+  padding: 20px;
+  margin: 50px auto 0px auto;
+  font-size: 36px;
+  font-weight: 1000;
+  text-align: center;
+  min-width: 150px;
+  max-width: 500px;
+}
+
+#register_form {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: 30px auto 0px auto;
+}
+
+.form-control {
+  text-align: center;
+  height: 50px;
+}
+
+#next_button {
+  width: 80%;
+  height: 50px;
+  font-size: 1.2rem;
+  margin: 0px auto;
 }
 
 .centered-content{
@@ -10,80 +34,29 @@ body{
   align-items: center;
   -webkit-box-align: center;
   box-sizing: border-box;
-  min-width: 335px;
-  max-width: 100%;
-  height:100%;
+  max-width: 100%;  
 }
 
-.titles{
-  padding: 20px;
-  margin-bottom: 10px;
-  font-size: 25px;
-  font-weight: 1000;
-  text-align: center;
-  min-width: 250px;
-  max-width: 800px;
-}
-
-.centeredZone{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  min-width: 335px;
-  max-width: 1000px;
-}
-
-.loginMatFormField{
-  font-family: "Poppins", sans-serif;
-  width: 250px;
-  margin-top: 22px;
-  padding: 10px;
-}
-
-.bigButton{
-  justify-content: center;
-  align-items: center;
-  margin-top: 10px;
-  margin-bottom: 10px;
-
-  width: 100%;
-  min-width: 100px;
-  max-width: 200px;
-
-}
-
-.writtenButton{
+#writtenButton{
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin: 5px;
+  margin: 10px;
   font-size: 14px;
   font-weight: 600;
   font-family: "Poppins", sans-serif;
 
-
   cursor: pointer;
+  color: #505050;
 
   background: none;
   border: none;
   outline: none;
 }
 
-.writtenButton:active{
+#writtenButton:active{
   color: 	#2c2f33;
   font-size: 14px;
   font-weight: 600;
   font-family: "Poppins", sans-serif;
-
 } 
-
-
-.form{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-width: 150px;
-  max-width: 500px;
-  width: 800px;
-}

@@ -13,15 +13,15 @@ export class RegisterService {
 
   constructor() { }
 
-  setRegisterInformation(loginValues) {
-    this.email = loginValues.email;
-    this.password = loginValues.password;
+  setRegisterInformation(values) {
+    this.email = values.email;
+    this.password = values.password;
   }
 
-  setPersonalInformation(form: { phoneNumber: any; email: any; licensePlate: any; }){
-    this.phoneNumber = form.phoneNumber;
-    this.email = form.email;
-    this.licensePlate = form.licensePlate;
+  setPersonalInformation(values){
+    this.phoneNumber = values.phoneNumber;
+    this.email = values.email;
+    this.licensePlate = values.licensePlate;
   }
 
   setPaymentMethod(string: any){

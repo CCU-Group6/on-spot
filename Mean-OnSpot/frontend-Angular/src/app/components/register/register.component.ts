@@ -45,15 +45,12 @@ export class RegisterComponent {
       return false;
     }
 
-    const loginValues = {
+    const values = {
       email: this.email,
       password: this.password,
     }
 
-    this.registerService.setRegisterInformation(loginValues);
-
+    this.registerService.setRegisterInformation(values);
     this.router.navigate(['/registerInformation']);
-
   }
-
 }
