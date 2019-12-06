@@ -1,18 +1,20 @@
 <div id="sideMenu">
-    <div id="sideMenuProfile">
-      <h1 href="" id = "userName">{{userDetails.name}}</h1>
-      <h2 href="" id = "discountText" class="smallText">Saldo a Descontar: {{userDetails.balance}}€</h2>
-    </div>
-    <div id = "sideMenuTabs">
-      <a href="">Histórico</a>
-      <a href="">Método de Pagamento</a>
-      <a href="">Ajuda</a>
-      <h1 class ="smallText">Todos os valores apresentados são apenas valores previstos</h1>
-    </div>
-    <button mat-button id = "logoutButton" (click) = "userLogOut()" [routerLink]="['/login']">Logout</button>
+  <div id="sideMenuProfile">
+    <h1 href="" id = "userName">{{userDetails.name}}</h1>
+    <h2 href="" id = "discountText" class="smallText">Saldo a Descontar: {{userDetails.balance}}€</h2>
   </div>
-  <span style="font-size:30px;cursor:pointer" id = "menuIcon" (click)="openMenu()">&#9773;</span>
-
-<div class="centered-content" (click) = "closeMenu()">
-  <button mat-raised-button id = "parkButton" [routerLink]="['/parkingTimeScreen']">Estacionar</button>
+  <div id = "sideMenuTabs">
+    <a href="">Histórico</a>
+    <a href="">Método de Pagamento</a>
+    <a href="">Ajuda</a>
+    <h1 class ="smallText">Todos os valores apresentados são apenas valores previstos</h1>
+  </div>
+  <button mat-button id = "logoutButton" (click) = "userLogOut()" [routerLink]="['/login']">Logout</button>
 </div>
+<span style="font-size:30px;cursor:pointer" id = "menuIcon" (click)="openMenu()">&#9776;</span>
+
+<body (click) = "closeMenu()">
+  <div class="centered-content">
+    <button mat-raised-button id = "parkButton" [routerLink]="['/parkingTimeScreen']">Estacionar</button>
+  </div>
+</body>

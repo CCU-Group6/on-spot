@@ -1,7 +1,5 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
-import { EventEmitter } from 'protractor';
-import { DefaultScreenComponent } from '../default-screen/default-screen.component';
 
 @Component({
   selector: 'app-discount-screen',

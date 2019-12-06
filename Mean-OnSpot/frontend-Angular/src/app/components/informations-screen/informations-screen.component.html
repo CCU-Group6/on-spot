@@ -1,26 +1,32 @@
-<app-phone-header [rtLink] = "backLink"></app-phone-header>
 <div class="centered-content">
-  <div class="centeredZone">
-      <div id="informationTitle" class="titles">
-          Preencha os Seguintes Dados
-        </div>
-    <form class="form" #userForm = "ngForm">
-        <mat-form-field class = "loginMatFormField">
-            <input matInput placeholder = "Número de Telefone" name = "phonenumber"  ngModel required #phonenumber = "ngModel">
-            <mat-error *ngIf = "phonenumber.invalid">É preciso número de telemóvel</mat-error>
-          </mat-form-field>
+    <h2 id="registerTitle">
+        Preencha os Seguintes Dados
+    </h2>
+  
+    <form id="register_form">
+      <div class="form-group">
+        <label>Introduza o seu Nome</label>
+        <input type="text" [(ngModel)]="name" name="name" class="form-control" placeholder="Nome">
+      </div>
+  
+      <div class="form-group">
+        <label>Introduza o seu Número de Telemóvel</label>
+        <input type="text" [(ngModel)]="phoneNumber" name="phoneNumber" class="form-control" placeholder="Telemóvel">
+      </div>
+  
+      <div class="form-group">
+        <label>Introduza a Matrícula do seu Veículo</label>
+        <input type="text" [(ngModel)]="licensePlate" name="licensePlate" class="form-control"
+          placeholder="Matrícula">
+      </div>
+  
+      <div *ngIf="invalidMessage" class="alert alert-dismissible alert-danger">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>{{invalidMessage}}</strong>
+      </div>
+  
+      <button id="next_button" class="btn btn-primary" (click)="registerInformation()">Seguinte
+      </button>
 
-          <mat-form-field class = "loginMatFormField">
-            <input matInput placeholder = "Email" name = "email"  ngModel required #email = "ngModel">
-            <mat-error *ngIf = "email.invalid">É preciso Email</mat-error>
-          </mat-form-field>
-
-          <mat-form-field class = "loginMatFormField">
-            <input matInput placeholder = "Matricula do Popó" name = "licensePlate"  ngModel required #licensePlate = "ngModel">
-            <mat-error *ngIf = "licensePlate.invalid">É preciso Matricula</mat-error>
-          </mat-form-field>
-
-          <button mat-raised-button type = "button" (click) = "registerInformation(userForm)" class = "bigButton" id = "registerButton"  [routerLink]="['/paymentMethod']" routerLinkActive="router-link-active">Registar</button>
-        </form>
-    </div>
-</div>
+    </form>
+  </div>

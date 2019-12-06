@@ -1,14 +1,34 @@
 <div class="centered-content">
-    <h2 id="registerTitle">
-      Bem vindo à OnSpot
-    </h2>
+  <h2 id="registerTitle">
+    Bem vindo à OnSpot
+  </h2>
 
-    <div id="register_form" class="form-group">
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Confirm Password">
+  <form id="register_form">
+    <div class="form-group">
+      <label>Introduza o Endereço de Email</label>
+      <input type="text" [(ngModel)]="email" name="email" class="form-control" placeholder="Email">
     </div>
-    
-    <button id="next_button" type="button" class="btn btn-primary">Seguinte</button>
-    <button class = "writtenButton" [routerLink]="['/']" routerLinkActive="router-link-active">Já tenho conta</button>
+
+    <div class="form-group">
+      <label>Introduza uma Password</label>
+      <input type="password" [(ngModel)]="password" name="password" class="form-control" placeholder="Password">
+    </div>
+
+    <div class="form-group">
+      <label>Confirme a Password</label>
+      <input type="password" [(ngModel)]="passwordConfirm" name="passwordConfirm" class="form-control"
+        placeholder="Password">
+    </div>
+
+    <div *ngIf="invalidMessage" class="alert alert-dismissible alert-danger">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <strong>{{invalidMessage}}</strong>
+    </div>
+
+    <button id="next_button" class="btn btn-primary" (click)="sendMessage()">Seguinte
+    </button>
+
+    <button id="writtenButton" class="btn btn-link" [routerLink]="['/']" routerLinkActive="router-link-active">Já tenho
+      conta</button>
+  </form>
 </div>
