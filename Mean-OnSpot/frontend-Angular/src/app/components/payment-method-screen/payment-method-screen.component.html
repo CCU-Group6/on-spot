@@ -2,12 +2,24 @@
 <div class="centered-content">
   <p id = "subtitle">Escolha o seu método de pagamento</p>
   <tr>
-    <button class = "paymentButtons" (click) = "paymentMethod = 'credit card'" [ngClass] = "paymentMethod =='credit card' ? 'paymentButtonsActive' : 'paymentButtons'"><h1 class="buttonText">Cartão de Crédito</h1></button>
-    <button class = "paymentButtons" (click) = "paymentMethod = 'ePark'" [ngClass] = "paymentMethod =='ePark' ? 'paymentButtonsActive' : 'paymentButtons'"><h1 class="buttonText">ePark</h1></button>
+    <button class = "paymentButtons" (click) = "paymentMethod = 'credit card'" [ngClass] = "paymentMethod =='credit card' ? 'paymentButtonsActive' : 'paymentButtons'">
+      <img class="buttonImage" src="assets/img/credit_card.png"/>
+      <h6 class="buttonText">Cartão de crédito</h6>  
+    </button>
+    <button class = "paymentButtons" (click) = "paymentMethod = 'ePark'" [ngClass] = "paymentMethod =='ePark' ? 'paymentButtonsActive' : 'paymentButtons'">
+      <img class="buttonImage" src="assets/img/e_mel.png"/>
+      <h6 class="buttonText">ePark</h6>
+    </button>
   </tr>
   <tr>
-    <button class = "paymentButtons" (click) = "paymentMethod = 'MbWay'" [ngClass] = "paymentMethod =='MbWay' ? 'paymentButtonsActive' : 'paymentButtons'"><h1 class="buttonText">MB Way</h1></button>
-    <button class = "paymentButtons" (click) = "paymentMethod = 'Parquimetro'" [ngClass] = "paymentMethod =='Parquimetro' ? 'paymentButtonsActive' : 'paymentButtons'"><h1 class="buttonText">Parquimetro</h1></button>
+    <button class = "paymentButtons" (click) = "paymentMethod = 'MbWay'" [ngClass] = "paymentMethod =='MbWay' ? 'paymentButtonsActive' : 'paymentButtons'">
+      <img class="buttonImage" src="assets/img/mb_way.png"/>  
+      <h6 class="buttonText">MB Way</h6>
+    </button>
+    <button class = "paymentButtons" (click) = "paymentMethod = 'Parquimetro'" [ngClass] = "paymentMethod =='Parquimetro' ? 'paymentButtonsActive' : 'paymentButtons'">
+      <img class="buttonImage" src="assets/img/parking_meter.png"/>
+      <h6 class="buttonText">Parquímetro</h6>
+    </button>
   </tr>
   <button mat-raised-button [disabled] = "!paymentMethod" type = "button" id = "continueButton"  (click) = "registerInformation()">Continuar</button>
 </div>
