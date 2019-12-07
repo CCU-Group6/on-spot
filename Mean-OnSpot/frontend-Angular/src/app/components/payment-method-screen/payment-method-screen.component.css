@@ -78,7 +78,6 @@ body{
 
 } 
 
-
 .paymentButtons {
   -webkit-border-radius: 10px 10px 10px 10px;
   border-radius: 10px 10px 10px 10px;
@@ -99,6 +98,7 @@ body{
 .paymentButtonsActive {
   -webkit-border-radius: 10px 10px 10px 10px;
   border-radius: 10px 10px 10px 10px;
+  border-style: solid;
   background: #fff;
   font-family: "Poppins", sans-serif;
   font-size: 9px;
@@ -108,10 +108,8 @@ body{
   margin: 5px;
   position: relative;
   padding: 0px;
-  -webkit-box-shadow: 0 0px 0px 0 rgba(0,0,0,0.3);
-  box-shadow: 0 5px 5px 0 rgba(0,0,0,0.3);
   text-align: center;
-  border-color: #647c84;
+  border-color: #637C87;
   border-width: 5px;
 }
 
@@ -126,20 +124,39 @@ body{
   max-width: 500px;
 }
 
-#continueButton {
+.disabledContinueButton{
   justify-content: center;
   align-items: center;
   margin-top: 10px;
   margin-bottom: 10px;
+  background: #637C87;
+  opacity: 0.2;
 
   width: 100%;
   min-width: 100px;
   max-width: 260px;
 }
 
-.buttonText {
+.continueButton {
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background: #637C87;
+
+  width: 100%;
+  min-width: 100px;
+  max-width: 260px;
+}
+
+.buttonImage {
+  align-items: center;
+  width: 100px;
+}
+
+.buttonText{
   justify-content: center;
   align-items: center;
   text-align: center;
-  height: 40px;
+  max-height: 10px;
 }

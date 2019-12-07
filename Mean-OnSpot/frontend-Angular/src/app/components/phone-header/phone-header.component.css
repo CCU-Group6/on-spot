@@ -78,7 +78,6 @@ body{
 
 } 
 
-
 .container{
   display: flex;
   color:#fff;
@@ -102,7 +101,6 @@ body{
   font-weight: 500;
 }
 
-.backButton{
-  padding: 5px;
-  width: 5%;
+.backbutton{
+  margin-left: -25px;
 }
