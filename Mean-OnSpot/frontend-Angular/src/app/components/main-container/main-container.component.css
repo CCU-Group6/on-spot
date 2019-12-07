@@ -46,8 +46,12 @@ body{
 .loginMatFormField{
   font-family: "Poppins", sans-serif;
   width: 250px;
-  margin-top: 22px;
+  margin-bottom: 14px;
   padding: 10px;
+}
+
+#phone_number{
+  margin-top: 12px;
 }
 
 .bigButton{

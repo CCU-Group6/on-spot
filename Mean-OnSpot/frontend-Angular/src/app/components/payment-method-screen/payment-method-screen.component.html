@@ -21,6 +21,6 @@
       <h6 class="buttonText">Parquímetro</h6>
     </button>
   </tr>
-  <button mat-raised-button [disabled] = "!paymentMethod" type = "button" id = "continueButton"  (click) = "registerInformation()">Continuar</button>
+  <button mat-raised-button [disabled] = "!paymentMethod" type = "button" class = "continueButton"  [ngClass] = "!paymentMthod ? 'continueButton' : 'disabledContinueButton'" (click) = "registerInformation()"><font color="white">Continuar</font></button>
 </div>
 

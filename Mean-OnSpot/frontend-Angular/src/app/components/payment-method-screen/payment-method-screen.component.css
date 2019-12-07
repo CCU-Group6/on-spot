@@ -124,11 +124,25 @@ body{
   max-width: 500px;
 }
 
-#continueButton {
+.disabledContinueButton{
   justify-content: center;
   align-items: center;
   margin-top: 10px;
   margin-bottom: 10px;
+  background: #637C87;
+  opacity: 0.2;
+
+  width: 100%;
+  min-width: 100px;
+  max-width: 260px;
+}
+
+.continueButton {
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background: #637C87;
 
   width: 100%;
   min-width: 100px;

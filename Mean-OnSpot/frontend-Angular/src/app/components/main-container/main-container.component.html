@@ -4,7 +4,7 @@
     </div>
     <form class = "centeredZone" (submit) = "checkUser(ngForm)" #ngForm = "ngForm">
         <mat-form-field class = "loginMatFormField">
-          <input class = "loginInput" matInput placeholder = "Phone Number" name = "phoneNumber" ngModel required #phoneErr = "ngModel">
+          <input class = "loginInput" id="phone_number" matInput placeholder = "Phone Number" name = "phoneNumber" ngModel required #phoneErr = "ngModel">
           <mat-error *ngIf = "phoneErr.invalid">You must write a Phone Number</mat-error>
           <mat-error *ngIf = "showErrorMessage">{{showErrorMessage}}</mat-error>
         </mat-form-field>
