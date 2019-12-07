@@ -21,6 +21,7 @@ body{
   align-items: center;
   -webkit-box-align: center;
   margin-top: 10vh;
+  margin-bottom: -5vh;
 }
 
 .titles{
