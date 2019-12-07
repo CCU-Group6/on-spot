@@ -1732,9 +1732,34 @@ export class MapComponent implements OnInit {
       "zoneCharge": event.feature.h.charge, 
       "zoneColor": event.feature.h.color
     }
-    console.log(this.zoneData);
     
     this.messageEvent.emit(this.zoneData);
+    var zone;
+    for(var i=0; i< Object.keys(this.Zones.features).length; i++){
+      
+      if(this.Zones.features[i].properties.zone == this.zoneData.zoneTitle){
+        zone = this.Zones.features[i].geometry.coordinates;
+        break;
+      }
+    }
+    
+    var lt = 0;
+    var lg = 0;
+    console.log(zone[0][0]);
+    
+    for(var i = 0; i < zone[0].length; i++){
+      console.log(zone[0][i][0]);
+      console.log(lt);
+      
+      lg += zone[0][i][0];
+      lt += zone[0][i][1];
+
+    }
+    console.log(lt);
+    
+    this.lat = lt/zone[0].length;
+    this.lng = lg/zone[0].length;
+
   }
 
   onChoseLocation(event){
