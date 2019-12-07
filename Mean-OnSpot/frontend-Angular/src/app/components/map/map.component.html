@@ -1,11 +1,16 @@
+<!-- <script src='https://api.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.css' rel='stylesheet' /> -->
+
 <div *ngIf = "lat && lng">
 
-    <agm-map [latitude] = "lat" [longitude] = "lng" [zoom]="16" [disableDefaultUI] = "bool" [streetViewControl]="false">
+    <agm-map [latitude] = "lat" [longitude] = "lng" [zoom]="16" [disableDefaultUI] = "bool" [streetViewControl]="false" [styles] = "mapStyle">
 
-        <agm-data-layer [geoJson] = "Zones"></agm-data-layer>
+        <agm-data-layer [geoJson] = "Zones" (layerClick) = "onZoneClick($event)"></agm-data-layer>
         <agm-marker [latitude] = "lat" [longitude] = "lng">
         </agm-marker>
 
     </agm-map>
 
 </div>
+
+<!-- <div id="map" class="match-parent"></div> -->

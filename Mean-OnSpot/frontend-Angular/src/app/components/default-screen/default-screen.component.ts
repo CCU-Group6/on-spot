@@ -5,7 +5,6 @@ import { PopupScreenComponent } from '../popup-screen/popup-screen.component';
 import { MatDialog} from '@angular/material/dialog';
 
 
-
 @Component({
   selector: 'app-default-screen',
   templateUrl: './default-screen.component.html',
@@ -14,6 +13,11 @@ import { MatDialog} from '@angular/material/dialog';
 export class DefaultScreenComponent implements OnInit {
   public isSelected;
   public backLink;
+  public message = {
+    "zoneTitle": "",
+    "zoneCharge": "",
+    "zoneColor": ""
+  };
   userDetails;
 
   animal: string;
@@ -70,5 +74,16 @@ export class DefaultScreenComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
     });
+  }
+
+  receiveMessage(event) {
+    //dont forget
+    this.message = event;
+    console.log(this.message.zoneTitle);
+    
+    document.getElementById("zoneInformations").style.height = "300px";    
+  }
+
+  openZoneInformations(){
   }
 }

@@ -15,7 +15,12 @@
 
 <body (click) = "closeMenu()">
   <div class="centered-content">
-    <app-map></app-map>
-    <button mat-raised-button id = "parkButton" [routerLink]="['/parkingTimeScreen']">Estacionar</button>
+    <app-map (click) = "openZoneInformations()" (messageEvent) = "receiveMessage($event)"></app-map>
+    <div id="zoneInformations" >
+        <div id="zoneTitle">{{message.zoneTitle}}</div>
+        <div id="zoneCharge">Tarifa: {{message.zoneCharge}}h</div>
+        <div id="zoneColor">Zona {{message.zoneColor}}</div>
+        <button mat-raised-button id = "parkButton" [routerLink]="['/parkingTimeScreen']">Estacionar</button>
+    </div>
   </div>
 </body>

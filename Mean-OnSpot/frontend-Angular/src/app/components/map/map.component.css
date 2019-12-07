@@ -2,3 +2,8 @@ agm-map{
     height: 100vw;
     width: 100vh;
 }
+
+.match-parent {
+    width: 100vw;
+    height: 100vh;
+}
