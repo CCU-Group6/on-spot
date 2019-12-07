@@ -20,7 +20,7 @@
         <div id="zoneTitle">{{message.zoneTitle}}</div>
         <div id="zoneCharge">Tarifa: {{message.zoneCharge}}h</div>
         <div id="zoneColor">Zona {{message.zoneColor}}</div>
-        <button mat-raised-button id = "parkButton" [routerLink]="['/parkingTimeScreen']">Estacionar</button>
+        <button mat-raised-button (click) = "setZoneInformation()" id = "parkButton" [routerLink]="['/parkingTimeScreen']">Estacionar</button>
     </div>
   </div>
 </body>

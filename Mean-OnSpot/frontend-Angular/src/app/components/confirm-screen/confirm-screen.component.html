@@ -1,19 +1,19 @@
 <app-phone-header [rtLink] = "backLink" [title] = "title"></app-phone-header>
 <div class="centered-content">
     <div id = "confirmHeader">
-        <h1 id = "selectedZone">Alameda</h1>
-        <td id = "parkingTime">1h20min</td>
-        <td id = "zoneType">Zona Verde</td>
+        <h1 id = "selectedZone">{{paymentInfo.zoneTitle}}</h1>
+        <td id = "parkingTime">{{paymentInfo.parkingTime}}H</td>
+        <td id = "zoneType">Zona {{paymentInfo.zoneColor}}</td>
     </div>
     <div id = "moneyContainer">
-        <div id = "parkingCost">1,20€</div>
+        <div id = "parkingCost">{{paymentInfo.price}}€</div>
         <div id = "discountButton" class="writtenButton" [routerLink] = "['/discountScreen']">Quer Descontar?</div>
     </div>
     <div id = "confirmFooter">
         <h1 id = "paymentMethod">{{paymentMethod}}</h1>
         <h2 id = "alterar">Alterar</h2>
         <td>
-            <button mat-button>Cancelar</button>    
+            <button mat-button [routerLink] = "['/defaultScreen']">Cancelar</button>    
             <button mat-button (click) = "onConfirm()" [routerLink] = "['/defaultScreen']">Confirmar</button>
         </td>    
     </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
+import { PaymentServiceService } from 'src/app/services/payment-service.service';
 
 @Component({
   selector: 'app-confirm-screen',
@@ -10,8 +11,16 @@ export class ConfirmScreenComponent implements OnInit {
   private paymentMethod;
   public backLink = "../parkingTimeScreen";
   public title  = "Resumo de Estacionamento";
+  public paymentInfo = {
+    zoneTitle: "",
+    zoneCharge: "",
+    zoneColor: "",
+    price: 0.0,
+    parkingTime: 0,
+    discount: 0.0,
+  }
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private paymentService: PaymentServiceService) { }
 
   ngOnInit() {
     var userDetails = this.userService.getUserProfile().subscribe(
@@ -23,6 +32,16 @@ export class ConfirmScreenComponent implements OnInit {
 
       }
     );
+    var p = this.paymentService.getParkingInformations();
+
+    this.paymentInfo.zoneTitle = p.zoneTitle;
+    this.paymentInfo.zoneCharge = p.zoneCharge;
+    this.paymentInfo.zoneColor = p.zoneColor;
+    this.paymentInfo.price = p.price;
+    this.paymentInfo.parkingTime = p.parkingTime;
+    this.paymentInfo.discount = p.discount;
+    console.log(this.paymentInfo.price);
+    
   }
 
   onConfirm(){

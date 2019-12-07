@@ -3,6 +3,7 @@ import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
 import { PopupScreenComponent } from '../popup-screen/popup-screen.component';
 import { MatDialog} from '@angular/material/dialog';
+import { PaymentServiceService } from 'src/app/services/payment-service.service';
 
 
 @Component({
@@ -23,7 +24,7 @@ export class DefaultScreenComponent implements OnInit {
   animal: string;
   name: string;
 
-  constructor(private userService: UserService, private router: Router, public dialog: MatDialog) {
+  constructor(private userService: UserService, private router: Router, public dialog: MatDialog, private paymentService: PaymentServiceService) {
     this.isSelected = false;
     this.backLink = '../registerInformation';
    }
@@ -84,6 +85,7 @@ export class DefaultScreenComponent implements OnInit {
     document.getElementById("zoneInformations").style.height = "300px";    
   }
 
-  openZoneInformations(){
+  setZoneInformation(){
+    this.paymentService.setZoneInformations(this.message.zoneTitle, this.message.zoneCharge, this.message.zoneColor);
   }
 }
