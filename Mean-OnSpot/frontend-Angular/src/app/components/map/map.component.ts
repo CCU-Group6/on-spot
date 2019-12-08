@@ -1704,21 +1704,21 @@ export class MapComponent implements OnInit {
       var a = this.paymentService.getParkingInformations();
 
       
-      for(var i=0; i< Object.keys(this.Zones.features).length; i++){
-        if(this.Zones.features[i].properties.zone == a.zoneTitle){
-          this.Zones.features[i].properties.spots = parseInt(this.Zones.features[i].properties.spots) - 1;
+      for(var i=0; i< Object.keys(this.Zones[0]).length; i++){
+        if(this.Zones[0][i].properties.zone == a.zoneTitle){
+          this.Zones[0][i].properties.spots = parseInt(this.Zones[0][i].properties.spots) - 1;
 
           var lt = 0;
           var lg = 0;
           //find the average point of a zone
-          console.log(this.Zones.features[i].geometry.coordinates[0]);
+          console.log(this.Zones[0][i].geometry.coordinates[0]);
           
-          for(var j = 0; j < this.Zones.features[i].geometry.coordinates[0].length; j++){
-            lg += this.Zones.features[i].geometry.coordinates[0][j][0];
-            lt += this.Zones.features[i].geometry.coordinates[0][j][1];
+          for(var j = 0; j < this.Zones[0][i].geometry.coordinates[0].length; j++){
+            lg += this.Zones[0][i].geometry.coordinates[0][j][0];
+            lt += this.Zones[0][i].geometry.coordinates[0][j][1];
           }
-          this.parkedLng = lg/this.Zones.features[i].geometry.coordinates[0].length;
-          this.parkedLat = lt/this.Zones.features[i].geometry.coordinates[0].length;
+          this.parkedLng = lg/this.Zones[0][i].geometry.coordinates[0].length;
+          this.parkedLat = lt/this.Zones[0][i].geometry.coordinates[0].length;
           this.lat = this.parkedLat;
           this.lng = this.parkedLng;
           break;
@@ -1736,10 +1736,10 @@ export class MapComponent implements OnInit {
     }
     
     this.messageEvent.emit(this.zoneData);
-    for(var i=0; i< Object.keys(this.Zones.features).length; i++){
+    for(var i=0; i< Object.keys(this.Zones[0]).length; i++){
       
-      if(this.Zones.features[i].properties.zone == this.zoneData.zoneTitle){
-        this.zone = this.Zones.features[i];
+      if(this.Zones[0][i].properties.zone == this.zoneData.zoneTitle){
+        this.zone = this.Zones[0][i];
         break;
       }
     }
