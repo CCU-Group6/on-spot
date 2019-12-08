@@ -1,23 +1,38 @@
-#registerTitle{
-  padding: 20px;
-  margin: 60px auto 0px auto;
+.centered-content{
+  padding: 5% 8%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  -webkit-box-align: center;
+  box-sizing: border-box;
+  max-width: 100%;  
+  min-height: 640px;
+}
+
+#title{
+  padding: 5% 0%;
   font-size: 36px;
   font-weight: 1000;
   text-align: center;
-  min-width: 150px;
-  max-width: 500px;
+  color: #647c84;
+}
+
+.subtitle {
+  font-size: 20px;
+  text-align: center;
+  margin-top: 10px;
 }
 
 #register_form {
   display: flex;
   flex-direction: column;
-  width: 80%;
-  margin: 30px auto 0px auto;
+  width: 100%;
 }
 
 .form-control {
   text-align: center;
   height: 50px;
+  margin-top: 17px;
 }
 
 #next_button {
@@ -25,16 +40,7 @@
   height: 50px;
   font-size: 1.2rem;
   margin: 0px auto;
-}
-
-.centered-content{
-  padding-top: 5%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  -webkit-box-align: center;
-  box-sizing: border-box;
-  max-width: 100%;  
+  background-color: #647c84;
 }
 
 #writtenButton{

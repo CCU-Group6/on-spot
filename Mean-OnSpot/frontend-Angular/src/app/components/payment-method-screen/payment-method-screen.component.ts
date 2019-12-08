@@ -22,16 +22,14 @@ export class PaymentMethodScreenComponent implements OnInit {
   }
 
   registerInformation(){
+    this.registerService.setPaymentMethod(this.paymentMethod);
+
     const f = this.registerService.getRegisterInformation();
     var name = f.name;
     var password = f.password;
     var phonenumber = f.phoneNumber;
     var email = f.email;
-    console.log(email);
-    
     var licensePlate = f.licensePlate
-
-    this.registerService.setPaymentMethod(this.paymentMethod);
 
     this.userService.createUser(name, password,
       phonenumber, email, licensePlate, this.paymentMethod)

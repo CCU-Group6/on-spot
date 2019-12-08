@@ -17,10 +17,10 @@ export class RegisterService {
     this.email = values.email;
     this.password = values.password;
   }
-
+  
   setPersonalInformation(values){
     this.phoneNumber = values.phoneNumber;
-    this.email = values.email;
+    this.name = values.name;
     this.licensePlate = values.licensePlate;
   }
 
