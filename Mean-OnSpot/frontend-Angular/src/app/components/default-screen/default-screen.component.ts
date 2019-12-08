@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject} from '@angular/core';
+import { Component, OnInit, Inject, Output, EventEmitter} from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
 import { PopupScreenComponent } from '../popup-screen/popup-screen.component';
@@ -20,9 +20,7 @@ export class DefaultScreenComponent implements OnInit {
     "zoneColor": ""
   };
   userDetails;
-
-  animal: string;
-  name: string;
+  @Output() parkedEvent = new EventEmitter<boolean>();
 
   constructor(private userService: UserService, private router: Router, public dialog: MatDialog, private paymentService: PaymentServiceService) {
     this.isSelected = false;
@@ -71,6 +69,8 @@ export class DefaultScreenComponent implements OnInit {
     });
 
     setTimeout(() => dialogRef.close(), 2500)
+
+    this.parkedEvent.emit(true);
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');

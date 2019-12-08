@@ -37,13 +37,15 @@ export class UserService {
     return this.webService.getWithPermission('userProfile');
   }
 
-  setConfirmParking(bool: boolean){
-    console.log('setConfirmParking');
-    
+  setConfirmParking(bool: boolean){    
     this.confirmParking = bool;
   }
 
   getConfirmParking(){
     return this.confirmParking;
+  }
+
+  getZones(){
+    return this.webService.get('Zones', this.noAuthHeader);
   }
 }
