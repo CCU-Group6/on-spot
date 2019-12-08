@@ -3,12 +3,16 @@
 
 <div *ngIf = "lat && lng">
 
-    <agm-map [latitude] = "lat" [longitude] = "lng" [zoom]="16" [disableDefaultUI] = "bool" [streetViewControl]="false" [styles] = "mapStyle">
+    <agm-map [latitude] = "lat" [longitude] = "lng" [zoom]="mapZoom" [disableDefaultUI] = "bool" [streetViewControl]="false" [styles] = "mapStyle" (zoomChange) = "zoomChange($event)">
+        <agm-data-layer [geoJson] = "Zones" (layerClick) = "onZoneClick($event)" [style] = "styleFunc" (parkedEvent) = "zoneParkingCommited(-1, $event)">
+            <agm-overlay *ngFor= "let item of Zones.features;let i = index" [latitude] = "latMid(item)" [longitude] = "lngMid(item)">
+                <div class="layerSpots" *ngIf = "mapZoom>14" class="zoneInformation">{{item.properties.spots}}/100</div>
+            </agm-overlay>
+        </agm-data-layer>
 
-        <agm-data-layer [geoJson] = "Zones" (layerClick) = "onZoneClick($event)"></agm-data-layer>
-        <agm-marker [latitude] = "lat" [longitude] = "lng">
-        </agm-marker>
-
+        <div *ngIf = "parked">   
+            <agm-marker [latitude] = "parkedLat" [longitude] = "parkedLng"></agm-marker>
+        </div>
     </agm-map>
 
 </div>

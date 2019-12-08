@@ -12,7 +12,7 @@ mobiscroll.settings = {
   styleUrls: ['./parking-time-screen.component.css']
 })
 export class ParkingTimeScreenComponent implements OnInit {
-  public title = "Tempo de Estacionar";
+  public title = "Tempo de Estacionamento";
   public backLink = "";
   public frontLink;
 
@@ -27,6 +27,10 @@ export class ParkingTimeScreenComponent implements OnInit {
   }
 
   timespanInlineSettings: MbscTimespanOptions = {
-      display: 'inline'
+    wheelOrder: 'hhii',
+    display: 'inline',
+    max:14400000,
+    min:60000
   };
+
 }

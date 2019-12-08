@@ -26,6 +26,7 @@ import { ConfirmScreenComponent } from './components/confirm-screen/confirm-scre
 import { DiscountScreenComponent } from './components/discount-screen/discount-screen.component';
 import { PopupScreenComponent } from './components/popup-screen/popup-screen.component';
 import { MapComponent } from './components/map/map.component';
+import { AgmOverlays } from "agm-overlays"
 
 
 @NgModule({
@@ -59,6 +60,7 @@ import { MapComponent } from './components/map/map.component';
     MatButtonModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    AgmOverlays,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCVJFjI_1hipSPAtGzloqu4JKLahI2z6JI'
     })

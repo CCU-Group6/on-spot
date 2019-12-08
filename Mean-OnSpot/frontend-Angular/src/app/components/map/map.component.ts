@@ -1,8 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { GoogleMapsAPIWrapper, AgmMap, LatLngBounds, LatLngBoundsLiteral} from '@agm/core';
-import { environment } from '../../../environments/environment';
-import * as mapboxgl from 'mapbox-gl';
-import { style } from '@angular/animations';
+import { PaymentServiceService } from 'src/app/services/payment-service.service';
 
 
 
@@ -15,7 +13,6 @@ import { style } from '@angular/animations';
 export class MapComponent implements OnInit {
   // map: mapboxgl.Map;
   // style = 'mapbox://styles/mapbox/streets-v11';
-
   mapStyle = [
     {
       "elementType": "geometry",
@@ -258,7 +255,13 @@ export class MapComponent implements OnInit {
   ]
   public lat =  38.73674521461237;
   public lng =  -9.1386079788208;
-  public bool = true;
+
+  public parkedLat;
+  public parkedLng;
+  public mapZoom = 15;
+
+  public parked = false;
+  public zone;
 
   //bastante badalhoco click on '-' to not see this
   public Zones: Object = {
@@ -1686,56 +1689,82 @@ export class MapComponent implements OnInit {
       }
     ]
   };
-
+  
   zoneData
 
   @Output() messageEvent = new EventEmitter<object>();
 
-  constructor() { }
+  constructor(private paymentService: PaymentServiceService) { 
+  }
 
   ngOnInit() {
-    // var url = this.Zones
-    // Object.getOwnPropertyDescriptor(mapboxgl, "accessToken").set('pk.eyJ1IjoiaGxmZXJyZWlyYSIsImEiOiJjazN2aXloMHYwbWFyM21waWhoY255NzF1In0.Koj_fvIbCCUV4SQ48VL1qg');
-    // this.map = new mapboxgl.Map({
-    //     container: 'map',
-    //     style: this.style,
-    //     zoom: 16,
-    //     center: [this.lng, this.lat]
-    // });
-    // // Add map controls
-    // this.map.addControl(new mapboxgl.NavigationControl());
-    
-    // this.map.addSource('zones', {
-    //   "type": 'geojson',
-    //   "data": "https://api.mapbox.com/datasets/v1/hlferreira/ck3vp0iu407jv2ip9y45z3gx5/?access_token=pk.eyJ1IjoiaGxmZXJyZWlyYSIsImEiOiJjazN2aXloMHYwbWFyM21waWhoY255NzF1In0.Koj_fvIbCCUV4SQ48VL1qg"
-    // });
-    
-    // this.map.addLayer({
-    //   "id": "zones",
-    //   "type": "fill",
-    //   "source": 'zones',
-    //   "layout": {},
-    //   "paint": {
-    //     "fill-color": "#627BC1",
-    //     "fill-opacity": ["case",
-    //     ["boolean", ["feature-state", "hover"], false],
-    //     1,
-    //     0.5]
-    //   }
-    // });
-    // console.log(this.map);
+    //this should be in the database
+    if(this.paymentService.getParkingInformations()){
+      this.parked = true;
+      var a = this.paymentService.getParkingInformations();
+
+      
+      for(var i=0; i< Object.keys(this.Zones.features).length; i++){
+        if(this.Zones.features[i].properties.zone == a.zoneTitle){
+          this.Zones.features[i].properties.spots = parseInt(this.Zones.features[i].properties.spots) - 1;
+
+          var lt = 0;
+          var lg = 0;
+          //find the average point of a zone
+          console.log(this.Zones.features[i].geometry.coordinates[0]);
+          
+          for(var j = 0; j < this.Zones.features[i].geometry.coordinates[0].length; j++){
+            lg += this.Zones.features[i].geometry.coordinates[0][j][0];
+            lt += this.Zones.features[i].geometry.coordinates[0][j][1];
+          }
+          this.parkedLng = lg/this.Zones.features[i].geometry.coordinates[0].length;
+          this.parkedLat = lt/this.Zones.features[i].geometry.coordinates[0].length;
+          this.lat = this.parkedLat;
+          this.lng = this.parkedLng;
+          break;
+        }
+      }
+    }
   }
 
   onZoneClick(event){
     this.zoneData = {
       "zoneTitle": event.feature.h.zone, 
       "zoneCharge": event.feature.h.charge, 
-      "zoneColor": event.feature.h.color
+      "zoneColor": event.feature.h.color,
+      "parkingSpots": event.feature.getProperty('spots')
     }
-    console.log(this.zoneData);
     
     this.messageEvent.emit(this.zoneData);
+    for(var i=0; i< Object.keys(this.Zones.features).length; i++){
+      
+      if(this.Zones.features[i].properties.zone == this.zoneData.zoneTitle){
+        this.zone = this.Zones.features[i];
+        break;
+      }
+    }
+    
+    var lt = 0;
+    var lg = 0;
+    //find the average point of a zone
+    for(var i = 0; i < this.zone.geometry.coordinates[0].length; i++){
+      lg += this.zone.geometry.coordinates[0][i][0];
+      lt += this.zone.geometry.coordinates[0][i][1];
+    }
+    
+    this.lng = lg/this.zone.geometry.coordinates[0].length;
+    this.lat = lt/this.zone.geometry.coordinates[0].length;
   }
+
+  styleFunc(feature) {
+    if(feature.getProperty('color') == 'Amarela')
+      return ({ fillColor: 'yellow', strokeWeight: 1})
+    else if(feature.getProperty('color') == 'Verde')
+      return ({ fillColor: 'green', strokeWeight: 1})
+    else if(feature.getProperty('color') == 'Vermelha')
+      return ({ fillColor: 'red', strokeWeight: 1})
+    }
+    
 
   onChoseLocation(event){
     console.log(event);
@@ -1744,8 +1773,41 @@ export class MapComponent implements OnInit {
     this.lng = event.coords.lng;
   }
 
+  zoomChange(event){
+    console.log(event);
+    this.mapZoom = event;
+  }
 
-  mapIdle() {
-    console.log('idle');
+  zoneParkingCommited(spotNumber:number, event){
+    var spots = event.feature.getProperty('spots')
+    event.feature.setProperty('spots', spots + spotNumber);
+    console.log(event.feature.getProperty('spots'));
+    
+  }
+
+  //returns the mid point of the zone
+  latMid(item){
+    var lt = 0;
+    for(var j = 0; j < item.geometry.coordinates[0].length; j++){
+          lt += item.geometry.coordinates[0][j][1];
+        }
+    return lt/item.geometry.coordinates[0].length;
+  }
+
+  lngMid(item){
+    
+    var lg = 0;
+    for(var j = 0; j < item.geometry.coordinates[0].length; j++){
+          lg += item.geometry.coordinates[0][j][0];
+        }
+
+    
+    return lg/item.geometry.coordinates[0].length;
+  }
+
+  fontSize(){
+    console.log(5*this.mapZoom/12);
+    
+    return 5*this.mapZoom/12
   }
 }
