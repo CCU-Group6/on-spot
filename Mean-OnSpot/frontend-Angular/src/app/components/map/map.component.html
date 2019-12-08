@@ -5,7 +5,7 @@
 
     <agm-map [latitude] = "lat" [longitude] = "lng" [zoom]="16" [disableDefaultUI] = "bool" [streetViewControl]="false" [styles] = "mapStyle">
 
-        <agm-data-layer [geoJson] = "Zones" (layerClick) = "onZoneClick($event)"></agm-data-layer>
+        <agm-data-layer [geoJson] = "Zones" (layerClick) = "onZoneClick($event)" [style] = "styleFunc"></agm-data-layer>
         <agm-marker [latitude] = "lat" [longitude] = "lng">
         </agm-marker>
 

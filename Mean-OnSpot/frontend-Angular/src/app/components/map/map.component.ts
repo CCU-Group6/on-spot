@@ -15,7 +15,6 @@ import { style } from '@angular/animations';
 export class MapComponent implements OnInit {
   // map: mapboxgl.Map;
   // style = 'mapbox://styles/mapbox/streets-v11';
-
   mapStyle = [
     {
       "elementType": "geometry",
@@ -1686,7 +1685,7 @@ export class MapComponent implements OnInit {
       }
     ]
   };
-
+  
   zoneData
 
   @Output() messageEvent = new EventEmitter<object>();
@@ -1732,6 +1731,7 @@ export class MapComponent implements OnInit {
       "zoneCharge": event.feature.h.charge, 
       "zoneColor": event.feature.h.color
     }
+    console.log(event);
     
     this.messageEvent.emit(this.zoneData);
     var zone;
@@ -1745,22 +1745,25 @@ export class MapComponent implements OnInit {
     
     var lt = 0;
     var lg = 0;
-    console.log(zone[0][0]);
-    
+    //find the average point of a zone
     for(var i = 0; i < zone[0].length; i++){
-      console.log(zone[0][i][0]);
-      console.log(lt);
-      
       lg += zone[0][i][0];
       lt += zone[0][i][1];
-
     }
-    console.log(lt);
     
     this.lat = lt/zone[0].length;
     this.lng = lg/zone[0].length;
-
   }
+
+  styleFunc(feature) {
+    if(feature.getProperty('color') == 'Amarela')
+      return ({ fillColor: 'yellow', strokeWeight: 1})
+    else if(feature.getProperty('color') == 'Verde')
+      return ({ fillColor: 'green', strokeWeight: 1})
+    else if(feature.getProperty('color') == 'Vermelha')
+      return ({ fillColor: 'red', strokeWeight: 1})
+    }
+    
 
   onChoseLocation(event){
     console.log(event);
