@@ -2,12 +2,12 @@
 <div class="centered-content">
     <div id = "confirmHeader">
         <h1 id = "selectedZone">{{paymentInfo.zoneTitle}}</h1>
-        <td id = "parkingTime">{{paymentInfo.parkingTime}}H</td>
+        <td id = "parkingTime">{{paymentInfo.parkingTime}} H</td>
         <td id = "zoneType">Zona {{paymentInfo.zoneColor}}</td>
     </div>
     <div id = "moneyContainer">
         <div id = "parkingCost">{{paymentInfo.price}}€</div>
-        <div id = "discountButton" class="writtenButton" [routerLink] = "['/discountScreen']">Quer Descontar?</div>
+        <div id = "discountButton" class="writtenButton" [routerLink] = "['/discountScreen']">Aplicar Desconto</div>
     </div>
     <div id = "confirmFooter">
         <h1 id = "paymentMethod">{{paymentMethod}}</h1>

@@ -1,7 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { GoogleMapsAPIWrapper, AgmMap, LatLngBounds, LatLngBoundsLiteral} from '@agm/core';
 import { environment } from '../../../environments/environment';
-import * as mapboxgl from 'mapbox-gl';
 import { style } from '@angular/animations';
 
 
