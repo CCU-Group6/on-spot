@@ -65,6 +65,10 @@ export class DefaultScreenComponent implements OnInit {
     result.style.bottom = '50%';
   }
 
+  closeInformations(){
+    document.getElementById('zoneInformations').style.height = "0";
+  }
+
   openDialog(): void {
     const dialogRef = this.dialog.open(PopupScreenComponent, {
       width: '250px',
@@ -84,7 +88,7 @@ export class DefaultScreenComponent implements OnInit {
     this.message = event;
     console.log(this.message.zoneTitle);
     
-    document.getElementById("zoneInformations").style.height = "25vh";
+    document.getElementById("zoneInformations").style.height = "25%";
   }
 
   setZoneInformation(){

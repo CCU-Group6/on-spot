@@ -19,12 +19,15 @@
   <div class="centered-content">
     <app-map (messageEvent) = "receiveMessage($event)"></app-map>
     <div id="zoneInformations" >
+        <span id="scroll_image" (click)="closeInformations()">
+            <img id="scroll_image" src="assets/img/scroll_down.png" width="64px" (click)="closeInformations()"/>
+        </span>
         <div id="zoneText">
           <div id="zoneTitle">{{message.zoneTitle}}</div>
           <div id="zoneCharge">{{message.zoneCharge}}€/h</div>
           <div id="zoneColor">Zona {{message.zoneColor}}</div>
         </div>
-        <button mat-raised-button (click) = "setZoneInformation()" id = "parkButton" [routerLink]="['/parkingTimeScreen']">Estacionar</button>
+        <button mat-raised-button (click) = "setZoneInformation()" id = "parkButton" class="btn btn-primary" [routerLink]="['/parkingTimeScreen']">Estacionar</button>
     </div>
   </div>
 </body>

@@ -168,21 +168,24 @@ body{
 }
 
 #parkButton{
-  position: absolute;
-  bottom: 20px;
-  width: 330px;
-  margin-left: 10vw;
+  width: 80%;
+  height: 40px;
+  font-size: 1.2rem;
+  background-color: #647c84;
+  position: relative;
+  margin-top: 2%;
+  margin-left: 10%;
+}
+
+#scroll_image{
+  margin-left: 21%;
 }
 
 #zoneText{
-  border-style: solid;
-  border-width: 5px;
-  border-color: white;
-  border-radius: 10px;
   text-align: center;
   width: 45vw;
-  margin-top: 2vh;
-  margin-left: 27.5vw;
+  margin-top: 1%;
+  margin-left: 27.5%;
 }
 
 #zoneInformations{
@@ -193,7 +196,7 @@ body{
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: #637C87;
+  background-color: white;
   overflow: hidden;
   height: 0;
   transition: .5s ease;
