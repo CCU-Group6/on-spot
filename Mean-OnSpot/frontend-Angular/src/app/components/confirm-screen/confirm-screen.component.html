@@ -2,7 +2,7 @@
 <div class="centered-content">
     <div id = "confirmHeader">
         <h1 id = "selectedZone">{{paymentInfo.zoneTitle}}</h1>
-        <td id = "parkingTime">{{paymentInfo.parkingTime}} H</td>
+        <td id = "parkingTime">Tempo de Estacionamento : {{paymentInfo.parkingTime}}</td>
         <td id = "zoneType">Zona {{paymentInfo.zoneColor}}</td>
     </div>
     <div id = "moneyContainer">
@@ -11,7 +11,7 @@
     </div>
     <div id = "confirmFooter">
         <h1 id = "paymentMethod">{{paymentMethod}}</h1>
-        <h2 id = "alterar">Alterar</h2>
+        <h2 id = "alterar">Alterar método de pagamento</h2>
         <td>
             <button mat-button [routerLink] = "['/defaultScreen']">Cancelar</button>    
             <button mat-button (click) = "onConfirm()" [routerLink] = "['/defaultScreen']">Confirmar</button>

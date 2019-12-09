@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { min } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -23,9 +24,20 @@ export class PaymentServiceService {
     this.zoneColor = zoneColor;
   }
 
-  setParkingTime(parkingTime){
-    this.parkingTime = parkingTime;
+  setParkingInfo(parkingTime, parkingPrice){
+    this.parkingTime = parkingTime; //This time is in milliseconds
+    this.price = parkingPrice;
   }
+   msToTime(parkingTime) {
+    var  minutes = (Math.floor((parkingTime/(1000*60))%60)).toString()
+        , hours = (Math.floor((parkingTime/(1000*60*60))%24)).toString();
+
+    hours = (parseInt(hours) < 10) ? "0" + hours : hours;
+    minutes = (parseInt(minutes) < 10) ? "0" + minutes : minutes;
+  console.log("horas", hours);
+  console.log("mins",minutes);
+    return hours + " : " + minutes;
+}
 
   setDiscount(discount){
     this.discount = discount;
@@ -33,8 +45,8 @@ export class PaymentServiceService {
   
   getParkingInformations(){
 
-    this.price = parseFloat(this.zoneCharge)*this.parkingTime - this.discount;
-    console.log(parseFloat(this.zoneCharge)*this.parkingTime - this.discount);
+    //this.price = parseFloat(this.zoneCharge)*this.parkingTime - this.discount;
+    //console.log(parseFloat(this.zoneCharge)*this.parkingTime - this.discount);
     
     return {
       zoneTitle: this.zoneTitle,

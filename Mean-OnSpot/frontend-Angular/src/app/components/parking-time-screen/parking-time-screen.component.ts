@@ -48,7 +48,10 @@ export class ParkingTimeScreenComponent implements OnInit {
     max:14400000,
     min:60000,
     onChange: (event, inst) => {
-      this.selectedTime.price = (inst.getVal()*this.selectedTime.zoneCharge)/3600000
+      this.selectedTime.price = (inst.getVal()*this.selectedTime.zoneCharge)/3600000;
+      var price = this.selectedTime.price;
+      this.paymentService.setParkingInfo(inst.getVal(), this.selectedTime.price);
+
     }
   };
 
