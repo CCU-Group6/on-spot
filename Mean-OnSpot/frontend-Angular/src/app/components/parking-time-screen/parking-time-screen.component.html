@@ -1,10 +1,19 @@
-<app-phone-header [rtLink] = "backLink" [title] = "title"></app-phone-header>
+<button mat-button class="backbutton" routerLink="{{rtLink}}"><img src="assets/img/go_back_color.png" width="32px"
+        color="#647c84" />Anterior</button>
+
 <div class="centered-content">
+    <h2 id="title">
+        Tempo de Estacionamento
+    </h2>
+
     <mbsc-form>
-        <mbsc-timespan id = "time" [(ngModel)]="timespanInline" [options]="timespanInlineSettings"></mbsc-timespan>
+        <mbsc-timespan id="time" [(ngModel)]="timespanInline" [options]="timespanInlineSettings"></mbsc-timespan>
     </mbsc-form>
+
+    <div class="subtitle">Valor a pagar</div>
+
+    <div class="parkingPrice">{{selectedTime.price}}€</div>
+
+    <button type="button" id="next_button" class="btn btn-primary" [routerLink]="frontLink">Seguinte
+    </button>
 </div>
-
-<div class ="parkingPrice" >Price to pay:{{selectedTime.price}}€</div>
-
-<app-phone-footer [rtLink] = "frontLink"></app-phone-footer>
