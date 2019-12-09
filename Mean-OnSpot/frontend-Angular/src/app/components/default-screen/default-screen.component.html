@@ -15,7 +15,7 @@
 
 <body (click) = "closeMenu()">
   <div class="centered-content">
-    <app-map (click) = "openZoneInformations()" (messageEvent) = "receiveMessage($event)"></app-map>
+    <app-map (messageEvent) = "receiveMessage($event)"></app-map>
     <div id="zoneInformations" >
         <div id="zoneTitle">{{message.zoneTitle}}</div>
         <div id="zoneCharge">Tarifa: {{message.zoneCharge}}h</div>
