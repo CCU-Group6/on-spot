@@ -1,32 +1,40 @@
+<button mat-button class="backbutton" routerLink="{{rtLink}}"><img src="assets/img/go_back_color.png" width="32px"
+    color="#647c84" />Anterior</button>
 <div class="centered-content">
-    <h2 id="registerTitle">
-        Preencha os Seguintes Dados
-    </h2>
-  
-    <form id="register_form">
-      <div class="form-group">
-        <label>Introduza o seu Nome</label>
-        <input type="text" [(ngModel)]="name" name="name" class="form-control" placeholder="Nome">
-      </div>
-  
-      <div class="form-group">
-        <label>Introduza o seu Número de Telemóvel</label>
-        <input type="text" [(ngModel)]="phoneNumber" name="phoneNumber" class="form-control" placeholder="Telemóvel">
-      </div>
-  
-      <div class="form-group">
-        <label>Introduza a Matrícula do seu Veículo</label>
-        <input type="text" [(ngModel)]="licensePlate" name="licensePlate" class="form-control"
-          placeholder="Matrícula">
-      </div>
-  
-      <div *ngIf="invalidMessage" class="alert alert-dismissible alert-danger">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <strong>{{invalidMessage}}</strong>
-      </div>
-  
-      <button id="next_button" class="btn btn-primary" (click)="registerInformation()">Seguinte
-      </button>
 
-    </form>
-  </div>
+  <h2 id="title">
+    Bem vindo à OnSpot
+  </h2>
+
+  <h3 class="subtitle">
+    Introduza os Seguintes Dados Adicionais
+  </h3>
+
+  <form id="register_form">
+    <div class="form-group">
+      <input type="text" [(ngModel)]="name" name="name" class="form-control" placeholder="Nome">
+    </div>
+
+    <div class="form-group">
+      <input type="text" [(ngModel)]="phoneNumber" name="phoneNumber" class="form-control" placeholder="Telemóvel">
+    </div>
+
+    <div class="form-group">
+      <input type="text" [(ngModel)]="licensePlate" name="licensePlate" class="form-control" placeholder="Matrícula">
+    </div>
+
+    <div *ngIf="invalidMessage; else elseBlock" class="alert alert-dismissible alert-danger">
+      <strong>{{invalidMessage}}</strong>
+    </div>
+
+    <ng-template #elseBlock>
+      <div class="alert alert-dismissible">
+        <strong>AAAAAAAAAAAAAAAAAAAAAAAAA AAAAAAAAAAAAAAAAAAAAAAAAAA</strong>
+      </div>
+    </ng-template>
+
+    <button type="button" id="next_button" class="btn btn-primary" (click)="registerInformation()">Seguinte
+    </button>
+
+  </form>
+</div>

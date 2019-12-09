@@ -1,23 +1,34 @@
 <div class="centered-content">
-    <div class = "logo">
-      <img id="logo_img" src="assets/img/logo.png" width="150px"/>
-    </div>
-    <form class = "centeredZone" (submit) = "checkUser(ngForm)" #ngForm = "ngForm">
-        <mat-form-field class = "loginMatFormField">
-          <input class = "loginInput" id="phone_number" matInput placeholder = "Phone Number" name = "phoneNumber" ngModel required #phoneErr = "ngModel">
-          <mat-error *ngIf = "phoneErr.invalid">You must write a Phone Number</mat-error>
-          <mat-error *ngIf = "showErrorMessage">{{showErrorMessage}}</mat-error>
-        </mat-form-field>
-        <mat-form-field class = "loginMatFormField">
-          <input matInput type = "password" placeholder = "Password" name = "password" ngModel required #passwordErr = "ngModel">
-          <mat-error *ngIf = "passwordErr.invalid">You must Have a Password</mat-error>
-        </mat-form-field>
-        <mat-error *ngIf = "showErrorMessage">Número de Telefone ou Password Erradas</mat-error>
-      <button mat-raised-button type = "submit" class = "bigButton" id = "loginButton">Entrar</button>
-    </form>
 
-    <div id="registerContainer">
-      <h1 id = "writtenQuestion">Não tens conta?</h1>
-      <button class = "writtenButton" routerLink = "/registerAccount">Regista-te aqui!</button>
+  <img id="logo_img" src="assets/img/logo.png" width="150px" />
+
+  <h2 id="title">OnSpot</h2>
+
+  <form id="login_form">
+    <div class="form-group">
+      <input type="text" [(ngModel)]="phoneNumber" name="phoneNumber" class="form-control" placeholder="Número de Telefone">
     </div>
+
+    <div class="form-group">
+      <input type="password" [(ngModel)]="password" name="password" class="form-control" placeholder="Password">
+    </div>
+
+    <div *ngIf="invalidMessage; else elseBlock" class="alert alert-dismissible alert-danger">
+      <strong>{{invalidMessage}}</strong>
+    </div>
+
+    <ng-template #elseBlock>
+      <div class="alert alert-dismissible">
+        <strong>AAAAAAAAAAAAAAAAAAAAAAAAA AAAAAAAAAAAAAAAAAAAAAAAAAA</strong>
+      </div>
+    </ng-template>
+
+    <button type="button" id="next_button" class="btn btn-primary" (click)="checkUser()">Entrar
+    </button>
+  </form>
+
+  <div id="registerContainer">
+    <h1 id="writtenQuestion">Não tens conta?</h1>
+    <button class="writtenButton" routerLink="/registerAccount">Regista-te aqui!</button>
+  </div>
 </div>

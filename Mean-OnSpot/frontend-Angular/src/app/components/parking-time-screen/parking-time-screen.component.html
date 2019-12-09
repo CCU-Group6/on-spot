@@ -1,8 +1,10 @@
 <app-phone-header [rtLink] = "backLink" [title] = "title"></app-phone-header>
 <div class="centered-content">
     <mbsc-form>
-        <mbsc-timespan [(ngModel)]="timespanInline" [options]="timespanInlineSettings"></mbsc-timespan>
+        <mbsc-timespan id = "time" [(ngModel)]="timespanInline" [options]="timespanInlineSettings"></mbsc-timespan>
     </mbsc-form>
 </div>
-<div class ="parkingPrice">Price calculated:</div>
+
+<div class ="parkingPrice" >Price to pay:{{selectedTime.price}}€</div>
+
 <app-phone-footer [rtLink] = "frontLink"></app-phone-footer>

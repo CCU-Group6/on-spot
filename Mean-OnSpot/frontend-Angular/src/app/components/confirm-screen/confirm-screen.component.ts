@@ -16,7 +16,7 @@ export class ConfirmScreenComponent implements OnInit {
     zoneCharge: "",
     zoneColor: "",
     price: 0.0,
-    parkingTime: 0,
+    parkingTime: "",
     discount: 0.0,
   }
 
@@ -38,9 +38,8 @@ export class ConfirmScreenComponent implements OnInit {
     this.paymentInfo.zoneCharge = p.zoneCharge;
     this.paymentInfo.zoneColor = p.zoneColor;
     this.paymentInfo.price = p.price;
-    this.paymentInfo.parkingTime = p.parkingTime;
+    this.paymentInfo.parkingTime = this.paymentService.msToTime(p.parkingTime);
     this.paymentInfo.discount = p.discount;
-    console.log(this.paymentInfo.price);
     
   }
 
