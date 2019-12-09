@@ -1703,6 +1703,9 @@ export class MapComponent implements OnInit {
       this.parked = true;
       var a = this.paymentService.getParkingInformations();
 
+      for(let feature in this.Zones)
+        console.log(this.Zones.features);
+         
       
       for(var i=0; i< Object.keys(this.Zones.features).length; i++){
         if(this.Zones.features[i].properties.zone == a.zoneTitle){
