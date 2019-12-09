@@ -46,10 +46,12 @@ export class DefaultScreenComponent implements OnInit {
   }
 
   openMenu(){
+    document.getElementById("menuIcon").style.zIndex = "-1";
     document.getElementById("sideMenu").style.width = "250px";
   }
 
   closeMenu(){
+    document.getElementById("menuIcon").style.zIndex = "1";
     document.getElementById("sideMenu").style.width = "0px";
   }
 
@@ -82,7 +84,7 @@ export class DefaultScreenComponent implements OnInit {
     this.message = event;
     console.log(this.message.zoneTitle);
     
-    document.getElementById("zoneInformations").style.height = "300px";    
+    document.getElementById("zoneInformations").style.height = "25vh";
   }
 
   setZoneInformation(){
