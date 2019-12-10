@@ -274,8 +274,8 @@ export class MapComponent implements OnInit {
         "color": "Amarela",
         "spots": "100",
         "center": [
-          -9.138221740722656,
-          38.74223494040912
+          -9.14011001586914,
+          38.74169937598144
         ]
       },
       "geometry": {
@@ -362,8 +362,8 @@ export class MapComponent implements OnInit {
         "color": "Amarela",
         "spots": "80",
         "center": [
-          -9.144659042358398,
-          38.740628235076095
+          -9.14637565612793,
+          38.74002571125633
         ]
       },
       "geometry": {
@@ -414,8 +414,8 @@ export class MapComponent implements OnInit {
         "color": "Amarela",
         "spots": "97",
         "center": [
-          -9.14113998413086,
-          38.73527228955385
+          -9.142513275146484,
+          38.735071433783396
         ]
       },
       "geometry": {
@@ -502,8 +502,8 @@ export class MapComponent implements OnInit {
         "color": "Amarela",
         "spots": "77",
         "center": [
-          -9.148950576782227,
-          38.73768251474367
+          -9.151010513305664,
+          38.73701301590504
         ]
       },
       "geometry": {
@@ -554,8 +554,8 @@ export class MapComponent implements OnInit {
         "color": "Amarela",
         "spots": "63",
         "center": [
-          -9.14886474609375,
-          38.73262764333605
+          -9.150581359863281,
+          38.731991574575844
         ]
       },
       "geometry": {
@@ -618,8 +618,8 @@ export class MapComponent implements OnInit {
         "color": "Vermelha",
         "spots": "43",
         "center": [
-          -9.151439666748045,
-          38.73058550774531
+          -9.152383804321287,
+          38.72984898550344
         ]
       },
       "geometry": {
@@ -674,8 +674,8 @@ export class MapComponent implements OnInit {
         "color": "Verde",
         "spots": "41",
         "center": [
-          -9.135689735412598,
-          38.747423012865596
+          -9.138479232788086,
+          38.74712178025749
         ]
       },
       "geometry": {
@@ -714,8 +714,8 @@ export class MapComponent implements OnInit {
         "color": "Verde",
         "spots": "58",
         "center": [
-          -9.144444465637207,
-          38.74705483950528
+          -9.146203994750977,
+          38.746653193674206
         ]
       },
       "geometry": {
@@ -758,8 +758,8 @@ export class MapComponent implements OnInit {
         "color": "Verde",
         "spots": "89",
         "center": [
-          -9.149894714355469,
-          38.74551518488265
+          -9.153499603271484,
+          38.745314357918915
         ]
       },
       "geometry": {
@@ -898,8 +898,8 @@ export class MapComponent implements OnInit {
         "color": "Verde",
         "spots": "72",
         "center": [
-          -9.146547317504881,
-          38.7525437727448
+          -9.141654968261717,
+          38.750937299383246
         ]
       },
       "geometry": {
@@ -942,8 +942,8 @@ export class MapComponent implements OnInit {
         "color": "Verde",
         "spots": "56",
         "center": [
-          -9.146547317504881,
-          38.7525437727448
+          -9.148435592651367,
+          38.75167360416169
         ]
       },
       "geometry": {
@@ -986,8 +986,8 @@ export class MapComponent implements OnInit {
         "color": "Verde",
         "spots": "100",
         "center": [
-          -9.154186248779297,
-          38.75160666767746
+          -9.155473709106445,
+          38.750937299383246
         ]
       },
       "geometry": {
@@ -1070,8 +1070,8 @@ export class MapComponent implements OnInit {
         "color": "Amarela",
         "spots": "45",
         "center": [
-          -9.144315719604492,
-          38.72951420015602
+          -9.1461181640625,
+          38.7286437509105
         ]
       },
       "geometry": {
@@ -1146,8 +1146,8 @@ export class MapComponent implements OnInit {
         "color": "Amarela",
         "spots": "83",
         "center": [
-          -9.146461486816406,
-          38.72352127706034
+          -9.147834777832031,
+          38.72288512722238
         ]
       },
       "geometry": {
@@ -1266,8 +1266,8 @@ export class MapComponent implements OnInit {
         "color": "Amarela",
         "spots": "40",
         "center": [
-          -9.14238452911377,
-          38.72405697779443
+          -9.144144058227539,
+          38.72375564662567
         ]
       },
       "geometry": {
@@ -1366,8 +1366,8 @@ export class MapComponent implements OnInit {
         "color": "Amarela",
         "spots": "55",
         "center": [
-          -9.134659767150879,
-          38.73152288870735
+          -9.137105941772461,
+          38.73192461964005
         ]
       },
       "geometry": {
@@ -1494,8 +1494,8 @@ export class MapComponent implements OnInit {
         "color": "Verde",
         "spots": "80",
         "center": [
-          -9.135560989379883,
-          38.72586493812159
+          -9.13813591003418,
+          38.72603233954158
         ]
       },
       "geometry": {
@@ -1642,8 +1642,8 @@ export class MapComponent implements OnInit {
         "color": "Verde",
         "spots": "76",
         "center": [
-          -9.132213592529297,
-          38.73734776610883
+          -9.13461685180664,
+          38.73687911538422
         ]
       },
       "geometry": {
@@ -1766,8 +1766,8 @@ export class MapComponent implements OnInit {
         "color": "Vermelha",
         "spots": "60",
         "center": [
-          -9.154529571533203,
-          38.73915539009763
+          -9.155731201171875,
+          38.73895454524709
         ]
       },
       "geometry": {
@@ -1838,8 +1838,8 @@ export class MapComponent implements OnInit {
         "color": "Verde",
         "spots": "76",
         "center": [
-          -9.1571044921875,
-          38.743239112884744
+          -9.158649444580078,
+          38.742435776033936
         ]
       },
       "geometry": {
@@ -1934,8 +1934,8 @@ export class MapComponent implements OnInit {
         "color": "Verde",
         "spots": "88",
         "center": [
-          -9.166717529296875,
-          38.746653193674206
+          -9.168691635131836,
+          38.74584989523363
         ]
       },
       "geometry": {
@@ -2022,8 +2022,8 @@ export class MapComponent implements OnInit {
         "color": "Verde",
         "spots": "68",
         "center": [
-          -9.163455963134766,
-          38.73808421103445
+          -9.16560173034668,
+          38.73774946428237
         ]
       },
       "geometry": {
@@ -2090,8 +2090,8 @@ export class MapComponent implements OnInit {
         "color": "Vermelha",
         "spots": "45",
         "center": [
-          -9.153156280517578,
-          38.72850983470067
+          -9.154443740844727,
+          38.72703673982525
         ]
       },
       "geometry": {
@@ -2158,8 +2158,8 @@ export class MapComponent implements OnInit {
         "color": "Amarela",
         "spots": "72",
         "center": [
-          -9.158649444580078,
-          38.73225939369151
+          -9.160194396972654,
+          38.731455933332256
         ]
       },
       "geometry": {
@@ -3002,8 +3002,8 @@ export class MapComponent implements OnInit {
         "color": "Amarela",
         "spots": "7",
         "center": [
-          -9.13564682006836,
-          38.74216799507531
+          -9.135432243347168,
+          38.74183326746493
         ]
       },
       "geometry": {
@@ -5698,12 +5698,9 @@ export class MapComponent implements OnInit {
           //find the average point of a zone
           console.log(this.layer[0][i].geometry.coordinates[0]);
           
-          for(var j = 0; j < this.layer[0][i].geometry.coordinates[0].length; j++){
-            lg += this.layer[0][i].geometry.coordinates[0][j][0];
-            lt += this.layer[0][i].geometry.coordinates[0][j][1];
-          }
-          this.parkedLng = lg/this.layer[0][i].geometry.coordinates[0].length;
-          this.parkedLat = lt/this.layer[0][i].geometry.coordinates[0].length;
+         
+          this.parkedLng = this.layer[0][i].properties.center[1];
+          this.parkedLat = this.layer[0][i].properties.center[0];
           this.lat = this.parkedLat;
           this.lng = this.parkedLng;
           break;
@@ -5719,7 +5716,7 @@ export class MapComponent implements OnInit {
       "zoneColor": event.feature.h.color,
       "parkingSpots": event.feature.getProperty('spots')
     }
-    
+
     this.messageEvent.emit(this.zoneData);
     for(var i=0; i< Object.keys(this.layer[0]).length; i++){
       
@@ -5732,13 +5729,9 @@ export class MapComponent implements OnInit {
     var lt = 0;
     var lg = 0;
     //find the average point of a zone
-    for(var i = 0; i < this.zone.geometry.coordinates[0].length; i++){
-      lg += this.zone.geometry.coordinates[0][i][0];
-      lt += this.zone.geometry.coordinates[0][i][1];
-    }
     
-    this.lng = lg/this.zone.geometry.coordinates[0].length;
-    this.lat = lt/this.zone.geometry.coordinates[0].length;
+    this.lng = this.zone.center[1];
+    this.lat = this.zone.center[0];
 
     this.styleFunc(event.feature)
   }
@@ -5780,22 +5773,17 @@ export class MapComponent implements OnInit {
 
   //returns the mid point of the zone
   latMid(item){
-    var lt = 0;
-    for(var j = 0; j < item.geometry.coordinates[0].length; j++){
-          lt += item.geometry.coordinates[0][j][1];
-        }
-    return lt/item.geometry.coordinates[0].length;
+
+        
+
+    return item.properties.center[1]-0.0005;
   }
 
   lngMid(item){
     
-    var lg = 0;
-    for(var j = 0; j < item.geometry.coordinates[0].length; j++){
-          lg += item.geometry.coordinates[0][j][0];
-        }
 
     
-    return lg/item.geometry.coordinates[0].length;
+    return item.properties.center[0]-0.0008;
   }
 
   fontSize(){
