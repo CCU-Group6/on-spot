@@ -5686,24 +5686,24 @@ export class MapComponent implements OnInit {
       this.parked = true;
       var a = this.paymentService.getParkingInformations();
          
-      for(var i=0; i< Object.keys(this.layer.features).length; i++){
-        if(this.layer.features[i].properties.zone == a.zoneTitle){
-          console.log(this.layer.features[i].properties.spots);
-          this.layer.features[i].properties.spots = parseInt(this.layer.features[i].properties.spots) - 1;
-          console.log(this.layer.features[i].properties.spots);
+      for(var i=0; i< Object.keys(this.layer[0]).length; i++){
+        if(this.layer[0][i].properties.zone == a.zoneTitle){
+          console.log(this.layer[0][i].properties.spots);
+          this.layer[0][i].properties.spots = parseInt(this.layer[0][i].properties.spots) - 1;
+          console.log(this.layer[0][i].properties.spots);
           
 
           var lt = 0;
           var lg = 0;
           //find the average point of a zone
-          console.log(this.layer.features[i].geometry.coordinates[0]);
+          console.log(this.layer[0][i].geometry.coordinates[0]);
           
-          for(var j = 0; j < this.layer.features[i].geometry.coordinates[0].length; j++){
-            lg += this.layer.features[i].geometry.coordinates[0][j][0];
-            lt += this.layer.features[i].geometry.coordinates[0][j][1];
+          for(var j = 0; j < this.layer[0][i].geometry.coordinates[0].length; j++){
+            lg += this.layer[0][i].geometry.coordinates[0][j][0];
+            lt += this.layer[0][i].geometry.coordinates[0][j][1];
           }
-          this.parkedLng = lg/this.layer.features[i].geometry.coordinates[0].length;
-          this.parkedLat = lt/this.layer.features[i].geometry.coordinates[0].length;
+          this.parkedLng = lg/this.layer[0][i].geometry.coordinates[0].length;
+          this.parkedLat = lt/this.layer[0][i].geometry.coordinates[0].length;
           this.lat = this.parkedLat;
           this.lng = this.parkedLng;
           break;
@@ -5721,10 +5721,10 @@ export class MapComponent implements OnInit {
     }
     
     this.messageEvent.emit(this.zoneData);
-    for(var i=0; i< Object.keys(this.layer.features).length; i++){
+    for(var i=0; i< Object.keys(this.layer[0]).length; i++){
       
-      if(this.layer.features[i].properties.zone == this.zoneData.zoneTitle){
-        this.zone = this.layer.features[i];
+      if(this.layer[0][i].properties.zone == this.zoneData.zoneTitle){
+        this.zone = this.layer[0][i];
         break;
       }
     }
