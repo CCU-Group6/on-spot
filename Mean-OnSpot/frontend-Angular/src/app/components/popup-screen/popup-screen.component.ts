@@ -15,9 +15,12 @@ export interface DialogData {
 })
 export class PopupScreenComponent implements OnInit {
   public zone;
+  public saldo;
 
   ngOnInit() {
     this.zone = this.paymentService.getZone();
+    this.saldo = this.paymentService.getAccumulated();
+    console.log("acumulou", this.saldo);
   }
 
   constructor(

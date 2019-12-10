@@ -37,6 +37,9 @@ export class PaymentServiceService {
     return this.price;
   }
 
+  getAccumulated(){
+    return this.price*0.10;
+  }
   getZone(){
     return this.zoneTitle;
   }
