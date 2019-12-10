@@ -36,12 +36,8 @@ app.get('/users/:phoneNumber', (req, res) => {
     User.findOne({
         phoneNumber : req.params.phoneNumber,
     }).then((user) => {
-        console.log(req.body);
-        console.log(req.params);
-        
         res.send(user);
     }).catch((e) => {
-        console.log(e);
         res.send("err");
     });
 });
@@ -92,7 +88,7 @@ app.post('/authenticate', (req, res, next) => passport.authenticate('local', (er
 
 app.get('/userProfile', jwtHelper.verifyJwtToken, (req, res, next) => { 
     User.findOne({ _id: req._id }, (err, user) =>{
-        if(!user) 
+        if(!user)  
             return res.status(404).json({status: false, message: 'User record not found' });
 
         else 
