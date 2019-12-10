@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { HttpClientModule, HttpInterceptor, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule, HttpInterceptor, HTTP_INTERCEPTORS, HttpClientJsonpModule } from '@angular/common/http';
 import { MbscModule } from '@mobiscroll/angular';
 import { AgmCoreModule } from '@agm/core';
 
@@ -55,16 +55,19 @@ import { AgmOverlays } from "agm-overlays"
     MatIconModule,
     MatInputModule,
     MatDialogModule,
+    MbscModule,
     FormsModule,
     ReactiveFormsModule,
     MatButtonModule,
     BrowserAnimationsModule,
     HttpClientModule,
     AgmOverlays,
+    HttpClientJsonpModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCVJFjI_1hipSPAtGzloqu4JKLahI2z6JI'
     })
   ],
+  
   entryComponents: [
     PopupScreenComponent
   ],
@@ -72,3 +75,6 @@ import { AgmOverlays } from "agm-overlays"
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
+

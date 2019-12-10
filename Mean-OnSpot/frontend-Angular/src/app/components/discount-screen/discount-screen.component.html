@@ -2,6 +2,8 @@
 <div class="centered-content">
     <h1 id = "balance">Saldo: {{userDetails.balance}}€</h1>
     <h2 id = "discountDisclaimer">Introduza o valor que pretende descontar</h2>
-    
+    <input [(ngModel)]="numpad" mbsc-numpad-decimal [mbsc-options]="numpadSettings" placeholder="Please select..." />
+
+   
     <button mat-raised-button [routerLink] = "['/confirmScreen']">Confirmar</button>
 </div>
