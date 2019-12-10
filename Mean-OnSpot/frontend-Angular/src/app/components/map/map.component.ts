@@ -252,6 +252,7 @@ export class MapComponent implements OnInit {
       ]
     }
   ]
+  
   public lat =  38.73674521461237;
   public lng =  -9.1386079788208;
 
@@ -5684,6 +5685,7 @@ export class MapComponent implements OnInit {
     //this should be in the database
     if(this.paymentService.getParkingInformations()){
       this.parked = true;
+      console.log(this.parked);
       var a = this.paymentService.getParkingInformations();
          
       for(var i=0; i< Object.keys(this.layer[0]).length; i++){

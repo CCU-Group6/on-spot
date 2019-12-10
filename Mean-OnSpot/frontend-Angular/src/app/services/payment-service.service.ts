@@ -35,6 +35,10 @@ export class PaymentServiceService {
     return this.discount;
   }
 
+  getZone(){
+    return this.zoneTitle;
+  }
+
   setParkingDiscount(discount){
     this.discount = discount;
   }

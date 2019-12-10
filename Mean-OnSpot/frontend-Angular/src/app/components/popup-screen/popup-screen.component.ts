@@ -1,5 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { PaymentServiceService } from 'src/app/services/payment-service.service';
+
 
 export interface DialogData {
   animal: string;
@@ -12,12 +14,15 @@ export interface DialogData {
   styleUrls: ['./popup-screen.component.css']
 })
 export class PopupScreenComponent implements OnInit {
+  public zone;
 
   ngOnInit() {
+    this.zone = this.paymentService.getZone();
   }
 
   constructor(
     public dialogRef: MatDialogRef<PopupScreenComponent>,
+    private paymentService: PaymentServiceService,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
 
   onNoClick(): void {
