@@ -31,7 +31,6 @@ export class PaymentServiceService {
   }
 
   getParkingDiscount(){
-    console.log("WHATSUP:::::", this.discount)
     return this.discount;
   }
   getPrice(){

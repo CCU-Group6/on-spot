@@ -19,26 +19,13 @@ export class DiscountScreenComponent implements OnInit {
   public title = "Descontar"; 
 
   numpad: number;
-  
+
   public balanceUser=0;
 
   constructor(private userService: UserService, private paymentService: PaymentServiceService) { }
 
   private maximum = this.paymentService.getPrice();
-
-  numpadSettings: MbscNumpadDecimalOptions = {
-    theme: 'ios',
-    themeVariant: 'light',
-    lang: 'pt-PT',
-    min: 0.01,
-    max: this.maximum,
-    scale: 2,
-
-    onClose: (event,inst) => {
-      console.log("saldooo",this.balanceUser);
-      this.paymentService.setParkingDiscount(inst.getVal());
-      }
-};
+   // private maximum = 0;
 
   ngOnInit() {
     this.userService.getUserProfile().subscribe(
@@ -48,7 +35,11 @@ export class DiscountScreenComponent implements OnInit {
          this.balanceUser = this.userDetails.balance;
          console.log("SALDO", this.balanceUser);
 
- 
+       if(this.balanceUser < this.maximum){
+         // this.maximum = this.balanceUser;
+
+          this.numpadSettings.max = this.balanceUser;
+        }
 
       },
       err => {
@@ -56,8 +47,24 @@ export class DiscountScreenComponent implements OnInit {
       }
     ) 
 
-  
   }
+
+  
+  numpadSettings: MbscNumpadDecimalOptions = {
+    theme: 'ios',
+    themeVariant: 'light',
+    lang: 'pt-PT',
+    min: 0.01,
+    max: this.maximum,
+    scale: 2,
+
+    onClose: (event,inst) => {
+     // console.log(this.userService.getUserProfile().getBalance());
+
+      console.log("saldooo",this.balanceUser);
+      this.paymentService.setParkingDiscount(inst.getVal());
+      }
+};
   
 
   
