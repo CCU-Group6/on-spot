@@ -1,0 +1,7 @@
+<app-phone-header [rtLink] = "backLink" [title] = "title"></app-phone-header>
+<div class="centered-content">
+    <mbsc-form>
+        <mbsc-timespan [(ngModel)]="timespanInline" [options]="timespanInlineSettings"></mbsc-timespan>
+    </mbsc-form>
+</div>
+<app-phone-footer [rtLink] = "frontLink"></app-phone-footer>

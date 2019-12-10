@@ -21,5 +21,5 @@ describe('DiscountScreenComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
-  });
+  }); 
 });
