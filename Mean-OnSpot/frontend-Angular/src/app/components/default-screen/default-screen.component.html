@@ -11,15 +11,19 @@
   </div>
   <button mat-button id = "logoutButton" (click) = "userLogOut()" [routerLink]="['/login']">Logout</button>
 </div>
-<span style="font-size:30px;cursor:pointer" id = "menuIcon" (click)="openMenu()">&#9776;</span>
+<span style="font-size:30px;cursor:pointer" id = "menuIcon" (click)="openMenu()">
+  <img src="assets/img/menu_icon.png" width="64px" />
+</span>
 
 <body (click) = "closeMenu()">
   <div class="centered-content">
     <app-map (messageEvent) = "receiveMessage($event)"></app-map>
     <div id="zoneInformations" >
-        <div id="zoneTitle">{{message.zoneTitle}}</div>
-        <div id="zoneCharge">Tarifa: {{message.zoneCharge}}h</div>
-        <div id="zoneColor">Zona {{message.zoneColor}}</div>
+        <div id="zoneText">
+          <div id="zoneTitle">{{message.zoneTitle}}</div>
+          <div id="zoneCharge">{{message.zoneCharge}}€/h</div>
+          <div id="zoneColor">Zona {{message.zoneColor}}</div>
+        </div>
         <button mat-raised-button (click) = "setZoneInformation()" id = "parkButton" [routerLink]="['/parkingTimeScreen']">Estacionar</button>
     </div>
   </div>

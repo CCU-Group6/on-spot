@@ -91,7 +91,9 @@ body{
 
 #menuIcon{
   position: absolute;
-  margin: 5px 0px 0px 15px;
+  color: black;
+  margin: 10px 0px 0px 0px;
+  z-index: 1;
 }
 
 #sideMenu {
@@ -108,6 +110,7 @@ body{
   overflow-x: hidden;
   transition: 0.3s;
   padding-top: 20px;
+  opacity: 0.8;
 }
 
 #sideMenuProfile{
@@ -169,17 +172,29 @@ body{
   position: absolute;
   bottom: 20px;
   width: 330px;
+  margin-left: 10vw;
 }
 
+#zoneText{
+  border-style: solid;
+  border-width: 5px;
+  border-color: white;
+  border-radius: 10px;
+  text-align: center;
+  width: 45vw;
+  margin-top: 2vh;
+  margin-left: 27.5vw;
+}
 
 #zoneInformations{
+  align-content: center;
   width: 100%;
   height: 0%;
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: #008CBA;
+  background-color: #637C87;
   overflow: hidden;
   height: 0;
   transition: .5s ease;
