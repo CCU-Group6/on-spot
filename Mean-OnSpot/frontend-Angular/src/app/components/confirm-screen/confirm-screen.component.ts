@@ -39,8 +39,7 @@ export class ConfirmScreenComponent implements OnInit {
     this.paymentInfo.zoneColor = p.zoneColor;
     this.paymentInfo.price = p.price;
     this.paymentInfo.parkingTime = this.paymentService.msToTime(p.parkingTime);
-    this.paymentInfo.discount = p.discount;
-    
+    this.paymentInfo.discount = p.discount;    
   }
 
   onConfirm(){

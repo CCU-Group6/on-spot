@@ -1,15 +1,59 @@
-#confirmHeader{
-    text-align: center;
+.backbutton{
+    color: #647c84;
+    margin: 10px 0px 0px -5px;
+    font-size: 18px;
+}
+  
+.centered-content{
+    padding: 5% 8%;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    padding: 8px 8px 8px 8px;
-    margin-top: 20px;
+    -webkit-box-align: center;
+    box-sizing: border-box;
+    max-width: 100%;  
+    min-height: 594px;
 }
 
-#selectedZone{
+#title{
+    padding: 10% 0% 5% 0%;
     font-size: 36px;
+    font-weight: 1000;
+    text-align: center;
+    color: #647c84;
 }
 
-#parkingTime{
-    font-size: 14px;
-    margin-left: 5px;
+.parkInfo {
+    font-size: 28px;
+    margin: 0%;
+}
+
+#discount {
+    margin: 30px auto;
+    color: #6e6e6e;
+    border-color: #6e6e6e;
+}
+
+.buttons {
+    margin: 90px 0px 0px 0px;
+    display: flex;
+    width: 100%;
+    height: 45px;
+    justify-content: space-evenly;
+}
+
+#change {
+    color: #6e6e6e;
+    font-size: 16px;
+}
+
+#nextButton {
+    width: 45%;
+    background-color: #647c84;
+}
+
+#cancelButton {
+    width: 45%;
+    color: #647c84;
+    border-color: #647c84;
 }

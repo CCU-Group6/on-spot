@@ -1,20 +1,21 @@
-<app-phone-header [rtLink] = "backLink" [title] = "title"></app-phone-header>
+<button mat-button class="backbutton" routerLink="{{backLink}}"><img src="assets/img/go_back_color.png" width="32px"
+        color="#647c84" />Anterior</button>
+
 <div class="centered-content">
-    <div id = "confirmHeader">
-        <h1 id = "selectedZone">{{paymentInfo.zoneTitle}}</h1>
-        <td id = "parkingTime">Tempo de Estacionamento : {{paymentInfo.parkingTime}}</td>
-        <td id = "zoneType">Zona {{paymentInfo.zoneColor}}</td>
-    </div>
-    <div id = "moneyContainer">
-        <div id = "parkingCost">{{paymentInfo.price}}€</div>
-        <div id = "discountButton" class="writtenButton" [routerLink] = "['/discountScreen']">Aplicar Desconto</div>
-    </div>
-    <div id = "confirmFooter">
-        <h1 id = "paymentMethod">{{paymentMethod}}</h1>
-        <h2 id = "alterar">Alterar método de pagamento</h2>
-        <td>
-            <button mat-button [routerLink] = "['/defaultScreen']">Cancelar</button>    
-            <button mat-button (click) = "onConfirm()" [routerLink] = "['/defaultScreen']">Confirmar</button>
-        </td>    
+    <h3 id="title">{{paymentInfo.zoneTitle}}</h3>
+
+    <p class="parkInfo">{{paymentInfo.parkingTime}}</p>
+    <p class="parkInfo">Zona {{paymentInfo.zoneColor}}</p>
+    <p class="parkInfo">{{paymentInfo.price}}€</p>
+
+    <button id="discount" type="button" class="btn btn-outline-secondary" [routerLink]="['/discountScreen']">Aplicar
+        Desconto</button>
+
+    <h3 id="paymentMethod">{{paymentMethod}}</h3>
+    <button id="change" type="button" class="btn btn-link" [routerLink]="'/paymentMethod'">Alterar método de pagamento</button>
+
+    <div class="buttons">
+        <button id="cancelButton" type="button" class="btn btn-outline-primary" [routerLink]="['/defaultScreen']">Cancelar</button>
+        <button id="nextButton" type="button" class="btn btn-primary" (click)="onConfirm()" [routerLink]="['/defaultScreen']" >Confirmar</button>
     </div>
 </div>

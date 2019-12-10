@@ -34,9 +34,7 @@ export class PaymentServiceService {
 
     hours = (parseInt(hours) < 10) ? "0" + hours : hours;
     minutes = (parseInt(minutes) < 10) ? "0" + minutes : minutes;
-  console.log("horas", hours);
-  console.log("mins",minutes);
-    return hours + " : " + minutes;
+    return hours + "h" + minutes + "min";
 }
 
   setDiscount(discount){
