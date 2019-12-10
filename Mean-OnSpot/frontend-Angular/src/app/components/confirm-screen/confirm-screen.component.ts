@@ -15,9 +15,10 @@ export class ConfirmScreenComponent implements OnInit {
     zoneTitle: "",
     zoneCharge: "",
     zoneColor: "",
-    price: 0.0,
+    priceToPay: 0.0,
     parkingTime: "",
     discount: 0.0,
+    originalprice:0.0
   }
 
   constructor(private userService: UserService, private paymentService: PaymentServiceService) { }
@@ -37,9 +38,19 @@ export class ConfirmScreenComponent implements OnInit {
     this.paymentInfo.zoneTitle = p.zoneTitle;
     this.paymentInfo.zoneCharge = p.zoneCharge;
     this.paymentInfo.zoneColor = p.zoneColor;
-    this.paymentInfo.price = p.price;
+    this.paymentInfo.priceToPay = p.price;
+    this.paymentInfo.originalprice = p.price;
     this.paymentInfo.parkingTime = this.paymentService.msToTime(p.parkingTime);
-    this.paymentInfo.discount = p.discount;    
+
+    this.paymentInfo.discount = this.paymentService.getParkingDiscount(); 
+
+    if (this.paymentInfo.discount != 0 && this.paymentInfo.discount != null ){
+      this.paymentInfo.priceToPay = this.paymentInfo.originalprice - this.paymentInfo.discount;
+      var node = document.getElementById("discountInfo");
+      var text = document.createTextNode("[" + this.paymentInfo.originalprice + " - " + this.paymentInfo.discount + "]" );
+
+    node.appendChild(text);
+        }   
   }
 
   onConfirm(){
