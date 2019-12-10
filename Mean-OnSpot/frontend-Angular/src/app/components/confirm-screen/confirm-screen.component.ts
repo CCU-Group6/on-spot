@@ -44,8 +44,10 @@ export class ConfirmScreenComponent implements OnInit {
 
     this.paymentInfo.discount = this.paymentService.getParkingDiscount(); 
 
+    console.log("desconto:",this.paymentInfo.discount  );
+
     if (this.paymentInfo.discount != 0 && this.paymentInfo.discount != null ){
-      this.paymentInfo.priceToPay = this.paymentInfo.originalprice - this.paymentInfo.discount;
+      this.paymentInfo.priceToPay = this.paymentInfo.originalprice - this.paymentInfo.discount
       var node = document.getElementById("discountInfo");
       var text = document.createTextNode("[" + this.paymentInfo.originalprice + " - " + this.paymentInfo.discount + "]" );
 

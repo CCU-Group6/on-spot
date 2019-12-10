@@ -34,6 +34,9 @@ export class PaymentServiceService {
     console.log("WHATSUP:::::", this.discount)
     return this.discount;
   }
+  getPrice(){
+    return this.price;
+  }
 
   getZone(){
     return this.zoneTitle;
