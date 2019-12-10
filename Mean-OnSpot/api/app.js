@@ -70,9 +70,10 @@ app.post('/users', (req, res, next) => {
                 res.status(422).send(['Phone number or Email already found']);
             }
             else
-                next(err);
+            next(err);
         }
     });
+    console.log(newUser)
 
 });
 
