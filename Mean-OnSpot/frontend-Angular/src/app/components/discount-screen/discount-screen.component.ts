@@ -25,7 +25,6 @@ export class DiscountScreenComponent implements OnInit {
   constructor(private userService: UserService, private paymentService: PaymentServiceService) { }
 
   private maximum = this.paymentService.getPrice();
-   // private maximum = 0;
 
   ngOnInit() {
     this.userService.getUserProfile().subscribe(
@@ -36,8 +35,6 @@ export class DiscountScreenComponent implements OnInit {
          console.log("SALDO", this.balanceUser);
 
        if(this.balanceUser < this.maximum){
-         // this.maximum = this.balanceUser;
-
           this.numpadSettings.max = this.balanceUser;
         }
 
