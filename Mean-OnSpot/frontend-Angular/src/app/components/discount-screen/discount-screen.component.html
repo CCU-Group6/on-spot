@@ -1,9 +1,16 @@
-<app-phone-header [rtLink] = "backLink" [title] = "title"></app-phone-header>
-<div class="centered-content">
-    <h1 id = "balance">Saldo: {{userDetails.balance}}€</h1>
-    <h2 id = "discountDisclaimer">Introduza o valor que pretende descontar</h2>
-    <input [(ngModel)]="numpad" mbsc-numpad-decimal [mbsc-options]="numpadSettings" placeholder="Please select..." />
+<button mat-button class="backbutton" routerLink="{{backLink}}"><img src="assets/img/go_back_color.png" width="32px"
+        color="#647c84" />Anterior</button>
 
-   
-    <button mat-raised-button [routerLink] = "['/confirmScreen']">Confirmar</button>
+<div class="centered-content">
+
+    <h4 id="title">Saldo: {{userDetails.balance}}€</h4>
+    <h4 id="discountDisclaimer">Introduza o valor que pretende descontar</h4>
+
+    <div class="form-group">
+        <input type="text" class="form-control" [(ngModel)]="numpad" mbsc-numpad-decimal
+            [mbsc-options]="numpadSettings" placeholder="Valor" />
+    </div>
+
+    <button type="button" id="next_button" class="btn btn-primary" [routerLink]="['/confirmScreen']">Descontar
+    </button>
 </div>

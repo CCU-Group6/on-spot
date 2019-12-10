@@ -38,16 +38,16 @@ export class ConfirmScreenComponent implements OnInit {
     this.paymentInfo.zoneTitle = p.zoneTitle;
     this.paymentInfo.zoneCharge = p.zoneCharge;
     this.paymentInfo.zoneColor = p.zoneColor;
-    this.paymentInfo.priceToPay = p.price;
+    this.paymentInfo.priceToPay = Math.floor(p.price*100)/100;
     this.paymentInfo.originalprice = p.price;
     this.paymentInfo.parkingTime = this.paymentService.msToTime(p.parkingTime);
 
-    this.paymentInfo.discount = this.paymentService.getParkingDiscount(); 
+    this.paymentInfo.discount = Math.floor(this.paymentService.getParkingDiscount()*100)/100; 
 
     console.log("desconto:",this.paymentInfo.discount  );
 
     if (this.paymentInfo.discount != 0 && this.paymentInfo.discount != null ){
-      this.paymentInfo.priceToPay = this.paymentInfo.originalprice - this.paymentInfo.discount
+      this.paymentInfo.priceToPay = Math.floor((this.paymentInfo.originalprice - this.paymentInfo.discount)*100)/100
       var node = document.getElementById("discountInfo");
       var text = document.createTextNode("[" + this.paymentInfo.originalprice + " - " + this.paymentInfo.discount + "]" );
 

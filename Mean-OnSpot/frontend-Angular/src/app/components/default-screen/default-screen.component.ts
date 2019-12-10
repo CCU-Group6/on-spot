@@ -71,11 +71,9 @@ export class DefaultScreenComponent implements OnInit {
   }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(PopupScreenComponent, {
-      width: '250px',
-    });
+    const dialogRef = this.dialog.open(PopupScreenComponent, {});
 
-    setTimeout(() => dialogRef.close(), 2500)
+    // setTimeout(() => dialogRef.close(), 2500)
 
     this.parkedEvent.emit(true);
 
