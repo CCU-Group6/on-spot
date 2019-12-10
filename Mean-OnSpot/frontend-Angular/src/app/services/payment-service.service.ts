@@ -14,7 +14,7 @@ export class PaymentServiceService {
   //from parking Time Screen
   private parkingTime = 1;
   //not implemented yet
-  private discount = 0.09;
+  private discount = 0.00;
 
   constructor() { }
 
@@ -27,7 +27,18 @@ export class PaymentServiceService {
   setParkingInfo(parkingTime, parkingPrice){
     this.parkingTime = parkingTime; //This time is in milliseconds
     this.price = parkingPrice;
+    
   }
+
+  getParkingDiscount(){
+    console.log("WHATSUP:::::", this.discount)
+    return this.discount;
+  }
+
+  setParkingDiscount(discount){
+    this.discount = discount;
+  }
+
    msToTime(parkingTime) {
     var  minutes = (Math.floor((parkingTime/(1000*60))%60)).toString()
         , hours = (Math.floor((parkingTime/(1000*60*60))%24)).toString();

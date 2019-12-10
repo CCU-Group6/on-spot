@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { MbscNumpadDecimalOptions } from '@mobiscroll/angular';
+import { PaymentServiceService } from 'src/app/services/payment-service.service';
+
 
 
 @Component({
@@ -19,7 +21,7 @@ export class DiscountScreenComponent implements OnInit {
   numpad: number;
   public balanceUser=0;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private paymentService: PaymentServiceService) { }
 
   ngOnInit() {
     this.userService.getUserProfile().subscribe(
@@ -29,20 +31,29 @@ export class DiscountScreenComponent implements OnInit {
          this.balanceUser = this.userDetails.balance;
          console.log("SALDO", this.balanceUser);
 
+         
+
       },
       err => {
 
       }
     ) 
+
+  
   }
+  
 
   numpadSettings: MbscNumpadDecimalOptions = {
     theme: 'ios',
     themeVariant: 'light',
     lang: 'pt-PT',
     min: 0.01,
-    max: this.balanceUser,
-    scale: 2
+    max: this.balanceUser+1,
+    scale: 2,
+
+    onClose: (event,inst) => {
+      this.paymentService.setParkingDiscount(inst.getVal());
+      }
 };
 
 }

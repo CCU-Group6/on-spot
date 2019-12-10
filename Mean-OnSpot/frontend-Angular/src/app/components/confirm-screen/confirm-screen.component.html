@@ -6,8 +6,10 @@
 
     <p class="parkInfo">{{paymentInfo.parkingTime}}</p>
     <p class="parkInfo">Zona {{paymentInfo.zoneColor}}</p>
-    <p class="parkInfo">{{paymentInfo.price}}€</p>
 
+    <p class="parkInfo">{{paymentInfo.priceToPay}}€</p>
+
+    <p id = "discountInfo" class = "discountInfo"></p>
     <button id="discount" type="button" class="btn btn-outline-secondary" [routerLink]="['/discountScreen']">Aplicar
         Desconto</button>
 
