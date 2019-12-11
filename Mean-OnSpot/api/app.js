@@ -7,8 +7,12 @@ const { PassportConfig } = require('./config/passportConfig');
 
 const bodyParser = require('body-parser');
 const passport = require('passport');
-const lodash = require('lodash')
-const jwtHelper = require('./config/jwtHelper')
+const lodash = require('lodash');
+const jwtHelper = require('./config/jwtHelper');
+const path = require('path');
+
+// const PORT = process.env.PORT || 8080;
+const PORT = 3000;
 
 app.use(bodyParser.json());
 app.use(passport.initialize());
@@ -19,6 +23,12 @@ app.use(function(req, res, next) {
     res.header("Access-Control-Request-Headers", "*");
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,PATCH,OPTIONS');
     next();
+});
+
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public/index.html'));
 });
 
 app.get('/' , (req,res) => {
@@ -110,8 +120,8 @@ app.patch('/changeBalance/:id', (req, res) => {
     })
 });
 
-app.listen(3000, () => {
-    console.log("Server is listening on port 3000")
+app.listen(PORT, () => {
+    console.log("Server is listening on port " + PORT);
 })
 
 app.use((err, req, res, next) => {

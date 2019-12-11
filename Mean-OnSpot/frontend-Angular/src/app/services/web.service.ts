@@ -10,22 +10,27 @@ export class WebService {
 
   constructor(private http: HttpClient) {
     this.ROOT_URL = 'http://localhost:3000';
+    //this.ROOT_URL = '';
   }
 
   // Http methods
   get(uri: string, permission) {
+    //return this.http.get(`${uri}`, permission);
     return this.http.get(`${this.ROOT_URL}/${uri}`, permission);
   }
 
   getWithPermission(uri: string) {
+    //return this.http.get(`${uri}`);
     return this.http.get(`${this.ROOT_URL}/${uri}`);
   }
 
   post(uri: string, payload: object, permission) {
+    //return this.http.post(`${uri}`, payload, permission);
     return this.http.post(`${this.ROOT_URL}/${uri}`, payload, permission);
   }
 
   patch(uri: string, id:string, payload: object, permission) {
+    //return this.http.patch(`${uri}/${id}`, payload, permission);
     return this.http.patch(`${this.ROOT_URL}/${uri}/${id}`, payload, permission);
   }
 
