@@ -19,8 +19,7 @@ export class PopupScreenComponent implements OnInit {
 
   ngOnInit() {
     this.zone = this.paymentService.getZone();
-    this.saldo = this.paymentService.getAccumulated();
-    console.log("acumulou", this.saldo);
+    this.saldo = Math.floor(this.paymentService.getAccumulated() * 100) / 100;
   }
 
   constructor(
@@ -28,7 +27,7 @@ export class PopupScreenComponent implements OnInit {
     private paymentService: PaymentServiceService,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
 
-  onNoClick(): void {
+  close(): void {
     this.dialogRef.close();
   }
 }
