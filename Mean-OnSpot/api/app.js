@@ -92,7 +92,7 @@ app.get('/userProfile', jwtHelper.verifyJwtToken, (req, res, next) => {
             return res.status(404).json({status: false, message: 'User record not found' });
 
         else 
-            return res.status(200).json({status: true, user : lodash.pick(user, ['name', 'phoneNumber', 'paymentMethod', 'balance'])});
+            return res.status(200).json({status: true, user : lodash.pick(user, ['_id','name', 'phoneNumber', 'paymentMethod', 'balance'])});
     })
 });
 
