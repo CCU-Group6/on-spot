@@ -1,4 +1,4 @@
-import { Component, OnInit, Input ,Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input ,Output, EventEmitter, DebugElement } from '@angular/core';
 import { GoogleMapsAPIWrapper, AgmMap, LatLngBounds, LatLngBoundsLiteral} from '@agm/core';
 import { PaymentServiceService } from 'src/app/services/payment-service.service';
 
@@ -5767,8 +5767,6 @@ zoneData
           console.log(this.layer.features[i].properties.spots);
           this.layer.features[i].properties.spots = parseInt(this.layer.features[i].properties.spots) - 1;
           console.log(this.layer.features[i].properties.spots);
-          
-          
          
           this.parkedLng = this.layer.features[i].properties.center[0];
           this.parkedLat = this.layer.features[i].properties.center[1];
@@ -5808,19 +5806,31 @@ zoneData
     console.log(this.zone)
     //this.lng = this.zone.properties.center[0];
     console.log(this.zone.properties.center)
-    //this.lat = this.zone.properties.center[1];
 
-    this.styleFunc(event.feature)
+    console.log(event.feature.fillOpacity)
+    //this.lat = this.zone.properties.center[1];
+  }
+  styleF(feature) {
+    console.log('Sim');
+    if(feature.getProperty('color') == 'Amarela')
+      return ({ fillColor: 'yellow', strokeWeight: 3, fillOpacity: 0.2})
+    else if(feature.getProperty('color') == 'Verde')
+      return ({ fillColor: 'green', strokeWeight: 3, fillOpacity: 0.2})
+    else if(feature.getProperty('color') == 'Vermelha')
+      return ({ fillColor: 'red', strokeWeight: 3, fillOpacity: 0.2})
   }
 
+  //not needed
   styleFunc(feature) {
+    console.log('cim');
     if(feature.getProperty('color') == 'Amarela')
-      return ({ fillColor: 'yellow', strokeWeight: 1})
+      return ({ fillColor: 'yellow', strokeWeight: 1, fillOpacity: 0})
     else if(feature.getProperty('color') == 'Verde')
-      return ({ fillColor: 'green', strokeWeight: 1})
+      return ({ fillColor: 'green', strokeWeight: 1, fillOpacity: 0})
     else if(feature.getProperty('color') == 'Vermelha')
-      return ({ fillColor: 'red', strokeWeight: 1})
-    }
+      return ({ fillColor: 'red', strokeWeight: 1, fillOpacity: 0})
+  }
+
     
 
   onChoseLocation(event){
