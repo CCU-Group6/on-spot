@@ -5741,7 +5741,8 @@ export class MapComponent implements OnInit {
   ]
 };
 public layer = this.ZonesZoomed;
-  zoneData
+  
+zoneData
 
   @Output() messageEvent = new EventEmitter<object>();
 
@@ -5755,21 +5756,16 @@ public layer = this.ZonesZoomed;
       console.log(this.parked);
       var a = this.paymentService.getParkingInformations();
          
-      for(var i=0; i< Object.keys(this.layer[0]).length; i++){
-        if(this.layer[0][i].properties.zone == a.zoneTitle){
-          console.log(this.layer[0][i].properties.spots);
-          this.layer[0][i].properties.spots = parseInt(this.layer[0][i].properties.spots) - 1;
-          console.log(this.layer[0][i].properties.spots);
+      for(var i=0; i< Object.keys(this.layer.features).length; i++){
+        if(this.layer.features[i].properties.zone == a.zoneTitle || this.layer.features[i].properties.parent == a.zoneTitle){
+          console.log(this.layer.features[i].properties.spots);
+          this.layer.features[i].properties.spots = parseInt(this.layer.features[i].properties.spots) - 1;
+          console.log(this.layer.features[i].properties.spots);
           
-
-          var lt = 0;
-          var lg = 0;
-          //find the average point of a zone
-          console.log(this.layer[0][i].geometry.coordinates[0]);
           
          
-          this.parkedLng = this.layer[0][i].properties.center[1];
-          this.parkedLat = this.layer[0][i].properties.center[0];
+          this.parkedLng = this.layer.features[i].properties.center[0];
+          this.parkedLat = this.layer.features[i].properties.center[1];
           this.lat = this.parkedLat;
           
           this.lng = this.parkedLng;
