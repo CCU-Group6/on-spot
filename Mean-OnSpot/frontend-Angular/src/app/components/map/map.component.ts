@@ -5748,8 +5748,7 @@ zoneData
 
     navigator.geolocation.watchPosition(position => {
       this.lat = position.coords.latitude
-      console.log(this.lat)
-      console.log(position.coords.longitude)
+      this.lng = position.coords.longitude
     });
     
 
