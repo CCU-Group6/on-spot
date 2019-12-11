@@ -19,6 +19,7 @@ export class DefaultScreenComponent implements OnInit {
     "zoneCharge": "",
     "zoneColor": ""
   };
+
   userDetails;
   @Output() parkedEvent = new EventEmitter<boolean>();
 
@@ -67,6 +68,7 @@ export class DefaultScreenComponent implements OnInit {
   }
 
   closeInformations(){
+    this.isSelected = false;
     document.getElementById('zoneInformations').style.height = "0";
   }
 
@@ -85,8 +87,8 @@ export class DefaultScreenComponent implements OnInit {
   receiveMessage(event) {
     //dont forget
     this.message = event;
-    console.log(this.message.zoneTitle);
     
+    this.isSelected = true;
     document.getElementById("zoneInformations").style.height = "25%";
   }
 
