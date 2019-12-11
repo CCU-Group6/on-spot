@@ -96,6 +96,20 @@ app.get('/userProfile', jwtHelper.verifyJwtToken, (req, res, next) => {
     })
 });
 
+app.patch('/changeBalance/:id', (req, res) => {
+    console.log("aqui");
+    User.findOne({_id: req.params.id}, (err, user) => {
+        if(!user)  
+            return res.status(404).json({status: false, message: 'User record not found' });
+        else {
+            user.balance += req.body.balance;
+            user.save();
+        }
+    }).then((user) =>{
+        res.send(user);
+    })
+});
+
 app.listen(3000, () => {
     console.log("Server is listening on port 3000")
 })

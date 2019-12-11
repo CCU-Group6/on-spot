@@ -25,6 +25,10 @@ export class WebService {
     return this.http.post(`${this.ROOT_URL}/${uri}`, payload, permission);
   }
 
+  patch(uri: string, id:string, payload: object, permission) {
+    return this.http.patch(`${this.ROOT_URL}/${uri}/${id}`, payload, permission);
+  }
+
   // Token helper methods
   setToken(token: string) {
     this.deleteToken();
