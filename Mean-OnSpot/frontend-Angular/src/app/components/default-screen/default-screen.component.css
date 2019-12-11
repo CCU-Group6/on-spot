@@ -114,8 +114,8 @@ body{
 
 #sideMenuProfile{
   padding: 8px 8px 8px 32px;
-  margin-bottom: 100px;
-
+  margin-top: 25%;
+  margin-bottom: 20px;
 }
 
 #userName {
@@ -128,39 +128,41 @@ body{
   min-width: 210px;
   padding: 8px 8px 8px 0px;
   margin: 0px;
+  font-size: 16px;
 }
 
 #sideMenu a {
   text-decoration: none;
-  font-size: 25px;
+  font-size: 20px;
   color: #f1f1f1;
   display: block;
   min-width: 210px;
   transition: 0.1s;
-  margin-bottom: 30px;
-}
-
-#sideMenu a:hover {
-  min-width: 210px;
-  color: #818181;
+  padding-left: 4%;
 }
 
 #sideMenuTabs{
-  padding: 8px 8px 8px 32px;
   margin-bottom: 10px;
 }
 
 #sideMenuTabs h1{
+  padding-left: 4%;
   min-width: 210px;
-  margin-top: 150px;
+  margin-top: 40%;
+  font-size: 14px;
+}
+
+hr.style1{
+	border-top: 1px solid #8c8b8b;
 }
 
 #logoutButton {
+  margin-top: 35%;
   text-align: left;
-  padding: 8px 8px 8px 32px;
+  padding-left: 4%;
   position: absolute;
   top: 20;
-  font-size: 26px;
+  font-size: 30px;
 }
 
 .smallText{

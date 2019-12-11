@@ -4,15 +4,19 @@
     <h2 href="" id = "discountText" class="smallText">Saldo a Descontar: {{userDetails.balance}}€</h2>
   </div>
   <div id = "sideMenuTabs">
+    <hr class="style1">
     <a href="">Histórico</a>
+    <hr class="style1">
     <a href="">Método de Pagamento</a>
+    <hr class="style1">
     <a href="">Ajuda</a>
-    <h1 class ="smallText">Todos os valores apresentados são apenas valores previstos</h1>
+    <hr class="style1">
+    <h1 class ="smallText"><i>Todos os valores apresentados são apenas valores previstos</i></h1>
   </div>
   <button mat-button id = "logoutButton" (click) = "userLogOut()" [routerLink]="['/login']">Logout</button>
 </div>
 <span style="font-size:30px;cursor:pointer" id = "menuIcon" (click)="openMenu()">
-  <img src="assets/img/menu_icon.png" width="64px" />
+  <img src="assets/img/menu_icon.png" width="80px" />
 </span>
 
 <body (click) = "closeMenu()">
@@ -23,7 +27,7 @@
             <img id="scroll_image" src="assets/img/scroll_down.png" width="64px" (click)="closeInformations()"/>
         </span>
         <div id="zoneText">
-          <div id="zoneTitle" style="font-size: 20px;">{{message.zoneTitle}}</div>
+          <div id="zoneTitle" style="font-size: 19px;">{{message.zoneTitle}}</div>
           <div id="zoneCharge">{{message.zoneCharge}}€/h</div>
           <div id="zoneColor">Zona {{message.zoneColor}}</div>
         </div>
