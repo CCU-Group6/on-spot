@@ -3,12 +3,7 @@ import { GoogleMapsAPIWrapper, AgmMap, LatLngBounds, LatLngBoundsLiteral} from '
 import { PaymentServiceService } from 'src/app/services/payment-service.service';
 
   
-  navigator.geolocation.watchPosition(render);
-  function render(pos) {
-      var lat = pos.coords.latitude;
-      var lon = pos.coords.longitude;
 
-    }
 
 
 @Component({
@@ -5750,6 +5745,14 @@ zoneData
   }
 
   ngOnInit() {
+
+    navigator.geolocation.watchPosition(position => {
+      this.lat = position.coords.latitude
+      console.log(this.lat)
+      console.log(position.coords.longitude)
+    });
+    
+
     //this should be in the database
     if(this.paymentService.getParkingInformations()){
       this.parked = true;
