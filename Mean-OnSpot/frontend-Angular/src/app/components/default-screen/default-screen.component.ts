@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject, Output, EventEmitter} from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
 import { PopupScreenComponent } from '../popup-screen/popup-screen.component';
@@ -12,6 +12,7 @@ import { PaymentServiceService } from 'src/app/services/payment-service.service'
   styleUrls: ['./default-screen.component.css']
 })
 export class DefaultScreenComponent implements OnInit {
+  public mapZoom = 15;
   public isSelected;
   public backLink;
   public message = {
@@ -19,6 +20,7 @@ export class DefaultScreenComponent implements OnInit {
     "zoneCharge": "",
     "zoneColor": ""
   };
+
   userDetails;
   @Output() parkedEvent = new EventEmitter<boolean>();
 
@@ -67,6 +69,7 @@ export class DefaultScreenComponent implements OnInit {
   }
 
   closeInformations(){
+    this.isSelected = false;
     document.getElementById('zoneInformations').style.height = "0";
   }
 
@@ -85,8 +88,8 @@ export class DefaultScreenComponent implements OnInit {
   receiveMessage(event) {
     //dont forget
     this.message = event;
-    console.log(this.message.zoneTitle);
     
+    this.isSelected = true;
     document.getElementById("zoneInformations").style.height = "25%";
   }
 

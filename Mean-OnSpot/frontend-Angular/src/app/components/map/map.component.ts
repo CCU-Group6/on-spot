@@ -1,7 +1,8 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input ,Output, EventEmitter } from '@angular/core';
 import { GoogleMapsAPIWrapper, AgmMap, LatLngBounds, LatLngBoundsLiteral} from '@agm/core';
 import { PaymentServiceService } from 'src/app/services/payment-service.service';
 
+  
 
 
 
@@ -258,7 +259,9 @@ export class MapComponent implements OnInit {
 
   public parkedLat;
   public parkedLng;
-  public mapZoom = 15;
+  public cLat;
+  public cLng;
+  @Input() public mapZoom;
 
   public parked = false;
   public zone;
@@ -2261,7 +2264,7 @@ export class MapComponent implements OnInit {
     }
   ]
 };
-  public layer = this.Zones;
+  
 
   public ZonesZoomed: Object = {
   "type": "FeatureCollection",
@@ -2273,6 +2276,7 @@ export class MapComponent implements OnInit {
         "charge": "1.60",
         "color": "Vermelha",
         "spots": "43",
+        "parent": "Parque",
         "center": [
           -9.151439666748045,
           38.73058550774531
@@ -2330,6 +2334,7 @@ export class MapComponent implements OnInit {
         "charge": "0.80",
         "color": "Verde",
         "spots": "10",
+        "parent": "Laranjeiras",
         "center": [
           -9.171223640441895,
           38.751238515892375
@@ -2374,6 +2379,7 @@ export class MapComponent implements OnInit {
         "charge": "0.80",
         "color": "Verde",
         "spots": "10",
+        "parent": "Laranjeiras",
          "center": [
           -9.17259693145752,
           38.75358126757668
@@ -2422,6 +2428,7 @@ export class MapComponent implements OnInit {
         "charge": "0.80",
         "color": "Verde",
         "spots": "15",
+        "parent": "Laranjeiras",
         "center": [
           -9.167962074279783,
           38.748092414111035
@@ -2478,10 +2485,11 @@ export class MapComponent implements OnInit {
     {
       "type": "Feature",
       "properties": {
-        "zone": "Laranjeiras 3",
+        "zone": "Laranjeiras 4",
         "charge": "0.80",
         "color": "Verde",
         "spots": "13",
+        "parent": "Laranjeiras",
          "center": [
           -9.163713455200195,
           38.74400896888619
@@ -2526,6 +2534,7 @@ export class MapComponent implements OnInit {
         "charge": "1.20",
         "color": "Amarela",
         "spots": "20",
+        "parent": "Estefânia",
         "center": [
           -9.143500328063965,
           38.73577442650899
@@ -2574,6 +2583,7 @@ export class MapComponent implements OnInit {
         "charge": "1.20",
         "color": "Amarela",
         "spots": "17",
+        "parent": "Estefânia",
         "center": [
           -9.142427444458008,
           38.73336413693001
@@ -2626,6 +2636,7 @@ export class MapComponent implements OnInit {
         "charge": "1.20",
         "color": "Amarela",
         "spots": "30",
+        "parent": "Estefânia",
         "center": [
           -9.13912296295166,
           38.73677868982884
@@ -2690,6 +2701,7 @@ export class MapComponent implements OnInit {
         "charge": "1.20",
         "color": "Amarela",
         "spots": "30",
+        "parent": "Estefânia",
         "center": [
           -9.139208793640137,
           38.734234528660124
@@ -2738,6 +2750,7 @@ export class MapComponent implements OnInit {
         "charge": "1.20",
         "color": "Amarela",
         "spots": "35",
+        "parent": "Campo Pequeno",
         "center": [
           -9.145731925964355,
           38.742904390295244
@@ -2778,6 +2791,7 @@ export class MapComponent implements OnInit {
         "charge": "1.20",
         "color": "Amarela",
         "spots": "45",
+        "parent": "Campo Pequeno",
         "center": [
           -9.144401550292969,
           38.73935623438332
@@ -2826,6 +2840,7 @@ export class MapComponent implements OnInit {
         "charge": "1.20",
         "color": "Amarela",
         "spots": "23",
+        "parent": "Av. João XXI",
         "center": [
           -9.14011001586914,
           38.74029350024827
@@ -2886,6 +2901,7 @@ export class MapComponent implements OnInit {
         "charge": "1.20",
         "color": "Amarela",
         "spots": "27",
+        "parent": "Av. João XXI",
         "center": [
           -9.135732650756836,
           38.73949013026
@@ -2962,6 +2978,7 @@ export class MapComponent implements OnInit {
         "charge": "1.20",
         "color": "Amarela",
         "spots": "23",
+        "parent": "Av. João XXI",
         "center": [
           -9.141998291015625,
           38.74374119382711
@@ -3002,6 +3019,7 @@ export class MapComponent implements OnInit {
         "charge": "1.20",
         "color": "Amarela",
         "spots": "7",
+        "parent": "Av. João XXI",
         "center": [
           -9.135432243347168,
           38.74183326746493
@@ -3042,6 +3060,7 @@ export class MapComponent implements OnInit {
         "charge": "1.20",
         "color": "Amarela",
         "spots": "20",
+        "parent": "Av. João XXI",
         "center": [
           -9.13538932800293,
           38.744176327788175
@@ -3082,6 +3101,7 @@ export class MapComponent implements OnInit {
         "charge": "1.20",
         "color": "Amarela",
         "spots": "47",
+        "parent": "Berna/Valmor",
         "center": [
           -9.15088176727295,
           38.7372808161936
@@ -3126,6 +3146,7 @@ export class MapComponent implements OnInit {
         "charge": "1.20",
         "color": "Amarela",
         "spots": "30",
+        "parent": "Berna/Valmor",
         "center": [
           -9.147706031799316,
           38.73798378717357
@@ -3174,6 +3195,7 @@ export class MapComponent implements OnInit {
         "charge": "1.20",
         "color": "Amarela",
         "spots": "30",
+        "parent": "Avenidas Novas",
         "center": [
           -9.150924682617188,
           38.73356499750139
@@ -3218,6 +3240,7 @@ export class MapComponent implements OnInit {
         "charge": "1.20",
         "color": "Amarela",
         "spots": "33",
+        "parent": "Avenidas Novas",
         "center": [
           -9.147663116455078,
           38.7321589616408
@@ -3286,6 +3309,7 @@ export class MapComponent implements OnInit {
         "charge": "0.80",
         "color": "Verde",
         "spots": "23",
+        "parent": "Roma",
         "center": [
           -9.138650894165039,
           38.747356072395846
@@ -3326,6 +3350,7 @@ export class MapComponent implements OnInit {
         "charge": "0.80",
         "color": "Verde",
         "spots": "18",
+        "parent": "Roma",
         "center": [
           -9.13384437561035,
           38.747423012865596
@@ -3366,6 +3391,7 @@ export class MapComponent implements OnInit {
         "charge": "0.80",
         "color": "Verde",
         "spots": "28",
+        "parent": "Bairro S. Miguel",
         "center": [
           -9.146804809570312,
           38.746653193674206
@@ -3410,6 +3436,7 @@ export class MapComponent implements OnInit {
         "charge": "0.80",
         "color": "Verde",
         "spots": "30",
+        "parent": "Bairro S. Miguel",
         "center": [
           -9.143199920654297,
           38.74712178025749
@@ -3450,6 +3477,7 @@ export class MapComponent implements OnInit {
         "charge": "0.80",
         "color": "Verde",
         "spots": "39",
+        "parent": "Entrecampos",
         "center": [
           -9.153499603271484,
           38.74564906921134
@@ -3510,6 +3538,7 @@ export class MapComponent implements OnInit {
         "charge": "0.80",
         "color": "Verde",
         "spots": "25",
+        "parent": "Entrecampos",
         "center": [
           -9.149723052978516,
           38.74615113320797
@@ -3586,6 +3615,7 @@ export class MapComponent implements OnInit {
         "charge": "0.80",
         "color": "Verde",
         "spots": "25",
+        "parent": "Entrecampos",
         "center": [
           -9.148693084716797,
           38.74246924858317
@@ -3654,6 +3684,7 @@ export class MapComponent implements OnInit {
         "charge": "0.8",
         "color": "Verde",
         "spots": "32",
+        "parent": "Rio de Janeiro",
         "center": [
           -9.14088249206543,
           38.75287845014463
@@ -3694,6 +3725,7 @@ export class MapComponent implements OnInit {
         "charge": "0.8",
         "color": "Verde",
         "spots": "40",
+        "parent": "Rio de Janeiro",
         "center": [
           -9.13963794708252,
           38.75060261288245
@@ -3738,6 +3770,7 @@ export class MapComponent implements OnInit {
         "charge": "0.80",
         "color": "Verde",
         "spots": "16",
+        "parent": "Av. da Igreja",
         "center": [
           -9.148907661437988,
           38.75341393072052
@@ -3778,6 +3811,7 @@ export class MapComponent implements OnInit {
         "charge": "0.80",
         "color": "Verde",
         "spots": "16",
+        "parent": "Av. da Igreja",
         "center": [
           -9.146161079406738,
           38.7542171440524
@@ -3818,6 +3852,7 @@ export class MapComponent implements OnInit {
         "charge": "0.80",
         "color": "Verde",
         "spots": "24",
+        "parent": "Av. da Igreja",
         "center": [
           -9.145774841308594,
           38.750267924812526
@@ -3862,6 +3897,7 @@ export class MapComponent implements OnInit {
         "charge": "0.80",
         "color": "Verde",
         "spots": "20",
+        "parent": "Campo Grande",
         "center": [
           -9.15809154510498,
           38.752510304918516
@@ -3906,6 +3942,7 @@ export class MapComponent implements OnInit {
         "charge": "0.80",
         "color": "Verde",
         "spots": "30",
+        "parent": "Campo Grande",
         "center": [
           -9.154143333435059,
           38.75307925583132
@@ -3954,6 +3991,7 @@ export class MapComponent implements OnInit {
         "charge": "0.80",
         "color": "Verde",
         "spots": "50",
+        "parent": "Campo Grande",
         "center": [
           -9.153156280517578,
           38.74959854396535
@@ -4030,6 +4068,7 @@ export class MapComponent implements OnInit {
         "charge": "1.20",
         "color": "Amarela",
         "spots": "15",
+        "parent": "Praça José Fontana",
         "center": [
           -9.146504402160645,
           38.7272710978598
@@ -4082,6 +4121,7 @@ export class MapComponent implements OnInit {
         "charge": "1.20",
         "color": "Amarela",
         "spots": "20",
+        "parent": "Praça José Fontana",
         "center": [
           -9.143972396850586,
           38.72911245566826
@@ -4138,6 +4178,7 @@ export class MapComponent implements OnInit {
         "charge": "1.20",
         "color": "Amarela",
         "spots": "10",
+        "parent": "Praça José Fontana",
         "center": [
           -9.143071174621582,
           38.73165679926926
@@ -4190,6 +4231,7 @@ export class MapComponent implements OnInit {
         "charge": "1.20",
         "color": "Amarela",
         "spots": "43",
+        "parent": "Santa Marta",
         "center": [
           -9.147748947143555,
           38.72539621205908
@@ -4262,6 +4304,7 @@ export class MapComponent implements OnInit {
         "charge": "1.20",
         "color": "Amarela",
         "spots": "40",
+        "parent": "Santa Marta",
         "center": [
           -9.144830703735352,
           38.72194763292809
@@ -4338,6 +4381,7 @@ export class MapComponent implements OnInit {
         "charge": "1.20",
         "color": "Amarela",
         "spots": "15",
+        "parent": "Campo Santana",
         "center": [
           -9.14311408996582,
           38.725228809148675
@@ -4394,6 +4438,7 @@ export class MapComponent implements OnInit {
         "charge": "1.20",
         "color": "Amarela",
         "spots": "25",
+        "parent": "Campo Santana",
         "center": [
           -9.141247272491455,
           38.722081561437435
@@ -4478,6 +4523,7 @@ export class MapComponent implements OnInit {
         "charge": "1.20",
         "color": "Amarela",
         "spots": "25",
+        "parent": "Chile",
         "center": [
           -9.137020111083984,
           38.73204179073652
@@ -4542,6 +4588,7 @@ export class MapComponent implements OnInit {
         "charge": "1.20",
         "color": "Amarela",
         "spots": "30",
+        "parent": "Chile",
         "center": [
           -9.13287878036499,
           38.73058550774531
@@ -4642,6 +4689,7 @@ export class MapComponent implements OnInit {
         "charge": "0.80",
         "color": "Verde",
         "spots": "40",
+        "parent": "Anjos",
         "center": [
           -9.137706756591797,
           38.72636714120497
@@ -4734,6 +4782,7 @@ export class MapComponent implements OnInit {
         "charge": "0.80",
         "color": "Verde",
         "spots": "40",
+        "parent": "Anjos",
         "center": [
           -9.132986068725586,
           38.72509488653802
@@ -4818,6 +4867,7 @@ export class MapComponent implements OnInit {
         "charge": "0.80",
         "color": "Verde",
         "spots": "26",
+        "parent": "Alameda",
         "center": [
           -9.135174751281738,
           38.735757688667334
@@ -4866,6 +4916,7 @@ export class MapComponent implements OnInit {
         "charge": "0.80",
         "color": "Verde",
         "spots": "20",
+        "parent": "Alameda",
         "center": [
           -9.131956100463865,
           38.73532250340823
@@ -4918,6 +4969,7 @@ export class MapComponent implements OnInit {
         "charge": "0.80",
         "color": "Verde",
         "spots": "30",
+        "parent": "Alameda",
         "center": [
           -9.130218029022217,
           38.73949013026
@@ -5022,6 +5074,7 @@ export class MapComponent implements OnInit {
         "charge": "1.60",
         "color": "Vermelha",
         "spots": "30",
+        "parent": "Gulbenkian",
         "center": [
           -9.153800010681152,
           38.73657783829453
@@ -5070,6 +5123,7 @@ export class MapComponent implements OnInit {
         "charge": "1.60",
         "color": "Vermelha",
         "spots": "30",
+        "parent": "Gulbenkian",
         "center": [
           -9.153800010681152,
           38.74009265859846
@@ -5122,6 +5176,7 @@ export class MapComponent implements OnInit {
         "charge": "0.80",
         "color": "Verde",
         "spots": "36",
+        "parent": "Bairro de Santos",
         "center": [
           -9.15761947631836,
           38.74390855335671
@@ -5170,6 +5225,7 @@ export class MapComponent implements OnInit {
         "charge": "0.80",
         "color": "Verde",
         "spots": "40",
+        "parent": "Bairro de Santos",
         "center": [
           -9.153671264648438,
           38.74236883088842
@@ -5254,6 +5310,7 @@ export class MapComponent implements OnInit {
         "charge": "0.80",
         "color": "Verde",
         "spots": "38",
+        "parent": "Praça de Espanha",
          "center": [
           -9.167275428771973,
           38.73962402588564
@@ -5302,6 +5359,7 @@ export class MapComponent implements OnInit {
         "charge": "0.80",
         "color": "Verde",
         "spots": "15",
+        "parent": "Praça de Espanha",
         "center": [
           -9.161953926086426,
           38.73681216502967
@@ -5358,6 +5416,7 @@ export class MapComponent implements OnInit {
         "charge": "0.80",
         "color": "Verde",
         "spots": "15",
+        "parent": "Praça de Espanha",
         "center": [
           -9.160966873168945,
           38.73969097360433
@@ -5402,6 +5461,7 @@ export class MapComponent implements OnInit {
         "charge": "1.60",
         "color": "Vermelha",
         "spots": "25",
+        "parent": "Castilho",
         "center": [
           -9.154486656188965,
           38.72991594238464
@@ -5446,6 +5506,7 @@ export class MapComponent implements OnInit {
         "charge": "1.60",
         "color": "Vermelha",
         "spots": "20",
+        "parent": "Castilho",
         "center": [
           -9.152083396911621,
           38.72710369934212
@@ -5502,6 +5563,7 @@ export class MapComponent implements OnInit {
         "charge": "1.20",
         "color": "Amarela",
         "spots": "32",
+        "parent": "Campolide",
         "center": [
           -9.156417846679688,
           38.73487057744808
@@ -5554,6 +5616,7 @@ export class MapComponent implements OnInit {
         "charge": "1.20",
         "color": "Amarela",
         "spots": "20",
+        "parent": "Campolide",
         "center": [
           -9.160795211791992,
           38.733799334120796
@@ -5606,6 +5669,7 @@ export class MapComponent implements OnInit {
         "charge": "1.20",
         "color": "Amarela",
         "spots": "20",
+        "parent": "Campolide",
         "center": [
           -9.158735275268555,
           38.73015029097471
@@ -5673,8 +5737,9 @@ export class MapComponent implements OnInit {
     }
   ]
 };
-
-  zoneData
+public layer = this.ZonesZoomed;
+  
+zoneData
 
   @Output() messageEvent = new EventEmitter<object>();
 
@@ -5682,28 +5747,33 @@ export class MapComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    navigator.geolocation.watchPosition(position => {
+      this.lat = position.coords.latitude
+      this.lng = position.coords.longitude
+      this.cLat = position.coords.latitude
+      this.cLng = position.coords.longitude
+    });
+    
+
     //this should be in the database
     if(this.paymentService.getParkingInformations()){
       this.parked = true;
       console.log(this.parked);
       var a = this.paymentService.getParkingInformations();
          
-      for(var i=0; i< Object.keys(this.layer[0]).length; i++){
-        if(this.layer[0][i].properties.zone == a.zoneTitle){
-          console.log(this.layer[0][i].properties.spots);
-          this.layer[0][i].properties.spots = parseInt(this.layer[0][i].properties.spots) - 1;
-          console.log(this.layer[0][i].properties.spots);
+      for(var i=0; i< Object.keys(this.layer.features).length; i++){
+        if(this.layer.features[i].properties.zone == a.zoneTitle || this.layer.features[i].properties.parent == a.zoneTitle){
+          console.log(this.layer.features[i].properties.spots);
+          this.layer.features[i].properties.spots = parseInt(this.layer.features[i].properties.spots) - 1;
+          console.log(this.layer.features[i].properties.spots);
           
-
-          var lt = 0;
-          var lg = 0;
-          //find the average point of a zone
-          console.log(this.layer[0][i].geometry.coordinates[0]);
           
          
-          this.parkedLng = this.layer[0][i].properties.center[1];
-          this.parkedLat = this.layer[0][i].properties.center[0];
+          this.parkedLng = this.layer.features[i].properties.center[0];
+          this.parkedLat = this.layer.features[i].properties.center[1];
           this.lat = this.parkedLat;
+          
           this.lng = this.parkedLng;
           break;
         }
@@ -5712,28 +5782,33 @@ export class MapComponent implements OnInit {
   }
 
   onZoneClick(event){
-    this.zoneData = {
-      "zoneTitle": event.feature.h.zone, 
-      "zoneCharge": event.feature.h.charge, 
-      "zoneColor": event.feature.h.color,
-      "parkingSpots": event.feature.getProperty('spots')
-    }
-
+   
+  
+      this.zoneData = {
+        "zoneTitle": event.feature.h.zone, 
+        "zoneCharge": event.feature.h.charge, 
+        "zoneColor": event.feature.h.color,
+        "parkingSpots": event.feature.getProperty('spots')
+      }
+    console.log(this.zoneData)
+    
     this.messageEvent.emit(this.zoneData);
-    for(var i=0; i< Object.keys(this.layer[0]).length; i++){
+     for(var i=0; i< Object.keys(this.layer.features).length; i++){
       
-      if(this.layer[0][i].properties.zone == this.zoneData.zoneTitle){
-        this.zone = this.layer[0][i];
+      if(this.layer.features[i].properties.zone == this.zoneData.zoneTitle || this.layer.features[i].properties.parent == this.zoneData.zoneTitle){
+        this.zone = this.layer.features[i];
+        this.lng = this.layer.features[i].properties.center[0];
+        this.lat = this.layer.features[i].properties.center[1];
         break;
       }
-    }
+    } 
     
-    var lt = 0;
-    var lg = 0;
+
     //find the average point of a zone
-    
-    this.lng = this.zone.center[1];
-    this.lat = this.zone.center[0];
+    console.log(this.zone)
+    //this.lng = this.zone.properties.center[0];
+    console.log(this.zone.properties.center)
+    //this.lat = this.zone.properties.center[1];
 
     this.styleFunc(event.feature)
   }
