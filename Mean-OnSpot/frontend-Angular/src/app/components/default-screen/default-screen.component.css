@@ -113,24 +113,21 @@ body{
 }
 
 #sideMenuProfile{
-  padding: 8px 8px 8px 32px;
+  padding-left: 4%;
   margin-top: 25%;
   margin-bottom: 20px;
 }
 
 #userName {
   min-width: 210px;
-  padding: 8px 8px 8px 0px;
   font-size:  26px;
   margin: 0px;
 }
 #discountText{
   min-width: 210px;
-  padding: 8px 8px 8px 0px;
   margin: 0px;
-  margin-top:40px;
+  margin-top:2.5%;
   margin-bottom: 20px;
-  margin-left:10px;
   font-size: 16px;
 }
 
@@ -145,13 +142,14 @@ body{
 }
 
 #sideMenuTabs{
+  margin-top: 25%;
   margin-bottom: 10px;
 }
 
 #sideMenuTabs h1{
   padding-left: 4%;
   min-width: 210px;
-  margin-top: 40%;
+  margin-top: 25%;
   font-size: 14px;
 }
 
@@ -160,8 +158,8 @@ hr.style1{
 }
 
 #logoutButton {
-  margin-left: 30px;
-  margin-top: 35%;
+  margin-left: 4%;
+  margin-top: 25%;
   text-align: left;
   position: absolute;
   top: 20;
