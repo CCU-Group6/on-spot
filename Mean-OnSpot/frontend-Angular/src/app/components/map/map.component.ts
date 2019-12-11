@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input ,Output, EventEmitter } from '@angular/core';
 import { GoogleMapsAPIWrapper, AgmMap, LatLngBounds, LatLngBoundsLiteral} from '@agm/core';
 import { PaymentServiceService } from 'src/app/services/payment-service.service';
 
@@ -261,7 +261,7 @@ export class MapComponent implements OnInit {
   public parkedLng;
   public cLat;
   public cLng;
-  public mapZoom = 15;
+  @Input() public mapZoom;
 
   public parked = false;
   public zone;

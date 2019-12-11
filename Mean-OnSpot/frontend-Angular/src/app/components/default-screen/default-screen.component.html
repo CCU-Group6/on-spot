@@ -22,7 +22,7 @@
 <body (click) = "closeMenu()">
   <div class="centered-content">
     <div *ngIf = "!isSelected" class = "Zonelegend">
-      <h1 id = "legendTitle">Zona: </h1>
+      <!-- <h1 id = "legendTitle">Zona: </h1>
       <div id = "greenZone">
         <tr>
           <td class="littleCircle" id = "green"></td>
@@ -41,8 +41,8 @@
           <td>Vermelha</td>
         </tr>
       </div>
-    </div>
-    <app-map (messageEvent) = "receiveMessage($event)"></app-map>
+    </div> -->
+    <app-map [mapZoom] = "mapZoom" (messageEvent) = "receiveMessage($event)"></app-map>
     <div id="zoneInformations" >
         <span id="scroll_image" (click)="closeInformations()">
             <img id="scroll_image" src="assets/img/scroll_down.png" width="64px" (click)="closeInformations()"/>
