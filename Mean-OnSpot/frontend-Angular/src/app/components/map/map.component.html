@@ -23,7 +23,10 @@
             </agm-data-layer>
 
         <div *ngIf = "parked">   
-            <agm-marker [latitude] = "parkedLat" [longitude] = "parkedLng"></agm-marker>
+            <agm-marker [iconUrl] = "'./assets/img/parked.png'"  [latitude] = "parkedLat" [longitude] = "parkedLng"></agm-marker>
+        </div>
+        <div>   
+            <agm-marker [iconUrl] = "'./assets/img/location.png'"  [latitude] = "cLat" [longitude] = "cLng"></agm-marker>
         </div>
     </agm-map>
 

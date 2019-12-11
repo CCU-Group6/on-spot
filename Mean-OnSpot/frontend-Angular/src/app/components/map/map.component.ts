@@ -259,6 +259,8 @@ export class MapComponent implements OnInit {
 
   public parkedLat;
   public parkedLng;
+  public cLat;
+  public cLng;
   public mapZoom = 15;
 
   public parked = false;
@@ -5749,6 +5751,8 @@ zoneData
     navigator.geolocation.watchPosition(position => {
       this.lat = position.coords.latitude
       this.lng = position.coords.longitude
+      this.cLat = position.coords.latitude
+      this.cLng = position.coords.longitude
     });
     
 
