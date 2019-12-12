@@ -211,8 +211,8 @@ hr.style1{
   height: 40px;
   font-size: 1.2rem;
   background-color: #647c84;
-  position: relative;
-  margin-left: 10%;
+  position: absolute;
+  margin-top: 15%;
 }
 
 #rechargeParkButton{
@@ -220,9 +220,8 @@ hr.style1{
   height: 40px;
   font-size: 1.2rem;
   background-color: #647c84;
-  position: relative;
-  margin-top: 6.5%;
-  margin-left: 10%;
+  position: absolute;
+  margin-top: 15%;
 }
 
 #zoneInformations{

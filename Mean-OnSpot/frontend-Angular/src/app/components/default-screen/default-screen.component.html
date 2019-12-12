@@ -26,8 +26,12 @@
         <div id="zoneText">
           <div id="zoneTitle" style="font-size: 19px;">Estacionado</div>
         </div>
-        <button mat-raised-button (click) = "cancelPark()" id = "cancelParkButton" class="btn btn-primary cancel" >Cancelar</button>
-        <button id = "parkButton" class="btn btn-primary" id="rechargeParkButton" [routerLink]="['/parkingTimeScreen']">Recarregar</button>
+        <table style="margin-left: 7.5%;" width="100%;">
+          <tr>
+            <td><button mat-raised-button (click) = "cancelPark()" id = "cancelParkButton" class="btn btn-primary" >Cancelar</button></td>
+            <td><button mat-raised-button (click) = "cancelPark()" id = "cancelParkButton" class="btn btn-primary" >Cancelar</button></td>
+          </tr>
+        </table>
       </div>
     </div>
    <!--<div *ngIf = "!isSelected" class = "Zonelegend">
