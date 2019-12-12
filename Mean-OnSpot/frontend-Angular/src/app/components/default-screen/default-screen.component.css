@@ -192,6 +192,39 @@ hr.style1{
   margin-left: 27.5%;
 }
 
+#parkedInformations{
+  align-content: center;
+  width: 100%;
+  height: 25%;
+  z-index: 2;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  overflow: hidden;
+  height: 25%;
+}
+
+#cancelParkButton{
+  width: 35%;
+  height: 40px;
+  font-size: 1.2rem;
+  background-color: #647c84;
+  position: relative;
+  margin-left: 10%;
+}
+
+#rechargeParkButton{
+  width: 35%;
+  height: 40px;
+  font-size: 1.2rem;
+  background-color: #647c84;
+  position: relative;
+  margin-top: 6.5%;
+  margin-left: 10%;
+}
+
 #zoneInformations{
   align-content: center;
   width: 100%;

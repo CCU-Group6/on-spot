@@ -21,12 +21,14 @@
 
 <body (click) = "closeMenu()">
   <div class="centered-content">
-    <div *ngIf = "bool"> <div id="parkedInformations"><div id="zoneText">
-        <div id="zoneTitle" style="font-size: 19px;">Estacionado</div>
-
+    <div *ngIf = "bool"> 
+      <div id="parkedInformations">
+        <div id="zoneText">
+          <div id="zoneTitle" style="font-size: 19px;">Estacionado</div>
+        </div>
+        <button mat-raised-button (click) = "cancelPark()" id = "cancelParkButton" class="btn btn-primary cancel" >Cancelar</button>
+        <button id = "parkButton" class="btn btn-primary" id="rechargeParkButton" [routerLink]="['/parkingTimeScreen']">Recarregar</button>
       </div>
-      <button mat-raised-button (click) = "cancelPark()" id = "parkButton" class="btn btn-primary" >Cancelar</button>
-      <button id = "parkButton" class="btn btn-primary" [routerLink]="['/parkingTimeScreen']">Recarregar</button></div>
     </div>
    <!--<div *ngIf = "!isSelected" class = "Zonelegend">
       <h1 id = "legendTitle">Zona: </h1>
