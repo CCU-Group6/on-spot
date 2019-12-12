@@ -212,7 +212,7 @@ hr.style1{
   font-size: 1.2rem;
   background-color: #647c84;
   position: absolute;
-  margin-top: 10%;
+  margin-top: 7.5%;
 }
 
 #rechargeParkButton{
@@ -221,7 +221,7 @@ hr.style1{
   font-size: 1.2rem;
   background-color: #647c84;
   position: absolute;
-  margin-top: 10%;
+  margin-top: 7.5%;
 }
 
 #zoneInformations{
@@ -242,13 +242,17 @@ hr.style1{
   margin-top: 5%;
   margin-left: 10%;
   width: 80%;
-  background-color: grey;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: #637C87;
+  background-color:white;
 }
 
 #myBar{
-  width: 1%;
+  width: 0%;
+  border-radius: 15px;
   height: 30px;
-  background-color: green;
+  background-color: #637C87;
 }
 
 /* legend */

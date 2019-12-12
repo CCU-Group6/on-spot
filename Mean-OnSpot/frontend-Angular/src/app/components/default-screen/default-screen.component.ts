@@ -42,7 +42,7 @@ export class DefaultScreenComponent implements OnInit {
       }
     )
     
-     this.bool = this.userService.getConfirmParking();
+    this.bool = this.userService.getConfirmParking();
     console.log(this.bool);
     if(this.bool == true){
       this.openDialog();
@@ -81,6 +81,12 @@ export class DefaultScreenComponent implements OnInit {
     // setTimeout(() => dialogRef.close(), 2500)
 
     this.parkedEvent.emit(true);
+
+    if(this.userService.getConfirmParking()){
+      setTimeout(function(){
+        document.getElementById("myBar").style.width = "5%";
+      }, 5000);
+    }
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
