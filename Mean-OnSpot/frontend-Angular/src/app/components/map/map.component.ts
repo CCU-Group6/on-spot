@@ -5762,16 +5762,16 @@ zoneData
       console.log(this.parked);
       var a = this.paymentService.getParkingInformations();
          
-      for(var i=0; i< Object.keys(this.layer.features).length; i++){
-        if(this.layer.features[i].properties.zone == a.zoneTitle || this.layer.features[i].properties.parent == a.zoneTitle){
-          console.log(this.layer.features[i].properties.spots);
-          this.layer.features[i].properties.spots = parseInt(this.layer.features[i].properties.spots) - 1;
-          console.log(this.layer.features[i].properties.spots);
+      for(var i=0; i< Object.keys(this.layer[0]).length; i++){
+        if(this.layer[0][i].properties.zone == a.zoneTitle || this.layer[0][i].properties.parent == a.zoneTitle){
+          console.log(this.layer[0][i].properties.spots);
+          this.layer[0][i].properties.spots = parseInt(this.layer[0][i].properties.spots) - 1;
+          console.log(this.layer[0][i].properties.spots);
           
           
          
-          this.parkedLng = this.layer.features[i].properties.center[0];
-          this.parkedLat = this.layer.features[i].properties.center[1];
+          this.parkedLng = this.layer[0][i].properties.center[0];
+          this.parkedLat = this.layer[0][i].properties.center[1];
           this.lat = this.parkedLat;
           
           this.lng = this.parkedLng;
@@ -5793,12 +5793,12 @@ zoneData
     console.log(this.zoneData)
     
     this.messageEvent.emit(this.zoneData);
-     for(var i=0; i< Object.keys(this.layer.features).length; i++){
+     for(var i=0; i< Object.keys(this.layer[0]).length; i++){
       
-      if(this.layer.features[i].properties.zone == this.zoneData.zoneTitle || this.layer.features[i].properties.parent == this.zoneData.zoneTitle){
-        this.zone = this.layer.features[i];
-        this.lng = this.layer.features[i].properties.center[0];
-        this.lat = this.layer.features[i].properties.center[1];
+      if(this.layer[0][i].properties.zone == this.zoneData.zoneTitle || this.layer[0][i].properties.parent == this.zoneData.zoneTitle){
+        this.zone = this.layer[0][i];
+        this.lng = this.layer[0][i].properties.center[0];
+        this.lat = this.layer[0][i].properties.center[1];
         break;
       }
     } 

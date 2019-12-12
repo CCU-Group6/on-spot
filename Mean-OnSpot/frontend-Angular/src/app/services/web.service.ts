@@ -9,8 +9,8 @@ export class WebService {
   readonly ROOT_URL;
 
   constructor(private http: HttpClient) {
-    this.ROOT_URL = 'http://localhost:3000/';
-    //this.ROOT_URL = '';
+    //this.ROOT_URL = 'http://localhost:3000/';
+    this.ROOT_URL = '';
   }
 
   // Http methods
