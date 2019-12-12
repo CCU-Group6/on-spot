@@ -11,7 +11,7 @@ const lodash = require('lodash');
 const jwtHelper = require('./config/jwtHelper');
 const path = require('path');
 
-// const PORT = process.env.PORT || 8080;
+//const PORT = process.env.PORT || 8080;
 const PORT = 3000;
 
 app.use(bodyParser.json());
@@ -25,11 +25,7 @@ app.use(function(req, res, next) {
     next();
 });
 
-// app.use(express.static(path.join(__dirname, 'public')));
-
-// app.get('*', (req, res) => {
-//     res.sendFile(path.join(__dirname, 'public/index.html'));
-// });
+//app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/' , (req,res) => {
     res.send('ta tranquilo ta favoravel')
