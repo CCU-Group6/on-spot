@@ -37,9 +37,9 @@ export class UserService {
     return this.webService.getWithPermission('userProfile');
   }
 
-  setUserBalance(id: string, creditAdded: number) {
+  setUserBalance(id: string, balance: number) {
     //this should need authorization but it should be fine because they can only access from within
-    return this.webService.patch('changeUserBalance', id, { creditAdded }, this.noAuthHeader);
+    return this.webService.patch('changeBalance', id, { balance }, this.noAuthHeader);
   }
 
   setConfirmParking(bool: boolean){    
