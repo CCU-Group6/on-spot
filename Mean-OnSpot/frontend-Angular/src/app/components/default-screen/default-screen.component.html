@@ -26,10 +26,13 @@
         <div id="zoneText">
           <div id="zoneTitle" style="font-size: 19px;">Estacionado</div>
         </div>
+        <div id="myProgress">
+          <div id="myBar"></div>
+        </div>
         <table style="margin-left: 7.5%;" width="100%;">
           <tr>
             <td><button mat-raised-button (click) = "cancelPark()" id = "cancelParkButton" class="btn btn-primary" >Cancelar</button></td>
-            <td><button mat-raised-button (click) = "cancelPark()" id = "cancelParkButton" class="btn btn-primary" >Cancelar</button></td>
+            <td><button id = "rechargeParkButton" class="btn btn-primary" [routerLink]="['/parkingTimeScreen']">Recarregar</button></td>
           </tr>
         </table>
       </div>
