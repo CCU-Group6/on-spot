@@ -263,7 +263,7 @@ export class MapComponent implements OnInit {
   public cLng;
   @Input() public mapZoom;
 
-  public parked = false;
+  public parked;
   public zone;
 
   //bastante badalhoco click on '-' to not see this
@@ -5744,8 +5744,13 @@ zoneData
   @Output() messageEvent = new EventEmitter<object>();
 
   constructor(private paymentService: PaymentServiceService) { 
+    this.parked=false;
   }
 
+  setParked(q){
+    this.parked=q;
+    console.log("AI CARALHO")
+  }
   ngOnInit() {
     
 
@@ -5774,10 +5779,10 @@ zoneData
           this.lat = this.parkedLat;
           
           this.lng = this.parkedLng;
-          
+
           for(var j=0; j< Object.keys(this.Zones.features).length; j++){
             if (this.layer.features[i].properties.parent== this.Zones.features[j].properties.zone){
-              console.log("AQUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII")
+
               this.Zones.features[j].properties.spots = parseInt(this.Zones.features[j].properties.spots) - 1;
               break;
             }
