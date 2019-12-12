@@ -9,6 +9,7 @@ import { PaymentServiceService } from 'src/app/services/payment-service.service'
 })
 export class ConfirmScreenComponent implements OnInit {
   private paymentMethod;
+  private userId;
   public backLink = "../parkingTimeScreen";
   public title  = "Resumo de Estacionamento";
   public paymentInfo = {
@@ -28,12 +29,11 @@ export class ConfirmScreenComponent implements OnInit {
       res => {
         var userDetails = res['user'];
         this.paymentMethod = userDetails.paymentMethod;
-      },
-      err => {
+        this.userId = userDetails._id;
+        console.log("user ID:   ", this.userId);
 
-      }
-    );
-    var p = this.paymentService.getParkingInformations();
+
+        var p = this.paymentService.getParkingInformations();
 
     this.paymentInfo.zoneTitle = p.zoneTitle;
     this.paymentInfo.zoneCharge = p.zoneCharge;
@@ -53,9 +53,22 @@ export class ConfirmScreenComponent implements OnInit {
 
     node.appendChild(text);
         }   
+      console.log("user ID HERE-------:   ", this.userId);
+    console.log("acumulate HERE-------:   ", this.paymentInfo.priceToPay*0.10);
+    this.userService.setUserBalance(this.userId,this.paymentInfo.priceToPay*0.10);
+    
+      },
+      err => {
+
+      }
+    );
+    
   }
 
   onConfirm(){
     this.userService.setConfirmParking(true);
+    
+
+   
   }
 }
