@@ -5747,6 +5747,7 @@ zoneData
   }
 
   ngOnInit() {
+    
 
     navigator.geolocation.watchPosition(position => {
       this.lat = position.coords.latitude
@@ -5767,14 +5768,21 @@ zoneData
           console.log(this.layer.features[i].properties.spots);
           this.layer.features[i].properties.spots = parseInt(this.layer.features[i].properties.spots) - 1;
           console.log(this.layer.features[i].properties.spots);
-          
-          
-         
+
           this.parkedLng = this.layer.features[i].properties.center[0];
           this.parkedLat = this.layer.features[i].properties.center[1];
           this.lat = this.parkedLat;
           
           this.lng = this.parkedLng;
+          
+          for(var j=0; j< Object.keys(this.Zones.features).length; j++){
+            if (this.layer.features[i].properties.parent== this.Zones.features[j].properties.zone){
+              console.log("AQUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII")
+              this.Zones.features[j].properties.spots = parseInt(this.Zones.features[j].properties.spots) - 1;
+              break;
+            }
+          }
+          
           break;
         }
       }
@@ -5799,6 +5807,7 @@ zoneData
         this.zone = this.layer.features[i];
         this.lng = this.layer.features[i].properties.center[0];
         this.lat = this.layer.features[i].properties.center[1];
+        
         break;
       }
     } 
