@@ -32,7 +32,6 @@ export class ConfirmScreenComponent implements OnInit {
         this.userId = userDetails._id;
         console.log("user ID:   ", this.userId);
 
-
         var p = this.paymentService.getParkingInformations();
 
         this.paymentInfo.zoneTitle = p.zoneTitle;
@@ -42,21 +41,9 @@ export class ConfirmScreenComponent implements OnInit {
         this.paymentInfo.originalprice = p.price;
         this.paymentInfo.parkingTime = this.paymentService.msToTime(p.parkingTime);
 
-        this.paymentInfo.discount = Math.floor(this.paymentService.getParkingDiscount()*100)/100;
-
-        console.log("desconto:",this.paymentInfo.discount  );
-
-        if (this.paymentInfo.discount != 0 && this.paymentInfo.discount != null ) {
-          this.paymentInfo.priceToPay = Math.floor((this.paymentInfo.originalprice - this.paymentInfo.discount)*100)/100
-          var node = document.getElementById("discountInfo");
-          var text = document.createTextNode("[" + this.paymentInfo.originalprice + " - " + this.paymentInfo.discount + "]" );
-
-          node.appendChild(text);
-        }
-
         console.log("user ID HERE-------:   ", this.userId);
         console.log("acumulate HERE-------:   ", this.paymentInfo.priceToPay*0.10);
-        this.userService.setUserBalance(this.userId,this.paymentInfo.priceToPay*0.10);
+
 
       },
       err => {
@@ -68,8 +55,23 @@ export class ConfirmScreenComponent implements OnInit {
 
   onConfirm(){
     this.userService.setConfirmParking(true);
+    console.log(this.paymentInfo.priceToPay)
+
+    var p = this.paymentService.getParkingInformations();
 
 
+    this.paymentInfo.discount = Math.floor(this.paymentService.getParkingDiscount()*100)/100;
+
+    console.log("desconto:",this.paymentInfo.discount  );
+
+    if (this.paymentInfo.discount != 0 && this.paymentInfo.discount != null ) {
+      this.paymentInfo.priceToPay = Math.floor((this.paymentInfo.originalprice - this.paymentInfo.discount)*100)/100
+      var node = document.getElementById("discountInfo");
+      var text = document.createTextNode("[" + this.paymentInfo.originalprice + " - " + this.paymentInfo.discount + "]" );
+
+      node.appendChild(text);
+    }
+    this.userService.setUserBalance(this.userId,this.paymentInfo.priceToPay*0.10);
 
   }
 }

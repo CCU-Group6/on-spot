@@ -2,7 +2,7 @@ import { Component, OnInit, Input ,Output, EventEmitter } from '@angular/core';
 import { GoogleMapsAPIWrapper, AgmMap, LatLngBounds, LatLngBoundsLiteral} from '@agm/core';
 import { PaymentServiceService } from 'src/app/services/payment-service.service';
 
-  
+
 
 
 
@@ -253,7 +253,7 @@ export class MapComponent implements OnInit {
       ]
     }
   ]
-  
+
   public lat =  38.73674521461237;
   public lng =  -9.1386079788208;
 
@@ -2264,7 +2264,7 @@ export class MapComponent implements OnInit {
     }
   ]
 };
-  
+
 
   public ZonesZoomed: Object = {
   "type": "FeatureCollection",
@@ -2326,7 +2326,7 @@ export class MapComponent implements OnInit {
         ]
       }
     },
-    
+
     {
       "type": "Feature",
       "properties": {
@@ -5738,12 +5738,12 @@ export class MapComponent implements OnInit {
   ]
 };
 public layer = this.ZonesZoomed;
-  
+
 zoneData
 
   @Output() messageEvent = new EventEmitter<object>();
 
-  constructor(private paymentService: PaymentServiceService) { 
+  constructor(private paymentService: PaymentServiceService) {
     this.parked=false;
   }
 
@@ -5751,7 +5751,7 @@ zoneData
     this.parked=q;
   }
   ngOnInit() {
-    
+
 
     navigator.geolocation.watchPosition(position => {
       this.lat = position.coords.latitude
@@ -5759,34 +5759,34 @@ zoneData
       this.cLat = position.coords.latitude
       this.cLng = position.coords.longitude
     });
-    
+
 
     //this should be in the database
     if(this.paymentService.getParkingInformations()){
       this.parked = true;
       console.log(this.parked);
       var a = this.paymentService.getParkingInformations();
-         
-      for(var i=0; i< Object.keys(this.layer[0]).length; i++){
-        if(this.layer[0][i].properties.zone == a.zoneTitle || this.layer[0][i].properties.parent == a.zoneTitle){
-          console.log(this.layer[0][i].properties.spots);
-          this.layer[0][i].properties.spots = parseInt(this.layer[0][i].properties.spots) - 1;
-          console.log(this.layer[0][i].properties.spots);
 
-          this.parkedLng = this.layer[0][i].properties.center[0];
-          this.parkedLat = this.layer[0][i].properties.center[1];
+      for(var i=0; i< Object.keys(this.layer.features).length; i++){
+        if(this.layer.features[i].properties.zone == a.zoneTitle || this.layer.features[i].properties.parent == a.zoneTitle){
+          console.log(this.layer.features[i].properties.spots);
+          this.layer.features[i].properties.spots = parseInt(this.layer.features[i].properties.spots) - 1;
+          console.log(this.layer.features[i].properties.spots);
+
+          this.parkedLng = this.layer.features[i].properties.center[0];
+          this.parkedLat = this.layer.features[i].properties.center[1];
           this.lat = this.parkedLat;
-          
+
           this.lng = this.parkedLng;
 
-          for(var j=0; j< Object.keys(this.Zones[0]).length; j++){
-            if (this.layer[0][i].properties.parent== this.Zones[0][j].properties.zone){
+          for(var j=0; j< Object.keys(this.Zones.features).length; j++){
+            if (this.layer.features[i].properties.parent== this.Zones.features[j].properties.zone){
 
-              this.Zones[0][j].properties.spots = parseInt(this.Zones[0][j].properties.spots) - 1;
+              this.Zones.features[j].properties.spots = parseInt(this.Zones.features[j].properties.spots) - 1;
               break;
             }
           }
-          
+
           break;
         }
       }
@@ -5794,28 +5794,28 @@ zoneData
   }
 
   onZoneClick(event){
-   
-  
+
+
       this.zoneData = {
-        "zoneTitle": event.feature.h.zone, 
-        "zoneCharge": event.feature.h.charge, 
+        "zoneTitle": event.feature.h.zone,
+        "zoneCharge": event.feature.h.charge,
         "zoneColor": event.feature.h.color,
         "parkingSpots": event.feature.getProperty('spots')
       }
     console.log(this.zoneData)
-    
+
     this.messageEvent.emit(this.zoneData);
-     for(var i=0; i< Object.keys(this.layer[0]).length; i++){
-      
-      if(this.layer[0][i].properties.zone == this.zoneData.zoneTitle || this.layer[0][i].properties.parent == this.zoneData.zoneTitle){
-        this.zone = this.layer[0][i];
-        this.lng = this.layer[0][i].properties.center[0];
-        this.lat = this.layer[0][i].properties.center[1];
-        
+     for(var i=0; i< Object.keys(this.layer.features).length; i++){
+
+      if(this.layer.features[i].properties.zone == this.zoneData.zoneTitle || this.layer.features[i].properties.parent == this.zoneData.zoneTitle){
+        this.zone = this.layer.features[i];
+        this.lng = this.layer.features[i].properties.center[0];
+        this.lat = this.layer.features[i].properties.center[1];
+
         break;
       }
-    } 
-    
+    }
+
 
     //find the average point of a zone
     console.log(this.zone)
@@ -5843,11 +5843,11 @@ zoneData
     else if(feature.getProperty('color') == 'Vermelha')
       return ({ fillColor: 'red', strokeWeight: 3, fillOpacity: 0.2})
     }
-    
+
 
   onChoseLocation(event){
     console.log(event);
-    
+
     this.lat = event.coords.lat;
     this.lng = event.coords.lng;
   }
@@ -5867,27 +5867,27 @@ zoneData
     var spots = event.feature.getProperty('spots')
     event.feature.setProperty('spots', spots + spotNumber);
     console.log(event.feature.getProperty('spots'));
-    
+
   }
 
   //returns the mid point of the zone
   latMid(item){
 
-        
+
 
     return item.properties.center[1]-0.0005;
   }
 
   lngMid(item){
-    
 
-    
+
+
     return item.properties.center[0]-0.0008;
   }
 
   fontSize(){
     console.log(5*this.mapZoom/12);
-    
+
     return 5*this.mapZoom/12
   }
 }
