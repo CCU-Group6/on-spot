@@ -35,40 +35,41 @@ export class ConfirmScreenComponent implements OnInit {
 
         var p = this.paymentService.getParkingInformations();
 
-    this.paymentInfo.zoneTitle = p.zoneTitle;
-    this.paymentInfo.zoneCharge = p.zoneCharge;
-    this.paymentInfo.zoneColor = p.zoneColor;
-    this.paymentInfo.priceToPay = Math.floor(p.price*100)/100;
-    this.paymentInfo.originalprice = p.price;
-    this.paymentInfo.parkingTime = this.paymentService.msToTime(p.parkingTime);
+        this.paymentInfo.zoneTitle = p.zoneTitle;
+        this.paymentInfo.zoneCharge = p.zoneCharge;
+        this.paymentInfo.zoneColor = p.zoneColor;
+        this.paymentInfo.priceToPay = Math.floor(p.price*100)/100;
+        this.paymentInfo.originalprice = p.price;
+        this.paymentInfo.parkingTime = this.paymentService.msToTime(p.parkingTime);
 
-    this.paymentInfo.discount = Math.floor(this.paymentService.getParkingDiscount()*100)/100; 
+        this.paymentInfo.discount = Math.floor(this.paymentService.getParkingDiscount()*100)/100;
 
-    console.log("desconto:",this.paymentInfo.discount  );
+        console.log("desconto:",this.paymentInfo.discount  );
 
-    if (this.paymentInfo.discount != 0 && this.paymentInfo.discount != null ){
-      this.paymentInfo.priceToPay = Math.floor((this.paymentInfo.originalprice - this.paymentInfo.discount)*100)/100
-      var node = document.getElementById("discountInfo");
-      var text = document.createTextNode("[" + this.paymentInfo.originalprice + " - " + this.paymentInfo.discount + "]" );
+        if (this.paymentInfo.discount != 0 && this.paymentInfo.discount != null ) {
+          this.paymentInfo.priceToPay = Math.floor((this.paymentInfo.originalprice - this.paymentInfo.discount)*100)/100
+          var node = document.getElementById("discountInfo");
+          var text = document.createTextNode("[" + this.paymentInfo.originalprice + " - " + this.paymentInfo.discount + "]" );
 
-    node.appendChild(text);
-        }   
-      console.log("user ID HERE-------:   ", this.userId);
-    console.log("acumulate HERE-------:   ", this.paymentInfo.priceToPay*0.10);
-    this.userService.setUserBalance(this.userId,this.paymentInfo.priceToPay*0.10);
-    
+          node.appendChild(text);
+        }
+
+        console.log("user ID HERE-------:   ", this.userId);
+        console.log("acumulate HERE-------:   ", this.paymentInfo.priceToPay*0.10);
+        this.userService.setUserBalance(this.userId,this.paymentInfo.priceToPay*0.10);
+
       },
       err => {
 
       }
     );
-    
+
   }
 
   onConfirm(){
     this.userService.setConfirmParking(true);
-    
 
-   
+
+
   }
 }

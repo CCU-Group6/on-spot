@@ -31,17 +31,17 @@ export class DefaultScreenComponent implements OnInit {
    }
 
   ngOnInit() {
-   
+
     this.userService.getUserProfile().subscribe(
       res => {
         this.userDetails = res['user'];
         console.log(this.userDetails)
       },
       err => {
-        
+
       }
     )
-    
+
     this.bool = this.userService.getConfirmParking();
     console.log(this.bool);
     if(this.bool == true){
@@ -90,14 +90,14 @@ export class DefaultScreenComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      
+
     });
   }
 
   receiveMessage(event) {
     //dont forget
     this.message = event;
-    
+
     this.isSelected = true;
     document.getElementById("zoneInformations").style.height = "25%";
   }

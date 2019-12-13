@@ -26,7 +26,7 @@ export class WebService {
   }
 
   patch(uri: string, id:string, payload: object, permission) {
-    return this.http.patch(`${this.ROOT_URL}/${uri}/${id}`, payload, permission);
+    return this.http.patch(`${this.ROOT_URL}/${uri}/${id}`, payload, permission).subscribe();
   }
 
   // Token helper methods
@@ -55,7 +55,7 @@ export class WebService {
   isLoggedIn() {
     let userPayload = this.getTokenPayload();
     console.log(userPayload);
-    
+
     if (userPayload) {
       return true;
     }

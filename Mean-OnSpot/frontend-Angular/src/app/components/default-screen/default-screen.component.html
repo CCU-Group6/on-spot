@@ -21,7 +21,7 @@
 
 <body (click) = "closeMenu()">
   <div class="centered-content">
-    <div *ngIf = "bool"> 
+    <div *ngIf = "bool">
       <div id="parkedInformations">
         <div id="zoneText">
           <div id="zoneTitle" style="font-size: 19px;">Estacionado</div>
@@ -32,7 +32,7 @@
         <table style="margin-left: 7.5%;" width="100%;">
           <tr>
             <td><button mat-raised-button (click) = "cancelPark()" id = "cancelParkButton" class="btn btn-primary" >Cancelar</button></td>
-            <td><button id = "rechargeParkButton" class="btn btn-primary" [routerLink]="['/parkingTimeScreen']">Recarregar</button></td>
+            <td><button id = "rechargeParkButton" class="btn btn-primary" [routerLink]="['/parkingTimeScreen']">Prolongar</button></td>
           </tr>
         </table>
       </div>

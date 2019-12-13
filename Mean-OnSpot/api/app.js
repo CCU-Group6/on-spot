@@ -78,6 +78,8 @@ app.post('/users', (req, res, next) => {
 });
 
 app.post('/authenticate', (req, res, next) => passport.authenticate('local', (err, user, info) =>{
+    console.log(req.body);
+    
     if(err)
         return res.status(400).json(err);
     else if(user) {
