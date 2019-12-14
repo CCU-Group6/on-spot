@@ -61,6 +61,8 @@ UserSchema.path('licensePlate').validate((val) => {
 
 
 UserSchema.pre('save', function (next){
+    console.log(this.password);
+    
     bcrypt.genSalt(10,(err, salt) => {
         bcrypt.hash(this.password, salt, (err,hash) => {
             this.password = hash;
@@ -68,12 +70,14 @@ UserSchema.pre('save', function (next){
             next();
         })
     })
-
 })
 
 
 //Methods
 UserSchema.methods.verifyPassword = function (password) {
+    console.log(bcrypt.compareSync(password, this.password));
+    console.log(this.password);
+    
     return bcrypt.compareSync(password, this.password);
 }
 

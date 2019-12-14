@@ -192,6 +192,38 @@ hr.style1{
   margin-left: 27.5%;
 }
 
+#parkedInformations{
+  align-content: center;
+  width: 100%;
+  height: 25%;
+  z-index: 2;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  overflow: hidden;
+  height: 25%;
+}
+
+#cancelParkButton{
+  width: 35%;
+  height: 40px;
+  font-size: 1.2rem;
+  background-color: #647c84;
+  position: absolute;
+  margin-top: 7.5%;
+}
+
+#rechargeParkButton{
+  width: 35%;
+  height: 40px;
+  font-size: 1.2rem;
+  background-color: #647c84;
+  position: absolute;
+  margin-top: 7.5%;
+}
+
 #zoneInformations{
   align-content: center;
   width: 100%;
@@ -204,6 +236,23 @@ hr.style1{
   overflow: hidden;
   height: 0;
   transition: .5s ease;
+}
+
+#myProgress{
+  margin-top: 5%;
+  margin-left: 10%;
+  width: 80%;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: #637C87;
+  background-color:white;
+}
+
+#myBar{
+  width: 0%;
+  border-radius: 15px;
+  height: 30px;
+  background-color: #637C87;
 }
 
 /* legend */

@@ -21,7 +21,23 @@
 
 <body (click) = "closeMenu()">
   <div class="centered-content">
-    <!--<div *ngIf = "!isSelected" class = "Zonelegend">
+    <div *ngIf = "bool">
+      <div id="parkedInformations">
+        <div id="zoneText">
+          <div id="zoneTitle" style="font-size: 19px;">Estacionado</div>
+        </div>
+        <div id="myProgress">
+          <div id="myBar"></div>
+        </div>
+        <table style="margin-left: 7.5%;" width="100%;">
+          <tr>
+            <td><button mat-raised-button (click) = "cancelPark()" id = "cancelParkButton" class="btn btn-primary" >Cancelar</button></td>
+            <td><button id = "rechargeParkButton" class="btn btn-primary" [routerLink]="['/parkingTimeScreen']">Prolongar</button></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+   <!--<div *ngIf = "!isSelected" class = "Zonelegend">
       <h1 id = "legendTitle">Zona: </h1>
       <div id = "greenZone">
         <tr>
@@ -43,7 +59,7 @@
       </div>
     </div> -->
     <app-map [mapZoom] = "mapZoom" (messageEvent) = "receiveMessage($event)"></app-map>
-    <div id="zoneInformations" >
+    <div *ngIf = "!bool" id="zoneInformations" >
         <span id="scroll_image" (click)="closeInformations()">
             <img id="scroll_image" src="assets/img/scroll_down.png" width="64px" (click)="closeInformations()"/>
         </span>

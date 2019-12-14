@@ -332,9 +332,9 @@
           \*******************************************************************************************************************************************************************/
         /*! no static exports found */
         /***/ (function (module, exports, __webpack_require__) {
-            __webpack_require__(/*! C:\Users\Pc\Desktop\CCU\Project\OnSpot\on-spot\Mean-OnSpot\frontend-Angular\node_modules\@angular\material\prebuilt-themes\deeppurple-amber.css */ "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css");
-            __webpack_require__(/*! C:\Users\Pc\Desktop\CCU\Project\OnSpot\on-spot\Mean-OnSpot\frontend-Angular\src\styles.css */ "./src/styles.css");
-            module.exports = __webpack_require__(/*! C:\Users\Pc\Desktop\CCU\Project\OnSpot\on-spot\Mean-OnSpot\frontend-Angular\node_modules\@mobiscroll\angular\dist\css\mobiscroll.min.css */ "./node_modules/@mobiscroll/angular/dist/css/mobiscroll.min.css");
+            __webpack_require__(/*! C:\Users\Pc\Desktop\CCU\Project\OnSpot\on-spot\frontend-Angular\node_modules\@angular\material\prebuilt-themes\deeppurple-amber.css */ "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css");
+            __webpack_require__(/*! C:\Users\Pc\Desktop\CCU\Project\OnSpot\on-spot\frontend-Angular\src\styles.css */ "./src/styles.css");
+            module.exports = __webpack_require__(/*! C:\Users\Pc\Desktop\CCU\Project\OnSpot\on-spot\frontend-Angular\node_modules\@mobiscroll\angular\dist\css\mobiscroll.min.css */ "./node_modules/@mobiscroll/angular/dist/css/mobiscroll.min.css");
             /***/ 
         })
     }, [[3, "runtime"]]]);

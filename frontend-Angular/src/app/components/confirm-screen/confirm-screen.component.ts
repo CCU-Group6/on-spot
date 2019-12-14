@@ -9,6 +9,7 @@ import { PaymentServiceService } from 'src/app/services/payment-service.service'
 })
 export class ConfirmScreenComponent implements OnInit {
   private paymentMethod;
+  private userId;
   public backLink = "../parkingTimeScreen";
   public title  = "Resumo de Estacionamento";
   public paymentInfo = {
@@ -28,34 +29,46 @@ export class ConfirmScreenComponent implements OnInit {
       res => {
         var userDetails = res['user'];
         this.paymentMethod = userDetails.paymentMethod;
+        this.userId = userDetails._id;
+
+        var p = this.paymentService.getParkingInformations();
+
+        this.paymentInfo.zoneTitle = p.zoneTitle;
+        this.paymentInfo.zoneCharge = p.zoneCharge;
+        this.paymentInfo.zoneColor = p.zoneColor;
+        this.paymentInfo.priceToPay = Math.floor(p.price*100)/100;
+        this.paymentInfo.originalprice = p.price;
+        this.paymentInfo.parkingTime = this.paymentService.msToTime(p.parkingTime);
+
+
+        this.paymentInfo.discount = Math.floor(this.paymentService.getParkingDiscount()*100)/100;
+
+    console.log("desconto:",this.paymentInfo.discount  );
+
+    if (this.paymentInfo.discount != 0 && this.paymentInfo.discount != null ) {
+      this.paymentInfo.priceToPay = Math.floor((this.paymentInfo.originalprice - this.paymentInfo.discount)*100)/100
+      var node = document.getElementById("discountInfo");
+      var text = document.createTextNode("[" + this.paymentInfo.originalprice + " - " + this.paymentInfo.discount + "]" );
+
+      node.appendChild(text);
+    }
+
+
       },
       err => {
 
       }
     );
-    var p = this.paymentService.getParkingInformations();
 
-    this.paymentInfo.zoneTitle = p.zoneTitle;
-    this.paymentInfo.zoneCharge = p.zoneCharge;
-    this.paymentInfo.zoneColor = p.zoneColor;
-    this.paymentInfo.priceToPay = Math.floor(p.price*100)/100;
-    this.paymentInfo.originalprice = p.price;
-    this.paymentInfo.parkingTime = this.paymentService.msToTime(p.parkingTime);
-
-    this.paymentInfo.discount = Math.floor(this.paymentService.getParkingDiscount()*100)/100; 
-
-    console.log("desconto:",this.paymentInfo.discount  );
-
-    if (this.paymentInfo.discount != 0 && this.paymentInfo.discount != null ){
-      this.paymentInfo.priceToPay = Math.floor((this.paymentInfo.originalprice - this.paymentInfo.discount)*100)/100
-      var node = document.getElementById("discountInfo");
-      var text = document.createTextNode("[" + this.paymentInfo.originalprice + " - " + this.paymentInfo.discount + "]" );
-
-    node.appendChild(text);
-        }   
   }
 
   onConfirm(){
     this.userService.setConfirmParking(true);
+    console.log(this.paymentInfo.priceToPay)
+
+    var p = this.paymentService.getParkingInformations();
+    
+    this.userService.setUserBalance(this.userId,this.paymentInfo.priceToPay*0.10);
+    this.userService.setUserBalance(this.userId,-this.paymentInfo.discount);
   }
 }

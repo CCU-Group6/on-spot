@@ -60,7 +60,7 @@ export class WebService {
   isLoggedIn() {
     let userPayload = this.getTokenPayload();
     console.log(userPayload);
-    
+
     if (userPayload) {
       return true;
     }

@@ -15,6 +15,7 @@ export class DefaultScreenComponent implements OnInit {
   public mapZoom = 15;
   public isSelected;
   public backLink;
+  public bool;
   public message = {
     "zoneTitle": "",
     "zoneCharge": "",
@@ -30,19 +31,20 @@ export class DefaultScreenComponent implements OnInit {
    }
 
   ngOnInit() {
+
     this.userService.getUserProfile().subscribe(
       res => {
         this.userDetails = res['user'];
         console.log(this.userDetails)
       },
       err => {
-        
+
       }
     )
-    
-    var bool = this.userService.getConfirmParking();
-    console.log(bool);
-    if(bool == true){
+
+    this.bool = this.userService.getConfirmParking();
+    console.log(this.bool);
+    if(this.bool == true){
       this.openDialog();
       this.userService.setConfirmParking(false);
     }
@@ -80,20 +82,34 @@ export class DefaultScreenComponent implements OnInit {
 
     this.parkedEvent.emit(true);
 
+    if(this.userService.getConfirmParking()){
+      setTimeout(function(){
+        document.getElementById("myBar").style.width = "5%";
+      }, 5000);
+    }
+
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+
     });
   }
 
   receiveMessage(event) {
     //dont forget
     this.message = event;
-    
+
     this.isSelected = true;
     document.getElementById("zoneInformations").style.height = "25%";
   }
 
   setZoneInformation(){
+
     this.paymentService.setZoneInformations(this.message.zoneTitle, this.message.zoneCharge, this.message.zoneColor);
+  }
+
+  cancelPark(){
+    this.userService.setConfirmParking(false);
+    this.bool = false;
+    document.getElementById('parkedInformations').style.height = "0"
   }
 }
