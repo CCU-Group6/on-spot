@@ -5767,22 +5767,22 @@ zoneData
       console.log(this.parked);
       var a = this.paymentService.getParkingInformations();
 
-      for(var i=0; i< Object.keys(this.layer.features).length; i++){
-        if(this.layer.features[i].properties.zone == a.zoneTitle || this.layer.features[i].properties.parent == a.zoneTitle){
-          console.log(this.layer.features[i].properties.spots);
-          this.layer.features[i].properties.spots = parseInt(this.layer.features[i].properties.spots) - 1;
-          console.log(this.layer.features[i].properties.spots);
+      for(var i=0; i< Object.keys(this.layer["features"]).length; i++){
+        if(this.layer["features"][i].properties.zone == a.zoneTitle || this.layer["features"][i].properties.parent == a.zoneTitle){
+          console.log(this.layer["features"][i].properties.spots);
+          this.layer["features"][i].properties.spots = parseInt(this.layer["features"][i].properties.spots) - 1;
+          console.log(this.layer["features"][i].properties.spots);
 
-          this.parkedLng = this.layer.features[i].properties.center[0];
-          this.parkedLat = this.layer.features[i].properties.center[1];
+          this.parkedLng = this.layer["features"][i].properties.center[0];
+          this.parkedLat = this.layer["features"][i].properties.center[1];
           this.lat = this.parkedLat;
 
           this.lng = this.parkedLng;
 
-          for(var j=0; j< Object.keys(this.Zones.features).length; j++){
-            if (this.layer.features[i].properties.parent== this.Zones.features[j].properties.zone){
+          for(var j=0; j< Object.keys(this.Zones["features"]).length; j++){
+            if (this.layer["features"][i].properties.parent== this.Zones["features"][j].properties.zone){
 
-              this.Zones.features[j].properties.spots = parseInt(this.Zones.features[j].properties.spots) - 1;
+              this.Zones["features"][j].properties.spots = parseInt(this.Zones["features"][j].properties.spots) - 1;
               break;
             }
           }
@@ -5805,12 +5805,12 @@ zoneData
     console.log(this.zoneData)
 
     this.messageEvent.emit(this.zoneData);
-     for(var i=0; i< Object.keys(this.layer.features).length; i++){
+     for(var i=0; i< Object.keys(this.layer["features"]).length; i++){
 
-      if(this.layer.features[i].properties.zone == this.zoneData.zoneTitle || this.layer.features[i].properties.parent == this.zoneData.zoneTitle){
-        this.zone = this.layer.features[i];
-        this.lng = this.layer.features[i].properties.center[0];
-        this.lat = this.layer.features[i].properties.center[1];
+      if(this.layer["features"][i].properties.zone == this.zoneData.zoneTitle || this.layer["features"][i].properties.parent == this.zoneData.zoneTitle){
+        this.zone = this.layer["features"][i];
+        this.lng = this.layer["features"][i].properties.center[0];
+        this.lat = this.layer["features"][i].properties.center[1];
 
         break;
       }

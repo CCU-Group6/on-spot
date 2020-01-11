@@ -1,9 +1,9 @@
+import { MbscModule } from '@mobiscroll/angular';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule, HttpInterceptor, HTTP_INTERCEPTORS, HttpClientJsonpModule } from '@angular/common/http';
-import { MbscModule } from '@mobiscroll/angular';
 import { AgmCoreModule } from '@agm/core';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -26,7 +26,7 @@ import { ConfirmScreenComponent } from './components/confirm-screen/confirm-scre
 import { DiscountScreenComponent } from './components/discount-screen/discount-screen.component';
 import { PopupScreenComponent } from './components/popup-screen/popup-screen.component';
 import { MapComponent } from './components/map/map.component';
-import { AgmOverlays } from "agm-overlays"
+import { AgmOverlays } from "agm-overlays";
 
 
 @NgModule({
@@ -55,7 +55,6 @@ import { AgmOverlays } from "agm-overlays"
     MatIconModule,
     MatInputModule,
     MatDialogModule,
-    MbscModule,
     FormsModule,
     ReactiveFormsModule,
     MatButtonModule,
@@ -67,7 +66,7 @@ import { AgmOverlays } from "agm-overlays"
       apiKey: 'AIzaSyCVJFjI_1hipSPAtGzloqu4JKLahI2z6JI'
     })
   ],
-  
+
   entryComponents: [
     PopupScreenComponent
   ],
